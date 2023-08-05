@@ -1,14 +1,56 @@
 {
-   "name":"ZeistMaid",
-   "short_name":"ZeistMaid",
+   "name":"ZeistMaid v1.2",
+   "short_name":"ZeistMaid v1.2",
    "start_url":"https://zeistmaid.blogspot.com",
    "display":"standalone",
    "background_color":"#222",
    "theme_color":"#222",
-   "description":"Baca Manga Dan Novel Bahasa indonesia, Menyajikan Manga Dan Novel Yang Seru Dan Mendebarkan Sekaligus Penuh Dengan Gla",
+   "description":"Baca Manga Dan Novel Bahasa indonesia, Menyajikan Manga Dan Novel Yang Seru Dan Mendebarkan Sekaligus Penuh Dengan Gula",
    "icons":[
       {
          "src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzNM4f7qG2Y4_K3mDlhPXEJAKLxdLilRBtXR2NZ_rCJzpGhwi1hv4cAI-vXIHgwP7KpFrN03CykuwwI8azKh6NxgV40U0dlPFsd1OWJZWz01YF-2wGUHH_IUAwI_VICqZLw86wPqshO0F80-OlGmTQnz2OKAaHVii0aEXo94GlXkSfjuaoeiQBCOD2BLk/s512/android-chrome-512x512.png",
+         "sizes":"36x36",
+         "type":"image/png",
+         "density":"0.75"
+      },
+      {
+         "src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzNM4f7qG2Y4_K3mDlhPXEJAKLxdLilRBtXR2NZ_rCJzpGhwi1hv4cAI-vXIHgwP7KpFrN03CykuwwI8azKh6NxgV40U0dlPFsd1OWJZWz01YF-2wGUHH_IUAwI_VICqZLw86wPqshO0F80-OlGmTQnz2OKAaHVii0aEXo94GlXkSfjuaoeiQBCOD2BLk/s512/android-chrome-512x512.png",
+         "sizes":"48x48",
+         "type":"image/png",
+         "density":"1.0"
+      },
+      {
+         "src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzNM4f7qG2Y4_K3mDlhPXEJAKLxdLilRBtXR2NZ_rCJzpGhwi1hv4cAI-vXIHgwP7KpFrN03CykuwwI8azKh6NxgV40U0dlPFsd1OWJZWz01YF-2wGUHH_IUAwI_VICqZLw86wPqshO0F80-OlGmTQnz2OKAaHVii0aEXo94GlXkSfjuaoeiQBCOD2BLk/s512/android-chrome-512x512.png",
+         "sizes":"72x72",
+         "type":"image/png",
+         "density":"1.5"
+      },
+      {
+         "src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzNM4f7qG2Y4_K3mDlhPXEJAKLxdLilRBtXR2NZ_rCJzpGhwi1hv4cAI-vXIHgwP7KpFrN03CykuwwI8azKh6NxgV40U0dlPFsd1OWJZWz01YF-2wGUHH_IUAwI_VICqZLw86wPqshO0F80-OlGmTQnz2OKAaHVii0aEXo94GlXkSfjuaoeiQBCOD2BLk/s512/android-chrome-512x512.png",
+         "sizes":"96x96",
+         "type":"image/png",
+         "density":"2.0"
+      },
+      {
+         "src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzNM4f7qG2Y4_K3mDlhPXEJAKLxdLilRBtXR2NZ_rCJzpGhwi1hv4cAI-vXIHgwP7KpFrN03CykuwwI8azKh6NxgV40U0dlPFsd1OWJZWz01YF-2wGUHH_IUAwI_VICqZLw86wPqshO0F80-OlGmTQnz2OKAaHVii0aEXo94GlXkSfjuaoeiQBCOD2BLk/s512/android-chrome-512x512.png",
+         "sizes":"144x144",
+         "type":"image/png",
+         "density":"3.0"
+      },
+      {
+       "src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilgyEvZ1p1jhSuVxWX291_pzBsPfXoeVV2XcVnzmxPJ6SRtPoXIRls2yI9KsE-GrNf4fTJS1yhF-axj2iXcn1kX5ngQ8bu2xam5EoVlgwLC5wX5ODNzQipbKUs3Q8vPgX41xMOrngwhQfffr97c13FUywR1AQLSzpef6DkZZkbOJKupnQ4Y_uf8zRryf4/s1600/apple-touch-icon.png",
+         "sizes":"180x180",
+         "type":"image/png",
+         "density":"4.5"
+	   },
+      {
+         "src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXKiBvtpjJpLh490N8P9t-YoAedZCpTw28KqyiURuRwv1K7S3aDOoxpTLEb97H-AU4xb7L7AXVnwPDdKk29xOj6M-nadgeoh-EqT2kkyChmjeOJT5ubMOurpVYhVjzhUY8NLDP5aH-ewurW-u-wJfuCSPvjUSnqZzra1bs7nLrWPmrhWRenLB8XAp9hVg/s192/android-chrome-192x192.png",
+         "sizes":"192x192",
+         "type":"image/png",
+         "density":"4.0"
+      },
+      {
+"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzNM4f7qG2Y4_K3mDlhPXEJAKLxdLilRBtXR2NZ_rCJzpGhwi1hv4cAI-vXIHgwP7KpFrN03CykuwwI8azKh6NxgV40U0dlPFsd1OWJZWz01YF-2wGUHH_IUAwI_VICqZLw86wPqshO0F80-OlGmTQnz2OKAaHVii0aEXo94GlXkSfjuaoeiQBCOD2BLk/s512/android-chrome-512x512.png",     
          "sizes":"512x512",
          "type":"image/png",
          "density":"5.0"
