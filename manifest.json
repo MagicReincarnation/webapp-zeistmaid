@@ -1,0 +1,17 @@
+{
+   "name":"ZeistMaid",
+   "short_name":"ZeistMaid",
+   "start_url":"https://zeistmaid.blogspot.com",
+   "display":"standalone",
+   "background_color":"#222",
+   "theme_color":"#222",
+   "description":"Baca Manga Dan Novel Bahasa indonesia, Menyajikan Manga Dan Novel Yang Seru Dan Mendebarkan Sekaligus Penuh Dengan Gla",
+   "icons":[
+      {
+         "src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzNM4f7qG2Y4_K3mDlhPXEJAKLxdLilRBtXR2NZ_rCJzpGhwi1hv4cAI-vXIHgwP7KpFrN03CykuwwI8azKh6NxgV40U0dlPFsd1OWJZWz01YF-2wGUHH_IUAwI_VICqZLw86wPqshO0F80-OlGmTQnz2OKAaHVii0aEXo94GlXkSfjuaoeiQBCOD2BLk/s512/android-chrome-512x512.png",
+         "sizes":"512x512",
+         "type":"image/png",
+         "density":"5.0"
+      }
+   ]
+}
