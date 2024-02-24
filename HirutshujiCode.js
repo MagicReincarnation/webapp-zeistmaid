@@ -1,1 +1,47 @@
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('1 s=t;1 u=v.w.x;2(c y!==\'d\'&&c 3!==\'d\'){5 6=z.A(\'B\');2(6){5 7=3.e.f(6.C.D(),\'g\').h(3.i.j);1 8=7;2(8){1 E=8;5 k=`F:G(k).l(9=>{2(9.H===I){J 9.K()}4{L M m("N O P");}}).l(a=>{1 n=a.Q;5 o=3.e.f(n,\'g\').h(3.i.j);2(a&&o===7){p=b;q=b}4{0()}}).R(r=>{S.T("m: ",r);0()})}4{0()}}4{0()}}4{0()}U 0(){p=b;V(\'W X Y Z 10\');q=11}',62,64,'wrqardyfufuvjgwdyfibivjvtctdufdheeyf7guruefh|var|if|CryptoJS|else|const|llurijfirsdjdkensiCsjsjsodeDisjwjwjv|idmzkdewiwnxcryphxntedLisewsdndjdnsiCowjwjdendns|blswksogIjejwdMnetaasjsnsa|response|data|true|typeof|undefined|AES|decrypt|Hnssidfrfufftfsfhfufjffai|toString|enc|Utf8|dajnddbfHfiderduddtsfhfud3jwiKffeeydd|then|Error|wksjhxnekcd|wbwuianxewjanx|trueCode|svscadlidnafjadLsaicenfffse|error|x456y7sz|60|e7k4d5c9r1p8tH|window|location|hostname|firebase|document|getElementById|hirutshuji_lisensi|innerText|trim|bsjdcleoffgfItdUvsggetfessr|https|fetch|status|200|return|json|throw|new|Data|not|found|KodeHiru|catch|console|log|function|alert|Lisensi|untuk|kode|ini|kosong|false'.split('|'),0,{}))
+  
+if (typeof firebase !== 'undefined' && typeof CryptoJS !== 'undefined') {
+    const lisensiElem = document.getElementById('hirutshuji_lisensi'); 
+       if (lisensiElem) {
+        const lisensiDekripsi = CryptoJS.AES.decrypt(lisensiElem.innerText.trim(), 'Hnssidfrfufftfsfhfufjffai').toString(CryptoJS.enc.Utf8);
+
+        if (lisensiDekripsi) {
+            fetch(`https://xhrji-617c0-default-rtdb.firebaseio.com/scriptbyHiru_lisensi/datauser_Hiru/${lisensiDekripsi}.json`)
+                .then(response => {
+                    if (response.status === 200) {
+                        return response.json();
+                    } else {
+                        throw new Error("Data not found");
+                    }
+                }).then(data => {
+                    const kodeHiru = data.KodeHiru; 
+                    const kodeDekripsi = CryptoJS.AES.decrypt(kodeHiru, 'Hnssidfrfufftfsfhfufjffai').toString(CryptoJS.enc.Utf8);
+                    if (data && kodeDekripsi === lisensiDekripsi) {  
+                        svscadlidnafjadLsaicenfffse = true;
+                    } else {              handleLicenseError();
+                    }                        
+                }).catch(error => {
+                    console.log("Error: ", error); 
+                    handleLicenseError();
+             
+                });
+        } else {
+            handleLicenseError();
+          }
+    } else {
+        handleLicenseError();
+    }
+} else { handleLicenseError();}
+
+function handleLicenseError() {
+    alert('Lisensi untuk kode ini kosong');
+    svscadlidnafjadLsaicenfffse = false;
+ var dataclassdanid = ['#hari', '#minggu', '#bulan','#Toplikeshiru'];
+
+dataclassdanid.forEach(selector => {
+    var elements = document.querySelectorAll(selector);
+    elements.forEach(element => {
+        element.remove();
+    });
+});
+    return;
+}
