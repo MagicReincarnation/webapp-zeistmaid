@@ -1,0 +1,69 @@
+<script type='text/javascript'>
+//<![CDATA[
+// Lazy Load
+function lazyload(options) {
+  var settings = {
+    threshold: 0,
+    failurelimit: 0,
+    event: "scroll",
+    effect: "show",
+    container: window
+  };
+  if (options) {
+    Object.assign(settings, options);
+  }
+  var images = document.querySelectorAll('img[data-src]');
+  var imagesArray = Array.from(images);
+  var currentIndex = 0;
+  
+  function belowTheFold(element) {
+    var fold;
+    if (settings.container === undefined || settings.container === window) {
+      fold = window.innerHeight + window.pageYOffset;
+    } else {
+      fold = settings.container.offsetHeight + settings.container.offsetTop;
+    }
+    return fold <= element.offsetTop - settings.threshold;
+  }
+  
+  function rightOffFold(element) {
+    var fold;
+    if (settings.container === undefined || settings.container === window) {
+      fold = window.innerWidth + window.pageXOffset;
+    } else {
+      fold = settings.container.offsetWidth + settings.container.offsetLeft;
+    }
+    return fold <= element.offsetLeft - settings.threshold;
+  }
+  
+  function appear() {
+    imagesArray.forEach(function(image) {
+      if (!image.loaded && !belowTheFold(image) && !rightOffFold(image)) {
+        var originalSrc = image.getAttribute('data-src');
+        image.src = originalSrc;
+        image.loaded = true;
+      }
+    });
+  }
+  
+  if (settings.event === "scroll") {
+    settings.container.addEventListener("scroll", appear);
+  }
+  
+  appear();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var images = document.querySelectorAll('img[src]');
+  images.forEach(function(image) {
+    var originalSrc = image.src;
+    image.setAttribute('data-src', originalSrc);
+    image.src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisyAx1o6JovZObW7P72k3V4aKlC9iWE3x-Iu2bTdjuqUC1lZ4kjkT9jh_eu3H1SIvFez1vPXRk6yJNuKwOfY9uHvKFIglNe1r-St8v6FNHpwF63s08uM4ADNzwozh0vwJG2m5WOwiCg095V3zxjRkrFb1TK_CuYVa2DhZpzXgwdTfMFp6ofcvj8i4SCRE/s1600/3.gif";
+  });
+  
+  lazyload({
+    effect: "fadeIn",
+    threshold: -300
+  });
+});
+//]]></script>     
