@@ -1,0 +1,27 @@
+Untuk diletakan diChapter
+
+<span class='post-view dt' expr:data-id='data:post.id'>
+<span class='view-load' id='postviews'/>
+</span>
+
+  
+<script src='//cdn.firebase.com/js/client/2.2.1/firebase.js' type='text/javascript'/>
+<script>
+  /*<![CDATA[*/
+var firebaseUrlViewcount = "url database realtime";
+var firebaseUrlX = firebaseUrlViewcount +"/pages/id/";
+/*]]>*/
+</script>        
+<script async='async' type='text/javascript'>
+/*<![CDATA[*/
+$.each($(".post-view[data-id]"), function(a, e) {    
+    var l = $(e).parent().find("#postviews").addClass("view-load"),
+        i = new Firebase(firebaseUrlX + $(e).attr("data-id"));
+    i.once("value", function(a) {
+        var n = a.val(),
+            t = false;
+        null == n && (n = {}, n.value = 0, n.url = window.location.href, n.id = $(e).attr("data-id"), t = true), l.removeClass("view-load").text(n.value), n.value++, "/" != window.location.pathname && (t ? i.set(n) : i.child("value").set(n.value))
+    });
+});
+  /*]]>*/
+</script>        
