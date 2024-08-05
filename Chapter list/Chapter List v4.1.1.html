@@ -89,7 +89,7 @@ informasi: silahkan ganti url database dbHiru_view dengan milikmu. dan ubah view
     svgKunci_Chlist: '<span class="member-icon">Svg icon lock</span>',
     
     
-    /*Fitur: 
+    /*Fitur: btn download
 informasi: gunakan tag <a id='dwnload' href="link download"></a> pada post chapter.
 dan ubah svgDwnload_chapter untuk mengaktifkan fiturnya.
      */
@@ -200,8 +200,7 @@ downloadLink = config.svgDownload_Chlist.replace('{downloadUrl}',downloadUrl);
                 sortedList = epListArr;
             }
 
-	if (!config.chapterCount) {          
-		config.chapterCount = true; 
+	if (config.chapterCount) {          
 		var totalchp = epListArr.length;
 		var latestChp = epListArr[0];
 		var firstChp = epListArr[epListArr.length - 1];
@@ -265,7 +264,7 @@ id_outputDiv.innerHTML = `<ul class="ch_ul">${ChapterHtml}</ul>`;
  runnewtag(config.berapahari,config.cookietagnew); 
  
 let classCountChapter = document.querySelector('.boxcountChapter');
- if(classCountChapter){
+ if(classCountChapter && config.chapterCount){
 classCountChapter.innerHTML = `
 <span class="ch_latest">
 <span>Chapter baru:</span>
