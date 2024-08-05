@@ -156,7 +156,7 @@ svgKunci = config.svgKunci_Chlist;
 }
                         
 
-if (entry.category && (entry.category.some(cat => cat.term === 'Series' || cat.term === 'Series2'))) {
+if (entry.category && (entry.category.some(cat => cat.term === 'Series' || cat.term === 'Series1'))) {
                             continue;
                         } else if (entry.content) {
                             const parser = new DOMParser();
@@ -222,7 +222,7 @@ downloadLink = config.svgDownload_Chlist.replace('{downloadUrl}',downloadUrl);
                 }
 
                 if (config.showTanggal) {
-                    tanggal = `<span class="ch_date">${formatTimestamp_Chapterlist(item.tanggal)}</span>`;
+                    tanggal = `<time class="ch_date">${formatTimestamp_Chapterlist(item.tanggal)}</time>`;
                 }
                  
                 if(config.tagNew){
