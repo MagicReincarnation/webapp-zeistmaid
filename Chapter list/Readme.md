@@ -12,4 +12,4 @@
 ## Change Log 
 ### Version V4.1.1
  - mengganti tag span ch_date jadi tag time
-
+ - chapterCount confignya kebalik bagian true dan falsenya
