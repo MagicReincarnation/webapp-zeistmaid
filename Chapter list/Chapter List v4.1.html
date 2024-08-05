@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter List</title>
+    <style>
+        /* Tambahkan CSS Anda di sini */
+        .relink::after{
+		content:"New";
+		padding:2px 3px;
+		background:#00C9FF;
+		color:#ffffff;
+		font-size: 12px;
+		border-radius: 5px;
+	}
+    </style>
+</head>
+<body>
+   
+<!--[ Chapters List ]-->
+<script async type="text/javascript">
+/*<![CDATA[*/
+/* Code: Chapter List.
+   Version: 4.1
+   release: 05 agustus 2024
+   Dev Re-modif: hirutshuji 
+   Web: https://datakodehiru.blogspot.com
+   
+   Source orginal: zeistmangav3.0
+   Dev: Tidak diketahui
+   Web: https://emissionhex.blogspot.com
+*/
+
+const config = {
+  /*Fitur: Thumbail Chapter
+informasi: menampilkan thumbail chapter jika tersedia.. 
+jika tidak tersedia maka akan menggunakan fitur customThumbnailUrl. silahkan ubah showThumbnail jadi true untuk mengaktifkannya.*/
+
+   showThumbnail: false,
+   customThumbnailUrl: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzWuh90mZl6PBUb9oYONWBJSW2LHyUVI7-7DiF5USKHQGnOKwL2D-cMAZ-Sm9IQce19ENhCxW2neAKZjEDJrb83mErCCBib3dCGpugE8i_Ai5sHrhffZNR4AvoAw4RxIcG0gFqnpnh2L9B-MQV9_KckFBRL5sQsW7HiwFe2DJJiHcVE3FyrIr9t0xjKfM/s1600/IMG_20231019_080126.png",
+   
+   
+/*
+Format jam: 
+12hourv1 = 25/07/2023;
+12hourv2 = 25/07/2023 2:39 PM;
+24hour   = 25/07/2023 14:10;
+timeago_en  = 1 hour - year;
+timeago_id  = 1 jam - tahun;
+*/
+ showTanggal: true,
+ modeFormat: 'timeago_id', 
+ auto12hourv1_dalam: 14, // 14 hari
+ timeago_auto12hourv1: true, // Mengaktifkan format 12hourv1 jika lebih dari 2 minggu
+
+   /*Fitur: Chapter count.
+informasi: Chapter lama dan Chapter baru lalu total Chapter akan ditampilkan ditag <span class="boxcountChapter"></span> */
+    chapterCount: false,
+    
+    /*Fitur: Tag new auto.
+informasi: 
+berapahari - tag new akan muncul pada link chapter jika belum terlewat 5 hari.
+
+cookietagnew -
+true dan false 
+true artinya status tag new akan diload terus, yang mana ini akan membuat tag new tetap muncul sampai user mengclik linknya baru tag new menghilang. 
+
+false status tag new tidak diload artinya tag new akan terus muncul sampai tanggal sudah lewat yang ditentukan berapahari dalam kasus ini yaitu 5 hari.
+*/
+    tagNew: true,
+    berapahari: 5 , // 5 lagi hari tag new link akan menghilang
+    
+    cookietagnew: false, 
+
+    /*Fitur: Views count.
+informasi: silahkan ganti url database dbHiru_view dengan milikmu. dan ubah viewCh_chapterlist jadi true untuk mengaktifkan fiturnya.
+     */
+    viewCh_chapterlist: false,
+    dbHiru_view: 'https://hiru-af04f-default-rtdb.firebaseio.com',
+    tagViews: '<span class="svgview"><span class="post_view2" data-idp="{idpost}">0</span> icon svg disini</span>',
+    
+    
+    /*fitur: Icon Lock tanpa database,
+     informasi: untuk menggunakan fitur ini..
+     buat showIconLocked jadi true, maka svgKunci_Chlist akan aktif dengan pakai label Locked*/
+    showIconLocked: false,
+    label_svgKunci: 'Locked',
+    svgKunci_Chlist: '<span class="member-icon">Svg icon lock</span>',
+    
+    
+    /*Fitur: 
+informasi: gunakan tag <a id='dwnload' href="link download"></a> pada post chapter.
+dan ubah svgDwnload_chapter untuk mengaktifkan fiturnya.
+     */
+    svgDwnload_chapter: false,
+    svgDownload_Chlist: '<span class="downloadFile_ch disabled_download"><a href="{downloadUrl}" class="dwn">svg btn download</a></span>',
+    
+	
+    start: 1,
+    max: 145,
+    sortby: 'date',
+    
+/*Fitur: modif title.
+informasi: Overlord Chapter 01 = Chapter 01. tanpa Overlord.
+untuk lebih lanjut silahkan tanya aku di datakodehiru.blogspot.com
+ */
+ modif_title_Chapter: ["Chapter\\s*[\\d\\.,/{}$!--''=;::+%*()\\[\\]#~_}{&*><\\?]+"]
+};
+
+let epListArr = [];
+
+const outputDiv = 'Chapterlist';
+
+function runChapterList(label) {
+    const script = document.createElement("script");
+    script.src = `https://zeistmaid.blogspot.com/feeds/posts/default/-/${label}?alt=json&callback=epList&start-index=${config.start}&max-results=${config.max}`;
+    document.body.appendChild(script);
+}
+
+function epList(e) {
+    const id_outputDiv = document.getElementById(outputDiv);
+    if (!id_outputDiv) return;
+
+    id_outputDiv.innerHTML = "";
+    const feed_post = e.feed;
+    if (feed_post.entry.length > 0) {
+        for (const entry of feed_post.entry) {
+            const title = entry.title.$t;
+            const published = entry.published.$t;
+            const pid = entry.id.$t;
+            const idpost = pid.split('-').pop();
+            for (const linkpost of entry.link) {
+                if (linkpost.rel === "alternate") {
+                    const link = linkpost.href;
+                    if (link && title && published) {
+                        let thumbnail = config.customThumbnailUrl;
+                        if (config.showThumbnail && entry.media$thumbnail) {
+                            thumbnail = entry.media$thumbnail.url.replace('/s72-c', '/w135-h175');
+                        }
+
+                        let downloadLink = "";
+                        let svgKunci = "";
+                        let postViewsH = "";
+						
+if (config.viewCh_chapterlist) {
+const pids = idpost;
+
+postViewsH = config.tagViews.replace('{idpost}',pids);
+
+viewChpost(pids);
+}
+
+if (config.showIconLocked && entry.category.some(cat => cat.term === config.label_svgKunci)){   
+svgKunci = config.svgKunci_Chlist;
+}
+                        
+
+if (entry.category && (entry.category.some(cat => cat.term === 'Series' || cat.term === 'Series2'))) {
+                            continue;
+                        } else if (entry.content) {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(entry.content.$t, "text/html");
+                            const downloadElement = doc.querySelector("#dwnload");
+                            
+if (downloadElement && config.svgDwnload_chapter) {
+                                
+const downloadUrl = downloadElement.getAttribute("href");
+                                
+if (downloadUrl) {
+downloadLink = config.svgDownload_Chlist.replace('{downloadUrl}',downloadUrl);
+                                }
+                            }
+                        }
+
+                        epListArr.push({
+                            id: idpost,
+                            url: link,
+                            judul: title,
+                            tanggal: published,
+                            thumbnail: thumbnail,
+                            svgKunci: svgKunci,
+                            postViewsH: postViewsH,
+                            downloadLink: downloadLink 
+                        });
+                    }
+                    break;
+                }
+            }
+        }
+
+        if (feed_post.entry.length >= config.max) {
+            config.start += config.max;
+            runChapterList(label);
+        } else {
+            let sortedList;
+            if (config.sortby === "title") {
+                sortedList = epListArr.sort((e, t) => e.judul > t.judul ? 1 : -1);
+            } else {
+                sortedList = epListArr;
+            }
+
+	if (!config.chapterCount) {          
+		config.chapterCount = true; 
+		var totalchp = epListArr.length;
+		var latestChp = epListArr[0];
+		var firstChp = epListArr[epListArr.length - 1];
+		}
+
+
+     let ChapterHtml = "";
+                 
+     sortedList.forEach(item => {
+       
+                let thumbnail = "";
+                let tanggal = "";
+                let tagNew = "";
+                let item_dwn_view_kunci = "";
+               
+                if (config.showThumbnail) {
+                    thumbnail = `<img class="ch_cover" src="${item.thumbnail}" alt="${filterTitle(item.judul)}" loading="lazy" />`;
+                }
+
+                if (config.showTanggal) {
+                    tanggal = `<span class="ch_date">${formatTimestamp_Chapterlist(item.tanggal)}</span>`;
+                }
+                 
+                if(config.tagNew){
+     				tagNew = `<span class="newlink" data-id="${item.id}" tanggal="${konversiTanggal(item.tanggal)}"></span>`;
+				}
+				
+
+		if (item.downloadLink || item.svgKunci || item.postViewsH){
+				item_dwn_view_kunci = `
+<span class="icon_mkd1">
+${item.downloadLink}</span>
+<span class="icon_mkd2">
+${item.svgKunci}</span>
+<span class="icon_mkd3">
+${item.postViewsH}</span>
+`;
+			}
+
+ 
+
+
+ ChapterHtml += `
+  <li class="chapter_li">
+  <div class="ch_boxone">
+       ${thumbnail}
+   <span class="ch_jdl">
+      <a class="ch_a_jdl" href="${item.url}">
+       ${filterTitle(item.judul)}
+      </a>
+   </span>
+   </div>
+  <div class="ch_boxtwo">
+		${tanggal}
+		${item_dwn_view_kunci}
+    	${tagNew}
+		</div>
+	</li>`;
+            });
+id_outputDiv.innerHTML = `<ul class="ch_ul">${ChapterHtml}</ul>`;
+ runnewtag(config.berapahari,config.cookietagnew); 
+ 
+let classCountChapter = document.querySelector('.boxcountChapter');
+ if(classCountChapter){
+classCountChapter.innerHTML = `
+<span class="ch_latest">
+<span>Chapter baru:</span>
+<a href="${latestChp.url}">
+${filterTitle(latestChp.judul)}
+</a>
+</span>
+
+<span class="ch_first">
+<span>Chapter lama:</span>
+<a href="${firstChp.url}">
+${filterTitle(firstChp.judul)}
+</a>
+</span>
+
+<span class="total_chp">
+${totalchp} Chapter
+</span>
+`;}
+        }
+    }
+  }
+
+
+
+function filterTitle(title) {
+    let filteredTitle = title;
+  for (const filterText of config.modif_title_Chapter) {
+        const pattern = new RegExp(filterText, "i");
+        const match = filteredTitle.match(pattern);
+        if (match) {
+            filteredTitle = match[0].trim();
+            break;
+        }
+    }
+    filteredTitle = 
+    filteredTitle.replace(/Volume/, 'Vol')
+        .replace(/Season/, 'S')
+        .replace(/Short Story/, 'SS')
+        .replace(/Extra Chapter/, 'Etc')
+        .replace(/Chapter/, 'Chapter');
+    return filteredTitle;
+}
+
+function viewChpost(czero) {
+    fetch(`${config.dbHiru_view}/pages/id/${czero}.json`)
+        .then(response => response.json())
+        .then(data => {
+            document.querySelectorAll(`.post_view2`).forEach(dataview => {
+                const currentPid = dataview.closest('.post_view2').getAttribute('data-idp');
+                if (currentPid == czero) {
+                    dataview.textContent = formatNumber(data.value) || 0;
+                }
+            });
+        });
+}
+
+function formatNumber(number) {
+    if (number === 0) {
+        return 0;
+    } else if (number >= 1_000_000_000) {
+        return (number / 1_000_000_000).toFixed(1) + 'M';
+    } else if (number >= 1_000_000) {
+        return (number / 1_000_000).toFixed(1) + 'JT';
+    } else if (number >= 1_000) {
+        return (number / 1_000).toFixed(1) + 'K';
+    } else {
+        return number;
+    }
+}
+
+
+function runnewtag(number,cookie){ 
+var hideNew = number;
+var expNew = number;
+var cookieOn = cookie; 
+    var today = new Date();
+    var links = document.querySelectorAll('.ch_ul .newlink');
+    
+
+    links.forEach(function(link) {
+        var tanggalAttr = link.getAttribute('tanggal');
+        var dataId = link.getAttribute('data-id');
+        var isVisited = cookieOn? getCookie(dataId) : false; 
+
+        if (tanggalAttr && (!isVisited || isCookieExpired(dataId))) {
+            var tanggal = new Date(tanggalAttr);
+            var diff = Math.ceil((today - tanggal) / (1000 * 60 * 60 * 24));
+            if (diff <= hideNew) {
+          link.classList.add('relink');
+            }
+        }
+
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            this.classList.remove('relink');
+            var expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + expNew);
+            document.cookie = dataId + "=visited; expires=" + expirationDate.toUTCString() + "; path=/";
+
+            var url = this.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    });
+}
+
+
+    function getCookie(name) {
+        var cookieArr = document.cookie.split(';');
+        for(var i = 0; i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split('=');
+            if(name == cookiePair[0].trim()) {
+                return cookiePair[1];
+            }
+        }
+        return null;
+    }
+
+    function isCookieExpired(dataId) {
+        var visitedDate = new Date(getCookie(dataId)); 
+        var expirationDate = new Date();
+        expirationDate.setDate(visitedDate.getDate() + expNew); 
+        return expirationDate < today;
+     }  
+     
+     
+function konversiTanggal(tanggalString) {
+    var tanggal = new Date(tanggalString);
+
+    var bulan = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+
+    var tanggalan = ('0' + tanggal.getDate()).slice(-2);
+    var namaBulan = bulan[tanggal.getMonth()];
+    var tahun = tanggal.getFullYear();
+    var hari = tanggal.toString().split(' ')[0];
+    var jam = ('0' + tanggal.getHours()).slice(-2);
+    var menit = ('0' + tanggal.getMinutes()).slice(-2);
+
+    var detik = ('0' + tanggal.getSeconds()).slice(-2);
+
+    var hasil = tahun + "-" + namaBulan + "-" + tanggalan;
+
+    return hasil;
+}
+
+let modeFormat = config.modeFormat;
+let auto12hourv1_dalam = config.auto12hourv1_dalam;
+let timeago_auto12hourv1 = config.timeago_auto12hourv1; 
+
+function formatTimestamp_Chapterlist(timestamp, format = modeFormat) {
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diffInSeconds = Math.floor((now - date) / 1000);
+    const diffInDays = Math.floor(diffInSeconds / (60 * 60 * 24));
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const hours24 = date.getHours();
+    const hours12 = hours24 % 12 || 12;
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const period = hours24 < 12 ? 'AM' : 'PM';
+
+    const time24 = `${String(hours24).padStart(2, '0')}:${minutes}`;
+    const time12 = `${hours12}:${minutes} ${period}`;
+
+    if (timeago_auto12hourv1 && diffInDays > auto12hourv1_dalam && (format === 'timeago_id' || format === 'timeago_en')) {
+        return `${day}/${month}/${year}`;
+    }
+
+    switch (format) {
+        case 'timeago_en':
+            if (diffInSeconds < 60) return `${diffInSeconds} seconds`;
+            if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes`;
+            if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hours`;
+            if (diffInDays < 7) return `${diffInDays} days ago`;
+            if (diffInDays < 30) return `${Math.floor(diffInDays / 7)} weeks`;
+            if (diffInDays < 365) return `${Math.floor(diffInDays / 30)} months`;
+            return `${Math.floor(diffInDays / 365)} years`;
+
+        case 'timeago_id':
+            if (diffInSeconds < 60) return `${diffInSeconds} detik`;
+            if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} menit`;
+            if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} jam`;
+            if (diffInDays < 7) return `${diffInDays} hari`;
+            if (diffInDays < 30) return `${Math.floor(diffInDays / 7)} minggu`;
+            if (diffInDays < 365) return `${Math.floor(diffInDays / 30)} bulan`;
+            return `${Math.floor(diffInDays / 365)} tahun`;
+
+        case '24hour':
+            return `${day}/${month}/${year} ${time24}`;
+
+        case '12hourv1':
+            return `${day}/${month}/${year}`;
+
+        case '12hourv2':
+            return `${day}/${month}/${year} ${time12}`;
+
+        default:
+            return `${day}/${month}/${year} ${time24}`;
+    }
+}
+/*]]>*/
+</script>
+
+
+
+====== kode post ====== 
+<span class="boxcountChapter"></span> 
+<div id="Chapterlist"></div>
+<script>
+    runChapterList('Overlord');
+</script>
+
+
+
+</body>
+</html>
