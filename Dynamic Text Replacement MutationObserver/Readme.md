@@ -1,4 +1,27 @@
-# Menambah atau Mengubah Replace Text
+# Kegunaan Script Dynamic Text Replacement MutationObserver
+
+Skrip ini mengganti teks di halaman web secara otomatis dan sesuai kebutuhan. Berikut ini beberapa kegunaannya:
+
+1. Ganti Teks dengan Mudah: 
+Tinggal atur teks mana yang mau diubah—nggak perlu repot-repot coding ulang!.
+
+BAHKAN Script ini mampu merubah text pada element yang dibuat oleh javascript, ini memudahkan bagi kamu yang javascript diencrypt sehingga sulit merubah text.
+
+2. Config Sederhana: bisa edit array Config dengan mudah, Tambah, ubah, atau hapus Replace Text jauh lebih gampang.
+
+
+3. Bisa berbagai selector: Kamu bisa pilih elemen mana saja yang mau diubah, dari class hingga ID—semua bisa!
+
+
+4. Responsif terhadap Perubahan: Skrip ini cerdas! Ia memantau perubahan di halaman, jadi teks baru yang muncul juga akan langsung diganti.
+
+
+5. Meningkatkan informatif website: Ganti pesan yang membingungkan jadi lebih informatif.
+
+
+Dengan skrip ini, kamu bisa mudah menyesuaikan konten halaman web kamu dan bisa bikin pengunjung web jadi lebih nyaman!
+
+## Menambah atau Mengubah Replace Text
 
 ## 1. Cari Bagian Config:
 
