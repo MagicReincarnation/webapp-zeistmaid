@@ -1,0 +1,83 @@
+<script>
+    /*<![CDATA[*/
+const config_tag_replace_text = {
+  tag_replace_text: [
+  
+    {
+      tagclass_or_id: ".live-search-item center",
+      search: "Tidak di temukan",
+      replace: "Not Found"
+    },
+
+    {
+      tagclass_or_id: ".live-search-item",
+      search: "Hello word",
+      replace: "Ya hello"
+    },
+
+    {
+      tagclass_or_id: "#searchButton",
+      search: "Search Comment",
+      replace: "Hello Isekai"
+    },
+  ]
+};    
+    function changeText(e, search, replace) {
+  var dem = e.innerHTML;
+  if (dem.includes(search)) {
+    e.innerHTML = dem.replace(search, replace);
+  }
+}
+
+function replaceText() {
+  config_tag_replace_text.tag_replace_text.forEach(function(item) {
+    var elements = document.querySelectorAll(item.tagclass_or_id);
+    elements.forEach(function(el) {
+      changeText(el, item.search, item.replace);
+    });
+  });
+}
+
+function observe_doc() {
+  var obvsr = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      mutation.addedNodes.forEach(function(node) {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          config_tag_replace_text.tag_replace_text.forEach(function(item) {
+            if (node.matches(item.tagclass_or_id)) {
+              changeText(node, item.search, item.replace);
+            }
+            node.querySelectorAll(item.tagclass_or_id).forEach(function(el) {
+              changeText(el, item.search, item.replace);
+            });
+          });
+        }
+
+
+        if (node.children.length > 0) {
+          Array.from(node.children).forEach(function(child) {
+            config_tag_replace_text.tag_replace_text.forEach(function(item) {
+              child.querySelectorAll(item.tagclass_or_id).forEach(function(el) {
+                changeText(el, item.search, item.replace);
+              });
+            });
+          });
+        }
+      });
+    });
+  });
+
+  var c_obvsr = {
+    childList: true,
+    subtree: true
+  };
+  var tN = document.body;
+  obvsr.observe(tN, c_obvsr);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  replaceText();
+  observe_doc();
+});
+    /*]]>*/
+    </script>
+    
