@@ -76,3 +76,8 @@ Dengan cara ini, kamu bisa gampang banget menyesuaikan skrip ini sesuai keingina
 
 Selamat berkreasi!
 
+### Credit 
+
+1. Hirutshuji - code dasar
+2. Roka - yang mengembangkannya
+
