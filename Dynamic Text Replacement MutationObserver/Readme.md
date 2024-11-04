@@ -9,15 +9,11 @@ BAHKAN Script ini mampu merubah text pada element yang dibuat oleh javascript, i
 
 2. Config Sederhana: bisa edit array Config dengan mudah, Tambah, ubah, atau hapus Replace Text jauh lebih gampang.
 
-
 3. Bisa berbagai selector: Kamu bisa pilih elemen mana saja yang mau diubah, dari class hingga ID—semua bisa!
-
 
 4. Responsif terhadap Perubahan: Skrip ini cerdas! Ia memantau perubahan di halaman, jadi teks baru yang muncul juga akan langsung diganti.
 
-
 5. Meningkatkan informatif website: Ganti pesan yang membingungkan jadi lebih informatif.
-
 
 Dengan skrip ini, kamu bisa mudah menyesuaikan konten halaman web kamu dan bisa bikin pengunjung web jadi lebih nyaman!
 
@@ -39,7 +35,7 @@ Temukan bagian kode yang dimulai dengan `const config_tag_replace_text = {....}`
 
 ## Contoh Pakai
 
-### 1. Menambah Replace Text:
+1. **Menambah Replace Text:**
 
 Jika kamu ingin menambahkan replace text baru, cukup tambahkan objek baru ke dalam array `tag_replace_text`. Misalnya, kamu ingin mengganti teks "Teks Lama" menjadi "Teks Baru" pada elemen dengan kelas `.new-class`. Berikut contohnya:
 
@@ -47,29 +43,10 @@ Jika kamu ingin menambahkan replace text baru, cukup tambahkan objek baru ke dal
 { tagclass_or_id: ".new-class", search: "Teks Lama", replace: "Teks Baru" }
 ```
 
-2. Mengubah Replace Text yang Sudah Ada:
-
-Untuk mengubah teks yang sudah ada, cukup edit nilai dari search atau replace pada objek yang sesuai. Misalnya, jika kamu ingin mengubah teks yang muncul di tombol pencarian dari "Search Comment" menjadi "Find Comment", kamu cukup ubah nilai replace seperti ini:
-```javascript
-{ tagclass_or_id: "#searchButton", search: "Search Comment", replace: "Find Comment" }
-```
-
-3. Menghapus Replace Text:
+2. **Menghapus Replace Text:**
 
 Mau hapus replace? Cukup hilangkan baris objek tersebut dari array.
 
-Contoh Config
-
-Berikut adalah contoh pengaturan yang bisa kamu pakai:
-```javascript
-const config_tag_replace_text = {
-    tag_replace_text: [
-        { tagclass_or_id: ".live-search-item", search: "Tidak di temukan", replace: "Not Found" },
-        { tagclass_or_id: "#searchButton", search: "Search Comment", replace: "Hello Isekai" },
-        // Tambah atau ubah sesuai yang kamu butuhkan
-    ]
-};
-```
 Intinya
 
 Dengan cara ini, kamu bisa gampang banget menyesuaikan skrip ini sesuai keinginanmu. Main-mainlah dengan config, ubah teks sesuai kebutuhan, dan lihat hasilnya!
@@ -79,5 +56,5 @@ Selamat berkreasi!
 ### Credit 
 
 1. Hirutshuji - code dasar
-2. Roka - yang mengembangkannya
+2. Roka - yang mengembangkannya & documentasi
 
