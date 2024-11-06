@@ -25,4 +25,5 @@ Project ini menampilkan **List Project** yang menampilkan perubahan terbaru Proj
    - Mencegah drawer tertutup saat sedang mencari di dalamnya, memungkinkan penelusuran pembaruan tanpa gangguan.
 
 # Credit
- 1. Roka
+ 1. Roka (original code)
+ 2. Hirutshuji (pengembang)
