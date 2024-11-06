@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1,
+        "name": "Proyek A",
+        "version": "1.0.0",
+        "updates": [
+            {
+                "date": "2024-10-01",
+                "description": "Initial release."
+            },
+            {
+                "date": "2024-11-01",
+                "description": "Bug fixes and performance improvements."
+            },
+            {
+                "date": "2024-11-05",
+                "description": "Added new features."
+            },
+            {
+                "date": "2024-11-10",
+                "description": "Improved performance."
+            }
+        ],
+        "description": "Proyek A adalah aplikasi yang memudahkan pengguna untuk mengelola tugas sehari-hari.",
+        "developer": "Pengembang A",
+        "downloads": "100K",
+        "link": "https://datakodehiru.blogspot.com/2024/07/top-10-series-liked.html",
+        
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXoSm8dVj5T2GWz4vEzSjQli9bQ5BsChWgNrHoxYHCzUudvSn49lRkEbANHkaF7P_Ocnc4ltTug69QOEbk5YQwiz1uAuQR-VTfJcV5IbVfDLr5fkyEWWLZR_JOp09-yZLgjoSNoNY_iDg9NK3tEVjM_X0IZMh3oAFE635eKVJjUfdtiZip0ZBrmd8_-nDw/s1600-rw/Photo_1710865739504.png"
+    },
+    {
+        "id": 2,
+        "name": "Proyek B",
+        "version": "2.1.3",
+        "updates": [
+            {
+                "date": "2024-10-05",
+                "description": "Added new features."
+            },
+            {
+                "date": "2024-10-20",
+                "description": "Improved user interface."
+            },
+            {
+                "date": "2024-11-02",
+                "description": "Fixed minor bugs."
+            },
+            {
+                "date": "2024-11-03",
+                "description": "Updated user experience."
+            },
+            {
+                "date": "2024-11-04",
+                "description": "Optimized app performance."
+            }
+        ],
+        "description": "Proyek B adalah aplikasi inovatif untuk belajar bahasa.",
+        "developer": "Pengembang B",
+        "downloads": "250K",
+        "link": "https://datakodehiru.blogspot.com/2023/09/form-login-by-hirutshuji.html",
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjviFe84beoPf7h5Okn7euBHGQgGaPJ6UVTRHRZDTQMI5xdj0_jiXyglk0aZjJH2X2xRVRaR4FrJBX1N6Ay3vlR-PfpyvWvmwPz3zkM9FXkfWU8x2ARyfnOJhKL4MiDUIoqm_4UL9Vuf3Y3oOWKO0XZmYSMzohk-oTY0ItMWf2Us8USpqMTl-8kSmKKLAqY/w680-h382-p-k-no-nu/Screenshot_20241028-184124.jpg"
+    }
+]

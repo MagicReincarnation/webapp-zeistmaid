@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.ccProject {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*partial styles.css*/
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.project-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.project-version {
+    font-size: 14px;
+    color: #007BFF;
+}
+
+.project-developer {
+    font-size: 14px;
+    color: #555;
+}
+
+.project-description {
+    font-size: 12px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.project-details {
+    font-size: 12px;
+    color: #999;
+}
+
+.see-more {
+    color: #007BFF;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 260px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    overflow-y:auto
+}
+
+.drawer.visible {
+    right: 0;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.close-button {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.drawer-content {
+    padding: 10px;
+}
+
+.badge {
+    background-color: red;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.update-badge {
+    background-color: #007BFF;
+    color: white;
+    border-radius: 12px;
+    padding: 10px 15px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 16px;
+}
+
+.update-badge:hover {
+    background-color: #0056b3;
+}
