@@ -1,0 +1,203 @@
+Titik new chapter pada link akan hilang dengan dua metode
+1. jika link diclick.
+
+2. jika tanggal sudah melewati masanya, disini aku set jadi 5 hari 
+var hideNew = 5; /* 5 hari relink dihilangkan*/
+
+apa artinya hideNew? itu artinya jika chapter sudah lebih dari 5 hari dipost maka titik new chapter akan hilang dengan sendirinya (automatis).
+
+
+apa itu var cookieOn = false; ?
+itu kode bootlean untuk menggunakan cookie atau tidak, jika menggunakan cookie maka ubah jadi true.. itu akan menyimpan riwayat visited user ke cookie mereka sehingga titik new chapter tidak akan muncul lagi sampai cookie exp atau dihapus 
+
+jika false artinya cookie mati, titik new akan selalu muncul dan hanya bisa hilang jika tanggal post chapter sudah lewat dari hideNew.
+
+
+
+======= STEP 1 =======
+a.relink:before {
+    content: "";
+    margin-right: 5px;
+    display: inline-block;
+    padding: 0;
+    background: green;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+}
+
+
+
+
+======= STEP 2 =======
+ <script type='text/javascript'>
+      /*<![CDATA[*/
+function timeAgo(t) {var e = Math.floor((new Date() - t) / 1000); 
+  var timeStrings = ["detik", "menit", "jam", "hari", "bulan", "tahun"];
+  var timeValues = [1, 60, 3600, 86400, 2592000, 31536000]; 
+  for (var i = timeValues.length - 1; i >= 0; i--) {
+    var interval = Math.floor(e / timeValues[i]);
+    if (interval >= 1) {
+      return interval + " " + timeStrings[i] + (interval > 1 ? " yang lalu" : " yang lalu");
+    }
+  }
+  return "Baru saja";
+}
+
+function konversiTanggal(tanggalString) {
+    var tanggal = new Date(tanggalString);
+
+    var bulan = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+
+    var tanggalan = ('0' + tanggal.getDate()).slice(-2);
+    var namaBulan = bulan[tanggal.getMonth()];
+    var tahun = tanggal.getFullYear();
+    var hari = tanggal.toString().split(' ')[0];
+    var jam = ('0' + tanggal.getHours()).slice(-2);
+    var menit = ('0' + tanggal.getMinutes()).slice(-2);
+
+    var detik = ('0' + tanggal.getSeconds()).slice(-2);
+
+    var hasil = tahun + "-" + namaBulan + "-" + tanggalan;
+
+    return hasil;
+}
+
+
+/*filter 1*/
+function filterTitle(title) {
+  var filterText = ListFilter;
+  var filteredTitle = title;
+  for (var i = 0; i < filterText.length; i++) {
+    var pattern = new RegExp(filterText[i], "i");
+    var match = filteredTitle.match(pattern);
+    if (match) {
+      filteredTitle = match[0].trim();
+      break;
+    }
+  } 
+filteredTitle = filteredTitle.replace(/Volume/, 'Vol');
+filteredTitle = filteredTitle.replace(/Season/, 'S');
+filteredTitle = filteredTitle.replace(/Short Story/, 'SS');
+filteredTitle = filteredTitle.replace(/Extra Chapter/, 'Etc');
+filteredTitle = filteredTitle.replace(/Chapter/, 'Chapter');
+  return filteredTitle;
+}
+function rcentbytag(t) {
+  document.write('<div id="chapbytag" class="chap-by-tag full txt-new">');
+  
+  for (var e = 0; e < numposts; e++) {
+    var entry = t.feed.entry[e];
+    if (e == t.feed.entry.length) break;
+    if (entry.category && entry.category.some(cat => cat.term === 'Series')) {continue;}
+    var title = entry.title.$t;
+    var filteredTitle = filterTitle(title);
+
+    if (filteredTitle) {
+      var link = "";
+      for (var o = 0; o < entry.link.length; o++) {
+        if (entry.link[o].rel === "alternate") {
+          link = entry.link[o].href;
+          break;
+        }
+      }
+      try {
+        var thumbnail = entry.media$thumbnail.url;
+      } catch (error) {
+        thumbnail = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjbd3MhfTousm7A1WvLAWHGA645odI8ASkxN_u4xVdimxgRCXpezQunX1URAFU06oEkyoRUkz4RO_IkPI3X8pXWzY2Or3Kn8Y37Pawr9pVQT0Jdh1COOPuAydMYWoSXhrKRxCoLQsqhi8jp6HWHytpuV3v7Lz0qkltPOy9Qel2zHDqrLOhXgETE9i9/s144/makuanovel_maskot.png";
+      }
+      var publishedDate = entry.published.$t;
+      var idnumber = entry.id.$t.split('-').pop();
+      var date = new Date(publishedDate);
+      var timeAgoStr = timeAgo(date);
+      var dtnew = 
+konversiTanggal(date);
+      document.write('<div class="flex aic jcsb y5x10p ch-txt">');
+      if (showpostthumbnails) {
+        document.write('<a href="' + link + '" title="' + title + '"><img class="rct-thumb" alt="' + title + '" src="' + thumbnail + '"/></a>');
+      }
+
+      document.write('<span  class="labelchpbytag fs-13"><a  data-date="'+ dtnew +'" data-id="'+idnumber+'" href="' + link + '" title="' + title + '" rel="nofollow">' + filteredTitle + '</a></span>');
+
+if (entry.category && entry.category.length > 0) {
+  for (var i = 0; i < entry.category.length; i++) {
+  var cat = entry.category[i];
+if (cat.term === 'Member' || cat.term === 'User') {
+ document.write('<a title="' + title + '" rel="nofollow" class="labelnewchp" href="/search/label/'+ encodeURIComponent(cat.term) +'"><span class="fs-12 ml-5 user_vip"></span></a>');break;}}}
+
+   if (showpostdate) {
+        document.write('<time class="showdates fs-14">' + timeAgoStr + '</time>');}
+ document.write("</div>");}
+}
+ document.write("</div>");
+}/*]]>*/
+</script>  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+======= STEP 3 =======
+<script>
+/*<![CDATA[*/
+    var hideNew = 5; /* 5 hari relink dihilangkan*/
+    var expNew = 30; /* 30 hari exp cookie*/
+    var cookieOn = false; /*cookie bersifat mengambil riwayat link dari recent chapter.
+
+true = artinya riwayat akan load.
+false = riwayat tidak diload, artinya titik akan terus muncul sampai tanggal sudah lewat yang ditentukan hideNew
+*/
+    var today = new Date();
+    var links = document.querySelectorAll('.labelchpbytag a');
+   
+    links.forEach(function(link) {
+        var tanggalAttr = link.getAttribute('data-date');
+        var dataId = link.getAttribute('data-id');
+        var isVisited = cookieOn? getCookie(dataId): false; 
+
+        if (tanggalAttr && (!isVisited || isCookieExpired(dataId))) {
+            var tanggal = new Date(tanggalAttr);
+            var diff = Math.ceil((today - tanggal) / (1000 * 60 * 60 * 24));
+
+            if (diff <= hideNew) {
+                link.classList.add('relink');
+            }
+        }
+
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            this.classList.remove('relink');
+
+            var expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + expNew);
+
+            document.cookie = dataId + "=visited; expires=" + expirationDate.toUTCString() + "; path=/";
+
+            var url = this.getAttribute('href');
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    });
+
+    function getCookie(name) {
+        var cookieArr = document.cookie.split(';');
+        for(var i = 0; i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split('=');
+            if(name == cookiePair[0].trim()) {
+                return cookiePair[1];
+            }
+        }
+        return null;
+    }
+
+    function isCookieExpired(dataId) {
+ var visitedDate = new Date(getCookie(dataId)); 
+ var expirationDate = new Date();        expirationDate.setDate(visitedDate.getDate() + expNew); 
+ return expirationDate < today;
+    }
+/*]]>*/
+</script>
