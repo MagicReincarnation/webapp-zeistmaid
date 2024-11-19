@@ -36,3 +36,7 @@ Skrip ini berguna untuk:
 - Menjaga kebersihan console browser.
 
 Namun, penggunaannya perlu dipertimbangkan secara hati-hati untuk memastikan tidak mengganggu pengalaman pengunjung.
+
+# Credit 
+
+  - Roka
