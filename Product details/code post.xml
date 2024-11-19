@@ -1,0 +1,54 @@
+<div class="ccproduct">
+        <div id="product_cc" class="product_cc">
+            <div class="main-preview" id="main-preview">
+            </div>
+            <div class="product-thumbnails" id="product-thumbnails">
+            </div>
+        </div>
+    </div>
+  
+<script>
+const data_product_JSON = {
+        "products": [
+            {
+                "id": 01,
+                "name": "Zeistmaid",
+                "version": "4.0",
+                "release_date": "19 November 2024",
+                "last_update": "19 November 2024",
+                "priceRp": "99.000",
+                "priceUSD": "20",
+                "premium_Or_free": "FREE/PREMIUM",
+                "requirements": [
+                    {
+                        "requirement": `<p class='pc_wajib'>Wajib</p> membaca               <a class='btnlink_wajib' href="/p/syarat-dan-ketentuan.html" target="_blank">syarat dan ketentuan</a> yang berlaku sebelum membeli.`,
+                        
+                        "mandatory": true
+                    },
+                    {
+                        "requirement": "Unlimited domain tanpa syarat.",
+                        "mandatory": true
+                    },
+                    {
+                        "requirement": "Tidak boleh dijual ulang.",
+                        "mandatory": false
+                    }
+                ],
+                "download_link": "https://example.com/download/Zeistmaid",
+                "media": [
+ "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjviFe84beoPf7h5Okn7euBHGQgGaPJ6UVTRHRZDTQMI5xdj0_jiXyglk0aZjJH2X2xRVRaR4FrJBX1N6Ay3vlR-PfpyvWvmwPz3zkM9FXkfWU8x2ARyfnOJhKL4MiDUIoqm_4UL9Vuf3Y3oOWKO0XZmYSMzohk-oTY0ItMWf2Us8USpqMTl-8kSmKKLAqY/s1933/Screenshot_20241028-184124.jpg",                 
+                    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXoSm8dVj5T2GWz4vEzSjQli9bQ5BsChWgNrHoxYHCzUudvSn49lRkEbANHkaF7P_Ocnc4ltTug69QOEbk5YQwiz1uAuQR-VTfJcV5IbVfDLr5fkyEWWLZR_JOp09-yZLgjoSNoNY_iDg9NK3tEVjM_X0IZMh3oAFE635eKVJjUfdtiZip0ZBrmd8_-nDw/w680-h382-p-k-no-nu/Photo_1710865739504.png",
+                    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3x0YUR3ku4k54YjVfD4zxoa6CwPb7UInUdtbFB82D-4XvelwQ2m56K7tlAmtkMJNSJAA7FyXt0W75PGGAe92Gfyo9qJH8KYaY56c7_0ouvfu5z1SrNuY13G0UGvVT_r4VJibwe3x7cQBlX9VIb372LE-X8c0sE16sBaAiO-e8ySamZSDp4hVgDqMA9CPG/s1600/1721053818568.jpg",
+                    "https://www.youtube.com/embed/a4VMDqP2wuk?si=RXTvHAGHDk3cHl7m",
+                    "https://www.youtube.com/embed/5wOTJdY3Pio?si=TzTajVwYs1RNPygQ",
+                    "https://www.youtube.com/embed/X5NehExhRRU?si=_7Xoi9uBj3Fkhaot",
+                    "https://www.youtube.com/embed/VomrLi0DuaQ?si=PQr3huO4hAFzfBP5",
+                ],
+                
+                "help_link": "/p/help.html"
+            }
+        ]
+    };
+    const produkID = 01;
+
+</script>
