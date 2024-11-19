@@ -1,0 +1,29 @@
+<script type="text/javascript"> 
+     /*<![CDATA[*/
+    const Devmode_open = () => {
+        setTimeout(() => {
+            window.opener = null;
+            window.open('', "_self");
+            window.close();
+            window.history.back();
+            window.location.replace("about:blank");
+            window.location.href = 'about:blank';
+            const removescript = document.querySelector("script");
+            removescript.remove();
+        }, 0);
+        setTimeout(() => {
+            console.clear.bind(console);
+        }, 0);
+    };
+
+    class run_antiInspectElement_hr extends Error {
+        get ["message"]() {
+            console.clear();
+            Devmode_open();
+        }
+        ["toString"]() {}
+    }
+
+    console.log(new run_antiInspectElement_hr());
+    /*]]>*/
+    </script>
