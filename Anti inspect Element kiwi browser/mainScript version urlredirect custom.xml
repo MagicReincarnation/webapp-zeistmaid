@@ -1,0 +1,25 @@
+
+  <script type='text/javascript'>
+    /*<![CDATA[*/
+    const Devmode_open = () => {
+        setTimeout(() => {        window.location.replace("https://codehiru.blogspot.com/p/anti-devtools.html");
+            window.location.href = "https://codehiru.blogspot.com/p/anti-devtools.html"; // Dua metode untuk memastikan pengalihan
+            const removescript = document.querySelector("script");
+            removescript.remove();
+        }, 0);
+        setTimeout(() => {
+            console.clear.bind(console);
+        }, 0);
+    };
+
+    class run_antiInspectElement_hr extends Error {
+        get ["message"]() {
+            console.clear();
+            Devmode_open();
+        }
+        ["toString"]() {}
+    }
+
+    console.log(new run_antiInspectElement_hr());
+    /*]]>*/
+</script>
