@@ -1,4 +1,4 @@
-# Dokumentasi Anti Inspect Element untuk Kiwi Browser
+# Anti Inspect Element untuk Kiwi Browser
  
 ini adalah JavaScript yang digunakan untuk menutup tab browser secara paksa, menghapus elemen tertentu pada halaman, dan membersihkan aktivitas console browser. Kode ini dirancang untuk menjaga keamanan konten dan mencegah manipulasi atau eksploitasi oleh pengguna yang mencoba mengakses fitur developer tools.
 
