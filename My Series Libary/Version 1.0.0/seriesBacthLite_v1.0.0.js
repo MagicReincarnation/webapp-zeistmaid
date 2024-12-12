@@ -163,6 +163,7 @@ async processFeed(feed) {
         
         this.renderPage();
     } else {
+        if (stfeed) stfeed.style.display = "none";
         ntffeed.innerHTML = "Tidak ada series baru untuk dimuat.";
     }
 },    
@@ -637,6 +638,7 @@ if (this.totalEntry_Series >= this.maxFeedResults) {           		this.feedIndex 
  			}
         
      } else {
+        document.getElementById('info_statusLoader').style.display = "none";
          ntffeed.innerHTML = `Semua series telah dimuat:${totalSeries}`;
       }
     }     
