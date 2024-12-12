@@ -23,7 +23,7 @@ Project ini adalah solusi lengkap untuk menampilkan daftar chapter manga atau no
 
 
 # Demo code 
- [My series]()
+ [My series](https://zeistmaid.blogspot.com/p/request.html?m=1)
 ---
 ## Fitur Utama
 
