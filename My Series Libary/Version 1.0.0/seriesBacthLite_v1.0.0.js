@@ -508,7 +508,7 @@ sortByConfig() {
       const numberA = this.extractChapter_title(a.title);
       const numberB = this.extractChapter_title(b.title);
       return numberA - numberB;
-    } else if (this.sortBy === 'ttle_volume') {
+    } else if (this.sortBy === 'title_volume') {
       const volumeA = this.extractVolume_title(a.title);
       const volumeB = this.extractVolume_title(b.title);
       return volumeA - volumeB;
