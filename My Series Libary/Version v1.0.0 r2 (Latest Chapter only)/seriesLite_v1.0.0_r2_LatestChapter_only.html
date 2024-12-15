@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>My List Unlimited - Latest Chapter Only</title>
+    <style>
+#seriesUnlimited {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto 0 auto;
+    overflow-y: auto; 
+    box-sizing: border-box;
+}
+#libarySeries {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    #libarySeries {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+.series[hs="false"] {
+    height: min-content;
+}
+.series {
+    background-color: #f9f9f9;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.series:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+a.boxT_zero {
+    position: unset;
+    text-decoration: none;
+    color: #222;
+}
+
+.snippet-thumbnail {
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    position: relative;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.7));
+}
+
+.series img {
+	width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.7));
+}
+
+.po_S {
+    line-height: normal;
+    color: #FFF;
+    padding: 5px 8px;
+    font-size: 12px;
+    background: #3498db;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    z-index: 100;
+    border-radius: 0 0 12px 0;
+}
+.statusS.po_S {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: lavender;
+    color: #222;
+}
+.typeS.po_S {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 12px 0 0;
+    background: #9980ff;
+    color: #fff;
+}
+.scoreS.po_S {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 12px 0 0  0;
+    background: gold;
+    color: #000;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0px 5px;
+}
+span.scoreS.po_S svg {
+    width: 1rem;
+    height: 1rem;
+}
+.bChapterS {
+    overflow: hidden;
+}
+.titleS {
+    font-size: 12px;
+    font-weight: bold;
+    color: #222;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 10px 5px;
+}
+
+ul.latest-chapters {
+	margin: auto 5px;
+    padding: 0;
+}
+ul.latest-chapters li {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px auto;
+    align-items: center;
+    position: relative;
+}
+
+ul.latest-chapters li > a {
+    font-size: 14px;
+    background: #eaeaea;
+    color: #222;
+    text-decoration: none;
+    padding: 3px 4px;
+    border-radius: 5px;
+}
+
+ul.latest-chapters li > time {
+    font-size: 11px;
+}
+ul.latest-chapters li > .badge.new-badge {
+    background: #ff5722;
+    color: #fff;
+    padding: 2px 3px;
+    border-radius: 3px;
+    font-size: 8px;
+}
+ul.latest-chapters li > .badge.new-badge {
+    position: absolute;
+    right: 25px;
+    top: -10px;
+}
+
+
+/*Loader*/        
+.loader-container {
+  text-align: center;
+}
+.loader-container h4 {
+  color: #eb3349;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  position: relative;
+}
+.loader-container h4:after {
+  position: absolute;
+  content: "";
+  animation: Dots 2s cubic-bezier(0, 0.39, 1, 0.68) infinite;
+}
+.loader-container .loader {
+  margin: 5% auto 30px;
+}
+.loader-container .book {
+  background: #FFF;
+  border: 4px solid #eb3349;
+  width: 60px;
+  height: 45px;
+  position: relative;
+  perspective: 150px;
+}
+.loader-container .page {
+  display: block;
+  width: 30px;
+  height: 45px;
+  border: 4px solid #eb3349;
+  border-left: 3px solid #f45c43;
+  margin: 0;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  overflow: hidden;
+  background: #EEE;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+}
+.loader-container .page:before {
+  content: "";
+  width: 55%;
+  height: 40%;
+  background: #EEE;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  border-radius: 20%;
+  z-index: 9;
+}
+.loader-container .page:after {
+  content: "";
+  width: 55%;
+  height: 40%;
+  background: #EEE;
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  border-radius: 20%;
+  z-index: 9;
+}
+.loader-container .book .page:nth-child(1) {
+  animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.6s infinite;
+}
+.loader-container .book .page:nth-child(2) {
+  animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.45s infinite;
+}
+.loader-container .book .page:nth-child(3) {
+  animation: pageTurn 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.2s infinite;
+}
+
+/* Page turn */
+@keyframes pageTurn {
+  0% {
+    transform: rotateY(0deg);
+  }
+  20% {
+    background: #f45c43;
+    border-color: #f45c43;
+  }
+  40% {
+    background: #FFF;
+    transform: rotateY(-180deg);
+  }
+  100% {
+    background: #FFF;
+    transform: rotateY(-180deg);
+  }
+}
+/* Dots */
+@-webkit-keyframes Dots {
+  0% {
+    content: "";
+  }
+  33% {
+    content: ".";
+  }
+  66% {
+    content: "..";
+  }
+  100% {
+    content: "...";
+  }
+}
+@keyframes Dots {
+  0% {
+    content: "";
+  }
+  33% {
+    content: ".";
+  }
+  66% {
+    content: "..";
+  }
+  100% {
+    content: "...";
+  }
+}
+    </style>
+</head>
+<body>
+  
+  
+<div id="seriesUnlimited"><!--jangan dihapus-->
+  
+<div id="libarySeries" class="boxcc"></div><!--jangan dihapus-->
+  
+  <!--jangan dihapus--><span><p id="info_status"></p></span><!--jangan dihapus-->
+  
+ <div id="info_statusLoader"><!--jangan dihapus-->
+   
+<!--boleh dihapus--><div class="loader-container">
+  <div class="loader book">
+    <figure class="page"></figure>
+    <figure class="page"></figure>
+    <figure class="page"></figure>  
+  </div>
+  <h4>Loading</h4></div><!--boleh dihapus-->
+  
+</div><!--jangan dihapus-->
+</div><!--jangan dihapus-->
+                 
+
+<script src="seriesLite_v1.0.0_r2_LatestChapter_only.js"></script>
+
+</body>
+</html>
