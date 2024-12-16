@@ -36,7 +36,7 @@ timeago_id  = 1 jam - tahun;
         
   	  image_default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLjbMyZwf0T4z9RgOoWe8wdvktWrhgthPIXM2lNIavzniNi-tC90SQMOg&s=10",
   
-        modif_title_Chapter: ["Chapter\\s*[\\d\\.,/{}$!--''=;::+%*()\\[\\]#~_}{&*><\\?]+"],
+        modif_title_Chapter: ["([vV]olume|[cC]hapter|[pP]rolog[ue]?|[eE]pisode|[sS]eason|[cC]h|[vV]ol|[eE]p|[sS])\\s*\\d+(?=[\\s\\W]|$)(.*)"],
 		replaceList_ch: [
         { target: /Volume/, change_to: 'Vol' },
         { target: /Season/, change_to: 'S' },
