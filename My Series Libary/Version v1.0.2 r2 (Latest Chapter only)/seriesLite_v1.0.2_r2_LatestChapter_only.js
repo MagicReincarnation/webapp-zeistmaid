@@ -1,7 +1,7 @@
 // SeriesLibrary: Series dan Chapters
 const SeriesLibrary = {
-    domain: "https://zeistmaid.blogspot.com",
-  // domain: "https://zeistmanga-bt.blogspot.com",
+  //domain: "https://zeistmaid.blogspot.com",
+  domain: "https://zeistmanga-bt.blogspot.com",
     labelSeries: "Series",
     maxChapters: 4, // 3 chapter terbaru.. kenapa aku sebut angka 4 sebagai 3 chapter terbaru? ya.. itu karena 1 nya itu series yang dibuang supaya gak keindex.
 
@@ -89,7 +89,14 @@ async processFeed(feed) {
     } else {
         console.warn("ID 'info_statusLoader' tidak ditemukan.");
     }
-
+   
+    const session_seriesFD = sessionStorage.getItem("seriesFD");
+    if(session_seriesFD){
+    const true_session_seriesFD = session_seriesFD ? JSON.parse(session_seriesFD) : {};
+    this.seriesData = { ...true_session_seriesFD, ...this.seriesData };
+	  console.log("session_seriesFD ditemukan.");
+	}
+	   
     const feedPost = await feed.feed;
     let totalResults = feedPost.openSearch$totalResults?.$t ? parseInt(feedPost.openSearch$totalResults.$t, 10) : 0;
     
@@ -143,7 +150,7 @@ async processFeed(feed) {
 
     	this.totalResults_Series = totalResults;
         this.totalEntry_Series = feedPost.entry.length;
-   
+        
    if (this.modemax_infinitySeries) {
     const totalSeries = Object.keys(this.seriesData).length; 
       if(feedPost.entry.length >= this.maxFeedResults){
@@ -166,6 +173,8 @@ async processFeed(feed) {
 }
         
         this.renderPage();
+        sessionStorage.setItem("seriesFD", JSON.stringify(this.seriesData));
+      
     } else {
         if (stfeed) stfeed.style.display = "none";
         document.getElementById('btn_seriesUnlimited').style.display = "none";
@@ -467,10 +476,16 @@ formatTimestamp(timestamp, format = this.config.modeFormat) {
   const container = document.getElementById('seriesUnlimited');
 if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
    const totalSeries = Object.keys(this.seriesData).length;
- 
+   
+    const last_IndexSeries = sessionStorage.getItem("last_IndexSeries");
+    if (last_IndexSeries) {
+   this.feedIndex = parseInt(last_IndexSeries, 10);
+    }
    if (!this.modemax_infinitySeries) {
 if (this.totalEntry_Series >= this.maxFeedResults) {           		this.feedIndex += this.maxFeedResults;
         await this.fetchFeed("SeriesLibrary.processFeed");
+        
+        sessionStorage.setItem("last_IndexSeries", this.feedIndex);
                 if(this.consolActive){
         console.log(`Hasil data scroll: 
           - Total Entry Series: ${this.totalEntry_Series} 
