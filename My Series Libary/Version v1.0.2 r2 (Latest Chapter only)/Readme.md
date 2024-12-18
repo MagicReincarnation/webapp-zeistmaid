@@ -1,18 +1,36 @@
 # Change Log
 
-## [1.0.2] R2 - 2024-12-16
+## [1.0.2] R2 - 2024-12-18
 ### Changed
-- **Penghapusan Volume Batch dan All Chapters**: Menghapus fitur All Chapters dan Volume Batch, hanya menampilkan Latest Chapter.
-- **Filter Title**: Menambahkan Fitur Memodifikasi judul chapter (misal.. "Volume" menjadi "Vol", "Season" menjadi "S", "Chapter" menjadi "Ch").
-- **Fungsi `fetchFeedByLabel` dan `runLoadChapterNow`**: Diubah untuk hanya memuat Latest Chapter, tanpa batch atau volume.
+- **Penghapusan Volume Batch dan All Chapters** - 2024-12-16: 
+  
+  Menghapus fitur All Chapters dan Volume Batch, hanya menampilkan Latest Chapter.
+
+- **Filter Title** - 2024-12-16: 
+
+  Menambahkan Fitur Memodifikasi judul chapter (misal.. "Volume" menjadi "Vol", "Season" menjadi "S", "Chapter" menjadi "Ch").
+  
+- **Fungsi `fetchFeedByLabel` dan `runLoadChapterNow`** - 2024-12-16: 
+
+  Diubah untuk hanya memuat Latest Chapter, tanpa batch atau volume.
 
 ### Fixed
-- **Tampilan dan UX**: Menghapus tampilan untuk All Chapters dan Volume, hanya menampilkan chapter terbaru, dan memberikan style dasar pada kodenya.
-- **Button load more**: sebagai pengganti jika load more scroll tidak bekerja maka bisa menggunakan button untuk load more postingan series.
-- **Loader book**: Memperbaiki sedikit bug pada icon loader book. 
+- **Tampilan dan UX** - 2024-12-16: 
+
+  Menghapus tampilan untuk All Chapters dan Volume, hanya menampilkan chapter terbaru, dan memberikan style dasar pada kodenya.
+
+- **Button load more** - 2024-12-16: 
+
+  sebagai pengganti jika load more scroll tidak bekerja maka bisa menggunakan button untuk load more postingan series.
+  
+- **Loader book** - 2024-12-16: 
+
+  Memperbaiki sedikit bug pada icon loader book. 
 
 ### added 
-- **Session storage**: menambahkan session storage untuk series yang sudah dimuat sebelumnya agar tidak memulai dari index awal lagi.
+- **Session storage** - 2024-12-18 : 
+
+  menambahkan session storage untuk series yang sudah dimuat sebelumnya agar tidak memulai dari index awal lagi.
 
 # New Demo 
  [My series R2 latest Chapter Only](https://codehiru.blogspot.com/2024/12/my-list-unlimited-v101-r2-latest.html?m=1)
