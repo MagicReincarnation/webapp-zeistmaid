@@ -18,25 +18,42 @@ jobs:
       run: |
         echo "[" > manifest.json
 
-        # Mencari direktori dan menambahkan informasi
+        # Mencari file di direktori utama dan menambahkan informasi
+        find . -type f -not -path './.github*' -exec bash -c '
+          file_path="{}"
+          # Pastikan file tidak kosong dan valid
+          if [ -s "$file_path" ]; then
+            file_name=$(basename "$file_path")
+            file_size=$(stat -c %s "$file_path")
+            last_updated=$(stat -c %Y "$file_path")
+            url="https://raw.githubusercontent.com/${{ github.repository }}/main/$(realpath --relative-to=. "$file_path")"
+            echo "{\"name\": \"$file_name\", \"type\": \"file\", \"size\": \"$file_size\", \"download_url\": \"$url\", \"updated_at\": \"$(date -u -d @$last_updated +"%Y-%m-%dT%H:%M:%SZ")\"}," >> manifest.json
+          fi
+        ' \;
+
+        # Mencari direktori yang valid dan menambahkan informasi
         find . -type d -not -path './.github*' -exec bash -c '
           folder_path="{}"
-          last_update=$(stat -c %Y "$folder_path")  # Timestamp update terakhir
-          echo "{\"path\": \"$folder_path\", \"name\": \"$(basename {})\", \"type\": \"dir\", \"last_update\": \"$last_update\", \"files\": [" >> manifest.json
+          # Pastikan folder tidak kosong dan valid
+          if [ "$(find "$folder_path" -maxdepth 1 -type f)" ]; then
+            last_update=$(stat -c %Y "$folder_path")  # Timestamp update terakhir
+            echo "{\"name\": \"$(basename {})\", \"type\": \"dir\", \"size\": null, \"updated_at\": \"$(date -u -d @$last_update +"%Y-%m-%dT%H:%M:%SZ")\", \"files\": [" >> manifest.json
 
-          # Mencari file dalam direktori tersebut
-          find "$folder_path" -maxdepth 1 -type f -exec bash -c "
-            file_path='{}'
-            file_name=\$(basename \"\$file_path\")
-            file_type=\$(file --mime-type -b \"\$file_path\" | cut -d/ -f2)
-            file_size=\$(stat -c %s \"\$file_path\")
-            last_updated=\$(stat -c %Y \"\$file_path\")
-            url=\"https://raw.githubusercontent.com/\${{ github.repository }}/main/\$(realpath --relative-to=. \"\$file_path\")\"
-            echo \"{\"path\": \"\$file_path\", \"name\": \"\$file_name\", \"type\": \"file\", \"format\": \"\$file_type\", \"url\": \"\$url\", \"size\": \"\$file_size\", \"last_updated\": \"\$last_updated\"},\" >> manifest.json
-          " \;
+            # Mencari file di dalam folder dan menambahkannya
+            find "$folder_path" -maxdepth 1 -type f -exec bash -c "
+              file_path='{}'
+              if [ -s \"\$file_path\" ]; then
+                file_name=\$(basename \"\$file_path\")
+                file_size=\$(stat -c %s \"\$file_path\")
+                last_updated=\$(stat -c %Y \"\$file_path\")
+                url=\"https://raw.githubusercontent.com/\${{ github.repository }}/main/\$(realpath --relative-to=. \"\$file_path\")\"
+                echo \"{\"name\": \"\$file_name\", \"type\": \"file\", \"size\": \"\$file_size\", \"download_url\": \"\$url\", \"updated_at\": \"\$(date -u -d @$last_updated +"%Y-%m-%dT%H:%M:%SZ")\"},\" >> manifest.json
+              fi
+            " \;
 
-          sed -i '$ s/,$//' manifest.json  # Hapus koma terakhir
-          echo "]}, " >> manifest.json
+            sed -i '$ s/,$//' manifest.json  # Hapus koma terakhir di dalam array "files"
+            echo "]}, " >> manifest.json
+          fi
         ' \;
 
         # Menghapus koma terakhir dari file JSON jika ada
