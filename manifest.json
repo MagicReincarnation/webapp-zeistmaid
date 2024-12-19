@@ -1,239 +1,207 @@
 [
-{"path": ".", "name": ".", "type": "dir"},
-{"path": "./Dynamic Text Replacement MutationObserver", "name": "", "type": "dir"},
-{"path": "./random code", "name": "random", "type": "dir"},
-{"path": "./Convert Fomat Timestamp", "name": "", "type": "dir"},
-{"path": "./Visited Link", "name": "Visited", "type": "dir"},
-{"path": "./Chapter list", "name": "Chapter", "type": "dir"},
-{"path": "./My Series Libary", "name": "", "type": "dir"},
-{"path": "./My Series Libary/Version 1.0.0", "name": "", "type": "dir"},
-{"path": "./Anti inspect Element kiwi browser", "name": "", "type": "dir"},
-{"path": "./Product details", "name": "Product", "type": "dir"},
-{"path": "./List project code", "name": "", "type": "dir"},
-{"path": "./.git", "name": ".git", "type": "dir"},
-{"path": "./.git/info", "name": "info", "type": "dir"},
-{"path": "./.git/branches", "name": "branches", "type": "dir"},
-{"path": "./.git/refs", "name": "refs", "type": "dir"},
-{"path": "./.git/refs/heads", "name": "heads", "type": "dir"},
-{"path": "./.git/refs/remotes", "name": "remotes", "type": "dir"},
-{"path": "./.git/refs/remotes/origin", "name": "origin", "type": "dir"},
-{"path": "./.git/refs/tags", "name": "tags", "type": "dir"},
-{"path": "./.git/logs", "name": "logs", "type": "dir"},
-{"path": "./.git/logs/refs", "name": "refs", "type": "dir"},
-{"path": "./.git/logs/refs/heads", "name": "heads", "type": "dir"},
-{"path": "./.git/logs/refs/remotes", "name": "remotes", "type": "dir"},
-{"path": "./.git/logs/refs/remotes/origin", "name": "origin", "type": "dir"},
-{"path": "./.git/objects", "name": "objects", "type": "dir"},
-{"path": "./.git/objects/7e", "name": "7e", "type": "dir"},
-{"path": "./.git/objects/info", "name": "info", "type": "dir"},
-{"path": "./.git/objects/99", "name": "99", "type": "dir"},
-{"path": "./.git/objects/12", "name": "12", "type": "dir"},
-{"path": "./.git/objects/a2", "name": "a2", "type": "dir"},
-{"path": "./.git/objects/f6", "name": "f6", "type": "dir"},
-{"path": "./.git/objects/30", "name": "30", "type": "dir"},
-{"path": "./.git/objects/d1", "name": "d1", "type": "dir"},
-{"path": "./.git/objects/e8", "name": "e8", "type": "dir"},
-{"path": "./.git/objects/4d", "name": "4d", "type": "dir"},
-{"path": "./.git/objects/da", "name": "da", "type": "dir"},
-{"path": "./.git/objects/81", "name": "81", "type": "dir"},
-{"path": "./.git/objects/73", "name": "73", "type": "dir"},
-{"path": "./.git/objects/a9", "name": "a9", "type": "dir"},
-{"path": "./.git/objects/ca", "name": "ca", "type": "dir"},
-{"path": "./.git/objects/pack", "name": "pack", "type": "dir"},
-{"path": "./.git/objects/00", "name": "00", "type": "dir"},
-{"path": "./.git/objects/23", "name": "23", "type": "dir"},
-{"path": "./.git/objects/7c", "name": "7c", "type": "dir"},
-{"path": "./.git/objects/28", "name": "28", "type": "dir"},
-{"path": "./.git/objects/22", "name": "22", "type": "dir"},
-{"path": "./.git/objects/aa", "name": "aa", "type": "dir"},
-{"path": "./.git/objects/c3", "name": "c3", "type": "dir"},
-{"path": "./.git/objects/de", "name": "de", "type": "dir"},
-{"path": "./.git/objects/96", "name": "96", "type": "dir"},
-{"path": "./.git/objects/33", "name": "33", "type": "dir"},
-{"path": "./.git/objects/b9", "name": "b9", "type": "dir"},
-{"path": "./.git/objects/e6", "name": "e6", "type": "dir"},
-{"path": "./.git/objects/7d", "name": "7d", "type": "dir"},
-{"path": "./.git/objects/d0", "name": "d0", "type": "dir"},
-{"path": "./.git/objects/dd", "name": "dd", "type": "dir"},
-{"path": "./.git/objects/62", "name": "62", "type": "dir"},
-{"path": "./.git/objects/4a", "name": "4a", "type": "dir"},
-{"path": "./.git/objects/f4", "name": "f4", "type": "dir"},
-{"path": "./.git/objects/d7", "name": "d7", "type": "dir"},
-{"path": "./.git/objects/10", "name": "10", "type": "dir"},
-{"path": "./.git/objects/a1", "name": "a1", "type": "dir"},
-{"path": "./.git/objects/13", "name": "13", "type": "dir"},
-{"path": "./.git/objects/55", "name": "55", "type": "dir"},
-{"path": "./.git/objects/0f", "name": "0f", "type": "dir"},
-{"path": "./.git/objects/07", "name": "07", "type": "dir"},
-{"path": "./.git/objects/1b", "name": "1b", "type": "dir"},
-{"path": "./.git/objects/ac", "name": "ac", "type": "dir"},
-{"path": "./.git/objects/3f", "name": "3f", "type": "dir"},
-{"path": "./.git/objects/b4", "name": "b4", "type": "dir"},
-{"path": "./.git/objects/79", "name": "79", "type": "dir"},
-{"path": "./.git/objects/a3", "name": "a3", "type": "dir"},
-{"path": "./.git/objects/af", "name": "af", "type": "dir"},
-{"path": "./.git/objects/b0", "name": "b0", "type": "dir"},
-{"path": "./.git/objects/d4", "name": "d4", "type": "dir"},
-{"path": "./.git/objects/5c", "name": "5c", "type": "dir"},
-{"path": "./.git/objects/56", "name": "56", "type": "dir"},
-{"path": "./.git/objects/42", "name": "42", "type": "dir"},
-{"path": "./.git/hooks", "name": "hooks", "type": "dir"},
-{"path": "./Dynamic Text Replacement MutationObserver/main.xml", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Dynamic
-Text
-Replacement", "size": ""},
-{"path": "./Dynamic Text Replacement MutationObserver/Readme.md", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Dynamic
-Text
-Replacement", "size": ""},
-{"path": "./random code/datakodehiru.js", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./random code/wepApp_manifest.json", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./random code/HirutshujiCode.js", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./random code/lazyloadGif.xml", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./random code/code_byhiruthsuji.js", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./random code/blogger-avatar-komentar.js", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./random code/TimeAgov1.0.js", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./random code/deletePasswordcomment.js", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./random code/hirutshujicode.js", "name": "random", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/random", "size": ""},
-{"path": "./Convert Fomat Timestamp/mainscript.js", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Convert
-Fomat", "size": ""},
-{"path": "./Convert Fomat Timestamp/Readme.md", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Convert
-Fomat", "size": ""},
-{"path": "./Visited Link/Readme.md", "name": "Visited", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Visited", "size": ""},
-{"path": "./Visited Link/VisitedLink.xml", "name": "Visited", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Visited", "size": ""},
-{"path": "./ssstik.io_@gatorsenju2_1722893663998.mp4", "name": "ssstik.io_@gatorsenju2_1722893663998.mp4", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/ssstik.io_@gatorsenju2_1722893663998.mp4", "size": "1455044"},
-{"path": "./Chapter list/Readme.md", "name": "Chapter", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Chapter", "size": ""},
-{"path": "./Chapter list/Chapter List v4.1.1.html", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Chapter
-List
-v4.1.1.html", "size": ""},
-{"path": "./Chapter list/Array Filter Regex.js", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Chapter
-Filter
-Regex.js", "size": ""},
-{"path": "./Chapter list/Viewscount.xml", "name": "Chapter", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Chapter", "size": ""},
-{"path": "./manifest.json", "name": "manifest.json", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/manifest.json", "size": "8715"},
-{"path": "./My Series Libary/Readme.md", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/My
-Series", "size": ""},
-{"path": "./My Series Libary/Version 1.0.0/seriesBacthLite_v1.0.0.html", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/My
-Series", "size": ""},
-{"path": "./My Series Libary/Version 1.0.0/seriesBacthLite_v1.0.0.js", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/My
-Series", "size": ""},
-{"path": "./README.md", "name": "README.md", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/README.md", "size": "45"},
-{"path": "./Anti inspect Element kiwi browser/mainScript version urlredirect custom.xml", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Anti
-inspect
-Element
-kiwi
-version
-urlredirect
-custom.xml", "size": ""},
-{"path": "./Anti inspect Element kiwi browser/Readme.md", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Anti
-inspect
-Element
-kiwi", "size": ""},
-{"path": "./Anti inspect Element kiwi browser/mainscript.xml", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Anti
-inspect
-Element
-kiwi", "size": ""},
-{"path": "./Product details/mainScript.js", "name": "Product", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Product", "size": ""},
-{"path": "./Product details/styles.css", "name": "Product", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Product", "size": ""},
-{"path": "./Product details/Readme.md", "name": "Product", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Product", "size": ""},
-{"path": "./Product details/code post.xml", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/Product
-post.xml", "size": ""},
-{"path": "./List project code/script.min.js", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/List
-project", "size": ""},
-{"path": "./List project code/data.json", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/List
-project", "size": ""},
-{"path": "./List project code/Project Code.html", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/List
-project
-Code.html", "size": ""},
-{"path": "./List project code/Readme.md", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/List
-project", "size": ""},
-{"path": "./List project code/script.js", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/List
-project", "size": ""},
-{"path": "./List project code/style.css", "name": "", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/List
-project", "size": ""},
-{"path": "./.git/info/exclude", "name": "exclude", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/info/exclude", "size": "240"},
-{"path": "./.git/HEAD", "name": "HEAD", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/HEAD", "size": "21"},
-{"path": "./.git/config", "name": "config", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/config", "size": "432"},
-{"path": "./.git/description", "name": "description", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/description", "size": "73"},
-{"path": "./.git/index", "name": "index", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/index", "size": "5576"},
-{"path": "./.git/refs/heads/main", "name": "main", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/refs/heads/main", "size": "41"},
-{"path": "./.git/refs/remotes/origin/main", "name": "main", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/refs/remotes/origin/main", "size": "41"},
-{"path": "./.git/logs/HEAD", "name": "HEAD", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/logs/HEAD", "size": "218"},
-{"path": "./.git/logs/refs/heads/main", "name": "main", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/logs/refs/heads/main", "size": "227"},
-{"path": "./.git/logs/refs/remotes/origin/main", "name": "main", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/logs/refs/remotes/origin/main", "size": "337"},
-{"path": "./.git/objects/7e/b28da0e0c2ffa861b127cbfc6c90bf4ddd13de", "name": "b28da0e0c2ffa861b127cbfc6c90bf4ddd13de", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/7e/b28da0e0c2ffa861b127cbfc6c90bf4ddd13de", "size": "50"},
-{"path": "./.git/objects/7e/7ca0d2c7e698d363fc7cc99dfd85d21fe6b8d2", "name": "7ca0d2c7e698d363fc7cc99dfd85d21fe6b8d2", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/7e/7ca0d2c7e698d363fc7cc99dfd85d21fe6b8d2", "size": "174"},
-{"path": "./.git/objects/99/6fe73913c22c2f5f1d8a40622b3ed644f54405", "name": "6fe73913c22c2f5f1d8a40622b3ed644f54405", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/99/6fe73913c22c2f5f1d8a40622b3ed644f54405", "size": "5734"},
-{"path": "./.git/objects/99/a23345f921d2423c4def94b8ea4134589a7035", "name": "a23345f921d2423c4def94b8ea4134589a7035", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/99/a23345f921d2423c4def94b8ea4134589a7035", "size": "574"},
-{"path": "./.git/objects/12/1a7d46681663c08102d7b3c812c8d65a3e5670", "name": "1a7d46681663c08102d7b3c812c8d65a3e5670", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/12/1a7d46681663c08102d7b3c812c8d65a3e5670", "size": "990"},
-{"path": "./.git/objects/a2/2dca48840af44c6c426d09c2fe0c8e81d9f6a5", "name": "2dca48840af44c6c426d09c2fe0c8e81d9f6a5", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/a2/2dca48840af44c6c426d09c2fe0c8e81d9f6a5", "size": "307"},
-{"path": "./.git/objects/f6/bb83da19ea9b124b606b62ff4cdcdb9ef6b94d", "name": "bb83da19ea9b124b606b62ff4cdcdb9ef6b94d", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/f6/bb83da19ea9b124b606b62ff4cdcdb9ef6b94d", "size": "86"},
-{"path": "./.git/objects/30/6bbcc86982f94550f4185650846e06c112d69e", "name": "6bbcc86982f94550f4185650846e06c112d69e", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/30/6bbcc86982f94550f4185650846e06c112d69e", "size": "824"},
-{"path": "./.git/objects/d1/2975be14adffa2f3e71ed34eb3dc22a4495152", "name": "2975be14adffa2f3e71ed34eb3dc22a4495152", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/d1/2975be14adffa2f3e71ed34eb3dc22a4495152", "size": "3048"},
-{"path": "./.git/objects/e8/dc7f0f4c69572f817353a589494dfe1088fc69", "name": "dc7f0f4c69572f817353a589494dfe1088fc69", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/e8/dc7f0f4c69572f817353a589494dfe1088fc69", "size": "1772"},
-{"path": "./.git/objects/4d/3e3834d54b426d14e85642a38424652a838c93", "name": "3e3834d54b426d14e85642a38424652a838c93", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/4d/3e3834d54b426d14e85642a38424652a838c93", "size": "950"},
-{"path": "./.git/objects/4d/90a1df6b71b96b39d536800b5e6be60be5640f", "name": "90a1df6b71b96b39d536800b5e6be60be5640f", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/4d/90a1df6b71b96b39d536800b5e6be60be5640f", "size": "860"},
-{"path": "./.git/objects/da/31826f1f3f08309136b311141a23c39d6a5126", "name": "31826f1f3f08309136b311141a23c39d6a5126", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/da/31826f1f3f08309136b311141a23c39d6a5126", "size": "565"},
-{"path": "./.git/objects/81/46d63086abf5c2e4a4856aed46c2558866fe3f", "name": "46d63086abf5c2e4a4856aed46c2558866fe3f", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/81/46d63086abf5c2e4a4856aed46c2558866fe3f", "size": "2037"},
-{"path": "./.git/objects/73/a19b98bb42b25782f80057fa8a1b5a0347d56a", "name": "a19b98bb42b25782f80057fa8a1b5a0347d56a", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/73/a19b98bb42b25782f80057fa8a1b5a0347d56a", "size": "2275"},
-{"path": "./.git/objects/a9/840f3394b89cc3d0016c0018048f3079a723b2", "name": "840f3394b89cc3d0016c0018048f3079a723b2", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/a9/840f3394b89cc3d0016c0018048f3079a723b2", "size": "799"},
-{"path": "./.git/objects/ca/86064c4d3b3be869963b5971c96472e8f1fcda", "name": "86064c4d3b3be869963b5971c96472e8f1fcda", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/ca/86064c4d3b3be869963b5971c96472e8f1fcda", "size": "94"},
-{"path": "./.git/objects/00/c68dccd5805ab864bc9411b4b1bc0e4e6a5e17", "name": "c68dccd5805ab864bc9411b4b1bc0e4e6a5e17", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/00/c68dccd5805ab864bc9411b4b1bc0e4e6a5e17", "size": "373"},
-{"path": "./.git/objects/23/6b69de61f28c662d9e4515a25c59f3a219b16d", "name": "6b69de61f28c662d9e4515a25c59f3a219b16d", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/23/6b69de61f28c662d9e4515a25c59f3a219b16d", "size": "585"},
-{"path": "./.git/objects/7c/70fa775a48506b37ec96ae789a7d2a094c4a94", "name": "70fa775a48506b37ec96ae789a7d2a094c4a94", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/7c/70fa775a48506b37ec96ae789a7d2a094c4a94", "size": "536"},
-{"path": "./.git/objects/28/9d3782032d2c74523ad2bdfebfc81a745ea48c", "name": "9d3782032d2c74523ad2bdfebfc81a745ea48c", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/28/9d3782032d2c74523ad2bdfebfc81a745ea48c", "size": "164"},
-{"path": "./.git/objects/22/d0da3b86153418954824a4849104a8abe9b81a", "name": "d0da3b86153418954824a4849104a8abe9b81a", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/22/d0da3b86153418954824a4849104a8abe9b81a", "size": "567"},
-{"path": "./.git/objects/aa/f9bac261f915ba4f50b30cf4ffddf22393785e", "name": "f9bac261f915ba4f50b30cf4ffddf22393785e", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/aa/f9bac261f915ba4f50b30cf4ffddf22393785e", "size": "438"},
-{"path": "./.git/objects/aa/ce94fe8a3980db28299dfa3c5ab6a296c32f62", "name": "ce94fe8a3980db28299dfa3c5ab6a296c32f62", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/aa/ce94fe8a3980db28299dfa3c5ab6a296c32f62", "size": "98"},
-{"path": "./.git/objects/c3/98447a324928deaa104c91e8e08431a4a1c0cd", "name": "98447a324928deaa104c91e8e08431a4a1c0cd", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/c3/98447a324928deaa104c91e8e08431a4a1c0cd", "size": "2905"},
-{"path": "./.git/objects/c3/341444d52cd4443bf88705063505d04cb41d48", "name": "341444d52cd4443bf88705063505d04cb41d48", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/c3/341444d52cd4443bf88705063505d04cb41d48", "size": "574"},
-{"path": "./.git/objects/de/1bc266c5e12d10d94948d1a999bd024660857c", "name": "1bc266c5e12d10d94948d1a999bd024660857c", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/de/1bc266c5e12d10d94948d1a999bd024660857c", "size": "451"},
-{"path": "./.git/objects/96/72c8e51cd05502e6eb73cb606720927e428210", "name": "72c8e51cd05502e6eb73cb606720927e428210", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/96/72c8e51cd05502e6eb73cb606720927e428210", "size": "428"},
-{"path": "./.git/objects/33/c27bcf680a046db4a9c4b17b06861bdd578f74", "name": "c27bcf680a046db4a9c4b17b06861bdd578f74", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/33/c27bcf680a046db4a9c4b17b06861bdd578f74", "size": "150"},
-{"path": "./.git/objects/b9/a2ab819d55e62e1816edfaf4e30ee45e76cf37", "name": "a2ab819d55e62e1816edfaf4e30ee45e76cf37", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/b9/a2ab819d55e62e1816edfaf4e30ee45e76cf37", "size": "1384"},
-{"path": "./.git/objects/e6/3f26a18dd79f292e51e05d32ceec698753a2f6", "name": "3f26a18dd79f292e51e05d32ceec698753a2f6", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/e6/3f26a18dd79f292e51e05d32ceec698753a2f6", "size": "149"},
-{"path": "./.git/objects/7d/6ee02dff5f0471e973a2b85b95dd9e0167b977", "name": "6ee02dff5f0471e973a2b85b95dd9e0167b977", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/7d/6ee02dff5f0471e973a2b85b95dd9e0167b977", "size": "7967"},
-{"path": "./.git/objects/d0/a7fbb66d572a570b4c29c7fe4b2ba07c9c6868", "name": "a7fbb66d572a570b4c29c7fe4b2ba07c9c6868", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/d0/a7fbb66d572a570b4c29c7fe4b2ba07c9c6868", "size": "1007"},
-{"path": "./.git/objects/dd/22aeee379ec3348d7dcdb29b2b60e850814bde", "name": "22aeee379ec3348d7dcdb29b2b60e850814bde", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/dd/22aeee379ec3348d7dcdb29b2b60e850814bde", "size": "1413999"},
-{"path": "./.git/objects/62/112bbc95592d1ca3e5acf351473d957a78d092", "name": "112bbc95592d1ca3e5acf351473d957a78d092", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/62/112bbc95592d1ca3e5acf351473d957a78d092", "size": "2950"},
-{"path": "./.git/objects/4a/034ca4ad952cec7820bfe78f33d4b4de419e22", "name": "034ca4ad952cec7820bfe78f33d4b4de419e22", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/4a/034ca4ad952cec7820bfe78f33d4b4de419e22", "size": "1534"},
-{"path": "./.git/objects/f4/6dec5e3bddd88c96ca86fd87cf8009ca9728c9", "name": "6dec5e3bddd88c96ca86fd87cf8009ca9728c9", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/f4/6dec5e3bddd88c96ca86fd87cf8009ca9728c9", "size": "840"},
-{"path": "./.git/objects/f4/a3bbbe5d63a519385c1111e6c74d5e9864990a", "name": "a3bbbe5d63a519385c1111e6c74d5e9864990a", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/f4/a3bbbe5d63a519385c1111e6c74d5e9864990a", "size": "1107"},
-{"path": "./.git/objects/d7/e345e41e3accdee3aafa986f58888fdc68a3a0", "name": "e345e41e3accdee3aafa986f58888fdc68a3a0", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/d7/e345e41e3accdee3aafa986f58888fdc68a3a0", "size": "373"},
-{"path": "./.git/objects/d7/57bcdf898d670a8f29a9db805f3dacab9f8ea7", "name": "57bcdf898d670a8f29a9db805f3dacab9f8ea7", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/d7/57bcdf898d670a8f29a9db805f3dacab9f8ea7", "size": "875"},
-{"path": "./.git/objects/10/7428f33b5e28c587a4bae91e010b8e1d71e91e", "name": "7428f33b5e28c587a4bae91e010b8e1d71e91e", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/10/7428f33b5e28c587a4bae91e010b8e1d71e91e", "size": "7789"},
-{"path": "./.git/objects/a1/69b933a0fd713ed699c6dd30309765eaf9e83c", "name": "69b933a0fd713ed699c6dd30309765eaf9e83c", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/a1/69b933a0fd713ed699c6dd30309765eaf9e83c", "size": "1944"},
-{"path": "./.git/objects/13/ba8ed4d3e08250857fe5628551ce54e531bc64", "name": "ba8ed4d3e08250857fe5628551ce54e531bc64", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/13/ba8ed4d3e08250857fe5628551ce54e531bc64", "size": "1895"},
-{"path": "./.git/objects/55/f60f073a8334eaa9dcd2f9848a1b4240514feb", "name": "f60f073a8334eaa9dcd2f9848a1b4240514feb", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/55/f60f073a8334eaa9dcd2f9848a1b4240514feb", "size": "2495"},
-{"path": "./.git/objects/0f/9d96fccaf63078517d5e38abeae60048a76568", "name": "9d96fccaf63078517d5e38abeae60048a76568", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/0f/9d96fccaf63078517d5e38abeae60048a76568", "size": "181"},
-{"path": "./.git/objects/07/77971bf535cec4af52d5741e52c24c503aac2c", "name": "77971bf535cec4af52d5741e52c24c503aac2c", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/07/77971bf535cec4af52d5741e52c24c503aac2c", "size": "64"},
-{"path": "./.git/objects/1b/e6acdeb0ea37cf5237b85b152244a773f4e541", "name": "e6acdeb0ea37cf5237b85b152244a773f4e541", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/1b/e6acdeb0ea37cf5237b85b152244a773f4e541", "size": "1255"},
-{"path": "./.git/objects/ac/8ba55491e58f57149cd7f330531f89dc43e661", "name": "8ba55491e58f57149cd7f330531f89dc43e661", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/ac/8ba55491e58f57149cd7f330531f89dc43e661", "size": "736"},
-{"path": "./.git/objects/3f/88ec1d4378fdf3b58e4d91168547a6e889e422", "name": "88ec1d4378fdf3b58e4d91168547a6e889e422", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/3f/88ec1d4378fdf3b58e4d91168547a6e889e422", "size": "259"},
-{"path": "./.git/objects/b4/97986733b7586d9e421dacd3a93198506427df", "name": "97986733b7586d9e421dacd3a93198506427df", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/b4/97986733b7586d9e421dacd3a93198506427df", "size": "1011"},
-{"path": "./.git/objects/79/a19c96f2bcd3ef4fc2e63b76d1f0a1159f43a1", "name": "a19c96f2bcd3ef4fc2e63b76d1f0a1159f43a1", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/79/a19c96f2bcd3ef4fc2e63b76d1f0a1159f43a1", "size": "379"},
-{"path": "./.git/objects/a3/5e65b4d9a0924d7fe0ddce0f9955a9e0e7f798", "name": "5e65b4d9a0924d7fe0ddce0f9955a9e0e7f798", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/a3/5e65b4d9a0924d7fe0ddce0f9955a9e0e7f798", "size": "850"},
-{"path": "./.git/objects/a3/0f24661fa5710059badd9f26bd79fcd3eb641e", "name": "0f24661fa5710059badd9f26bd79fcd3eb641e", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/a3/0f24661fa5710059badd9f26bd79fcd3eb641e", "size": "7514"},
-{"path": "./.git/objects/af/a83264f894a3323acbfa8c650e4ba6513b638f", "name": "a83264f894a3323acbfa8c650e4ba6513b638f", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/af/a83264f894a3323acbfa8c650e4ba6513b638f", "size": "90"},
-{"path": "./.git/objects/b0/3124bbb71a3ff1a755b55bc9d7c0ae27fdc099", "name": "3124bbb71a3ff1a755b55bc9d7c0ae27fdc099", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/b0/3124bbb71a3ff1a755b55bc9d7c0ae27fdc099", "size": "221"},
-{"path": "./.git/objects/d4/dce8a5cece7bc218245e8d2dc74757ba08429e", "name": "dce8a5cece7bc218245e8d2dc74757ba08429e", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/d4/dce8a5cece7bc218245e8d2dc74757ba08429e", "size": "753"},
-{"path": "./.git/objects/d4/75719b084d83e775e5315dd0125f3c355a5578", "name": "75719b084d83e775e5315dd0125f3c355a5578", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/d4/75719b084d83e775e5315dd0125f3c355a5578", "size": "51"},
-{"path": "./.git/objects/d4/b5e4a88d61cf26a92b8b68be550f594965fed7", "name": "b5e4a88d61cf26a92b8b68be550f594965fed7", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/d4/b5e4a88d61cf26a92b8b68be550f594965fed7", "size": "398"},
-{"path": "./.git/objects/5c/8f702b88d9f9e54df1bc180b26b2cdcda87a48", "name": "8f702b88d9f9e54df1bc180b26b2cdcda87a48", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/5c/8f702b88d9f9e54df1bc180b26b2cdcda87a48", "size": "149"},
-{"path": "./.git/objects/56/18fefa8ea49255aa02ae12b200c39530139fe2", "name": "18fefa8ea49255aa02ae12b200c39530139fe2", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/56/18fefa8ea49255aa02ae12b200c39530139fe2", "size": "1345"},
-{"path": "./.git/objects/42/5fad44b411222faca9fc16eb1c7976ecadf8c9", "name": "5fad44b411222faca9fc16eb1c7976ecadf8c9", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/objects/42/5fad44b411222faca9fc16eb1c7976ecadf8c9", "size": "1246"},
-{"path": "./.git/FETCH_HEAD", "name": "FETCH_HEAD", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/FETCH_HEAD", "size": "143"},
-{"path": "./.git/hooks/prepare-commit-msg.sample", "name": "prepare-commit-msg.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/prepare-commit-msg.sample", "size": "1492"},
-{"path": "./.git/hooks/post-update.sample", "name": "post-update.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/post-update.sample", "size": "189"},
-{"path": "./.git/hooks/fsmonitor-watchman.sample", "name": "fsmonitor-watchman.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/fsmonitor-watchman.sample", "size": "4726"},
-{"path": "./.git/hooks/sendemail-validate.sample", "name": "sendemail-validate.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/sendemail-validate.sample", "size": "2308"},
-{"path": "./.git/hooks/pre-rebase.sample", "name": "pre-rebase.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/pre-rebase.sample", "size": "4898"},
-{"path": "./.git/hooks/pre-commit.sample", "name": "pre-commit.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/pre-commit.sample", "size": "1649"},
-{"path": "./.git/hooks/commit-msg.sample", "name": "commit-msg.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/commit-msg.sample", "size": "896"},
-{"path": "./.git/hooks/pre-merge-commit.sample", "name": "pre-merge-commit.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/pre-merge-commit.sample", "size": "416"},
-{"path": "./.git/hooks/pre-push.sample", "name": "pre-push.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/pre-push.sample", "size": "1374"},
-{"path": "./.git/hooks/applypatch-msg.sample", "name": "applypatch-msg.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/applypatch-msg.sample", "size": "478"},
-{"path": "./.git/hooks/push-to-checkout.sample", "name": "push-to-checkout.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/push-to-checkout.sample", "size": "2783"},
-{"path": "./.git/hooks/pre-receive.sample", "name": "pre-receive.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/pre-receive.sample", "size": "544"},
-{"path": "./.git/hooks/update.sample", "name": "update.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/update.sample", "size": "3650"},
-{"path": "./.git/hooks/pre-applypatch.sample", "name": "pre-applypatch.sample", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/hooks/pre-applypatch.sample", "size": "424"},
-{"path": "./.git/shallow", "name": "shallow", "type": "file", "url": "https://raw.githubusercontent.com/MagicReincarnation/webapp-zeistmaid/main/.git/shallow", "size": "41"}
+{"path": ".", "name": ".", "type": "dir", "last_update": "1734586189", "files": [
+{path: ., name: ., type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/., size: 4096, last_updated: 1734586189},
+{path: ., name: ., type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/., size: 4096, last_updated: 1734586189},
+{path: ., name: ., type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/., size: 4096, last_updated: 1734586189},
+{"path": "./Dynamic Text Replacement MutationObserver", "name": "", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./random code", "name": "random", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./Convert Fomat Timestamp", "name": "", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./Visited Link", "name": "Visited", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./Chapter list", "name": "Chapter", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./My Series Libary", "name": "", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./My Series Libary/Version 1.0.0", "name": "", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./Anti inspect Element kiwi browser", "name": "", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./Product details", "name": "Product", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./List project code", "name": "", "type": "dir", "last_update": "1734586189", "files": [
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{path: , name: , type: file, format: cannot open `' (No such file or directory), url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/, size: , last_updated: },
+{"path": "./.git", "name": ".git", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git, name: .git, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git, size: 4096, last_updated: 1734586189},
+{path: ./.git, name: .git, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git, size: 4096, last_updated: 1734586189},
+{path: ./.git, name: .git, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git, size: 4096, last_updated: 1734586189},
+{path: ./.git, name: .git, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git, size: 4096, last_updated: 1734586189},
+{path: ./.git, name: .git, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git, size: 4096, last_updated: 1734586189},
+{path: ./.git, name: .git, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git, size: 4096, last_updated: 1734586189},
+{"path": "./.git/info", "name": "info", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/info, name: info, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/info, size: 4096, last_updated: 1734586189},
+{"path": "./.git/branches", "name": "branches", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/refs", "name": "refs", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/refs/heads", "name": "heads", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/refs/heads, name: heads, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/refs/heads, size: 4096, last_updated: 1734586189},
+{"path": "./.git/refs/remotes", "name": "remotes", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/refs/remotes/origin", "name": "origin", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/refs/remotes/origin, name: origin, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/refs/remotes/origin, size: 4096, last_updated: 1734586189},
+{"path": "./.git/refs/tags", "name": "tags", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/logs", "name": "logs", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/logs, name: logs, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/logs, size: 4096, last_updated: 1734586189},
+{"path": "./.git/logs/refs", "name": "refs", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/logs/refs/heads", "name": "heads", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/logs/refs/heads, name: heads, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/logs/refs/heads, size: 4096, last_updated: 1734586189},
+{"path": "./.git/logs/refs/remotes", "name": "remotes", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/logs/refs/remotes/origin", "name": "origin", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/logs/refs/remotes/origin, name: origin, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/logs/refs/remotes/origin, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects", "name": "objects", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/objects/7e", "name": "7e", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/7e, name: 7e, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/7e, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/7e, name: 7e, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/7e, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/info", "name": "info", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/objects/f2", "name": "f2", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/f2, name: f2, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/f2, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/99", "name": "99", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/99, name: 99, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/99, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/99, name: 99, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/99, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/12", "name": "12", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/12, name: 12, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/12, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/a2", "name": "a2", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/a2, name: a2, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/a2, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/f6", "name": "f6", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/f6, name: f6, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/f6, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/30", "name": "30", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/30, name: 30, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/30, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/d1", "name": "d1", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/d1, name: d1, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/d1, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/e8", "name": "e8", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/e8, name: e8, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/e8, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/4d", "name": "4d", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/4d, name: 4d, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/4d, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/4d, name: 4d, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/4d, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/da", "name": "da", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/da, name: da, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/da, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/81", "name": "81", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/81, name: 81, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/81, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/73", "name": "73", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/73, name: 73, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/73, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/a9", "name": "a9", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/a9, name: a9, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/a9, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/ca", "name": "ca", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/ca, name: ca, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/ca, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/pack", "name": "pack", "type": "dir", "last_update": "1734586189", "files": [
+{"path": "./.git/objects/00", "name": "00", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/00, name: 00, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/00, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/7c", "name": "7c", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/7c, name: 7c, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/7c, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/28", "name": "28", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/28, name: 28, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/28, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/22", "name": "22", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/22, name: 22, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/22, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/aa", "name": "aa", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/aa, name: aa, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/aa, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/aa, name: aa, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/aa, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/de", "name": "de", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/de, name: de, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/de, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/96", "name": "96", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/96, name: 96, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/96, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/33", "name": "33", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/33, name: 33, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/33, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/33, name: 33, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/33, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/b9", "name": "b9", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/b9, name: b9, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/b9, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/e6", "name": "e6", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/e6, name: e6, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/e6, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/7d", "name": "7d", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/7d, name: 7d, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/7d, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/7d, name: 7d, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/7d, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/c8", "name": "c8", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/c8, name: c8, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/c8, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/d0", "name": "d0", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/d0, name: d0, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/d0, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/dd", "name": "dd", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/dd, name: dd, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/dd, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/62", "name": "62", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/62, name: 62, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/62, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/4a", "name": "4a", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/4a, name: 4a, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/4a, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/f4", "name": "f4", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/f4, name: f4, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/f4, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/f4, name: f4, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/f4, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/6b", "name": "6b", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/6b, name: 6b, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/6b, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/d7", "name": "d7", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/d7, name: d7, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/d7, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/d7, name: d7, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/d7, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/10", "name": "10", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/10, name: 10, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/10, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/a1", "name": "a1", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/a1, name: a1, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/a1, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/13", "name": "13", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/13, name: 13, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/13, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/55", "name": "55", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/55, name: 55, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/55, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/0f", "name": "0f", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/0f, name: 0f, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/0f, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/1b", "name": "1b", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/1b, name: 1b, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/1b, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/ac", "name": "ac", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/ac, name: ac, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/ac, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/3f", "name": "3f", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/3f, name: 3f, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/3f, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/b4", "name": "b4", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/b4, name: b4, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/b4, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/79", "name": "79", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/79, name: 79, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/79, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/a3", "name": "a3", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/a3, name: a3, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/a3, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/af", "name": "af", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/af, name: af, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/af, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/b0", "name": "b0", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/b0, name: b0, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/b0, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/0c", "name": "0c", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/0c, name: 0c, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/0c, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/d4", "name": "d4", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/d4, name: d4, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/d4, size: 4096, last_updated: 1734586189},
+{path: ./.git/objects/d4, name: d4, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/d4, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/5c", "name": "5c", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/5c, name: 5c, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/5c, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/56", "name": "56", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/56, name: 56, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/56, size: 4096, last_updated: 1734586189},
+{"path": "./.git/objects/42", "name": "42", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/objects/42, name: 42, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/objects/42, size: 4096, last_updated: 1734586189},
+{"path": "./.git/hooks", "name": "hooks", "type": "dir", "last_update": "1734586189", "files": [
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189},
+{path: ./.git/hooks, name: hooks, type: file, format: directory, url: https://raw.githubusercontent.com/\MagicReincarnation/webapp-zeistmaid/main/.git/hooks, size: 4096, last_updated: 1734586189}
 ]
