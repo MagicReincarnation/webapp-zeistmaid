@@ -18,8 +18,28 @@ jobs:
     - name: Generate Manifest
       run: |
         echo "[" > manifest.json
-        find . -type d -not -path './.github*' -exec bash -c 'echo "{\"path\": \"{}\", \"name\": \"$(basename {})\", \"type\": \"dir\"}," >> manifest.json' \;
-        find . -type f -not -path './.github*' -exec bash -c 'echo "{\"path\": \"{}\", \"name\": \"$(basename {})\", \"type\": \"file\", \"url\": \"https://raw.githubusercontent.com/${{ github.repository }}/main/$(realpath --relative-to=. {})\", \"size\": \"$(stat -c %s {})\"}," >> manifest.json' \;
+
+        # Mencari direktori dan menambahkan informasi
+        find . -type d -not -path './.github*' -exec bash -c '
+          folder_path="{}"
+          last_update=$(stat -c %Y "$folder_path")  # Timestamp update terakhir
+          echo "{\"path\": \"$folder_path\", \"name\": \"$(basename {})\", \"type\": \"dir\", \"last_update\": \"$last_update\", \"files\": [" >> manifest.json
+          
+          # Mencari file dalam direktori tersebut
+          find "$folder_path" -maxdepth 1 -type f -exec bash -c '
+            file_path="{}"
+            file_name=$(basename "$file_path")
+            file_type=$(file --mime-type -b "$file_path" | cut -d/ -f2)
+            file_size=$(stat -c %s "$file_path")
+            last_updated=$(stat -c %Y "$file_path")
+            url="https://raw.githubusercontent.com/${{ github.repository }}/main/$(realpath --relative-to=. "$file_path")"
+            echo "{\"path\": \"$file_path\", \"name\": \"$file_name\", \"type\": \"file\", \"format\": \"$file_type\", \"url\": \"$url\", \"size\": \"$file_size\", \"last_updated\": \"$last_updated\"}," >> manifest.json
+          ' \;
+          sed -i '$ s/,$//' manifest.json  # Hapus koma terakhir
+          echo "]}," >> manifest.json
+        ' \;
+
+        # Menghapus koma terakhir dari file JSON jika ada
         sed -i '$ s/,$//' manifest.json
         echo "]" >> manifest.json
 
