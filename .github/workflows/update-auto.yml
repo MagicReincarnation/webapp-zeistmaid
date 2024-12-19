@@ -25,6 +25,12 @@ jobs:
         while IFS= read -r file; do
           folder=$(dirname "$file")
           filename=$(basename "$file")
+
+          # Abaikan folder .git, git log dan file sampel yang tidak diinginkan
+          if [[ "$file" == *".git"* || "$file" == *"git-log"* || "$file" == *"sample"* ]]; then
+            continue
+          fi
+
           size=$(stat -c %s "$file")
           updated_at=$(git log -1 --format=%cd -- "$file")
           download_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$file"
@@ -44,7 +50,10 @@ jobs:
         # Buat file JSON akhir
         echo "[" > file-structure.json
         for folder in "${!folder_structure[@]}"; do
-          echo "{\"id\": \"$folder\", \"name\": \"$folder\", \"type\": \"folder\", \"children\": ${folder_structure[$folder]}}" >> file-structure.json
+          # Hanya masukkan folder yang tidak kosong
+          if [[ ${folder_structure[$folder]} != "[]" ]]; then
+            echo "{\"id\": \"$folder\", \"name\": \"$folder\", \"type\": \"folder\", \"children\": ${folder_structure[$folder]}}" >> file-structure.json
+          fi
         done
         echo "]" >> file-structure.json
 
