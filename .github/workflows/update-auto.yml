@@ -1,50 +1,52 @@
-name: Generate File Structure
+name: Generate Folder Structure
 
 on:
   push:
     branches:
-      - main  # Trigger ketika ada perubahan di branch utama
+      - main  # Trigger saat ada perubahan di branch utama
   pull_request:
     branches:
-      - main  # Trigger ketika ada PR di branch utama
+      - main  # Trigger saat ada PR di branch utama
 
 jobs:
   generate_json:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Generate file structure
+    - name: Generate folder structure JSON
       run: |
-        echo "{" > file-structure.json
-        echo '  "root": {' >> file-structure.json
-        for dir in $(find . -type d); do
-          dir_name=$(basename "$dir")
-          echo "    \"$dir_name\": {" >> file-structure.json
-          
-          for file in $(find "$dir" -type f); do
-            file_name=$(basename "$file")
-            last_updated=$(git log -1 --format=%ci -- $file)
-            file_type=$(echo $file_name | awk -F. '{print $NF}')
-            file_url="https://github.com/username/repo/blob/main/$file"
-            echo "      \"$file_name\": {" >> file-structure.json
-            echo "        \"last_updated\": \"$last_updated\"," >> file-structure.json
-            echo "        \"file_type\": \"$file_type\"," >> file-structure.json
-            echo "        \"link\": \"$file_url\"" >> file-structure.json
-            echo "      }," >> file-structure.json
-          done
-          
-          # Menghapus koma di akhir folder
-          sed -i '$ s/,$//' file-structure.json
-          echo "    }," >> file-structure.json
-        done
+        # Script untuk menghasilkan struktur folder
+        declare -A folder_structure
         
-        # Menghapus koma di akhir root
-        sed -i '$ s/,$//' file-structure.json
-        echo '  }' >> file-structure.json
-        echo "}" >> file-structure.json
+        # Iterate semua file di dalam repo
+        for file in $(find . -type f); do
+          folder=$(dirname "$file")
+          filename=$(basename "$file")
+          size=$(stat -c %s "$file")
+          updated_at=$(git log -1 --format=%cd -- $file)
+          download_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$file"
+          
+          # Format file data
+          file_data="{\"name\": \"$filename\", \"type\": \"file\", \"size\": \"$size\", \"download_url\": \"$download_url\", \"updated_at\": \"$updated_at\"}"
+
+          # Jika folder belum ada dalam struktur, buat entri untuk folder tersebut
+          if [[ ! ${folder_structure[$folder]} ]]; then
+            folder_structure[$folder]="[]"
+          fi
+
+          # Tambahkan file ke dalam folder yang sesuai
+          folder_structure[$folder]=$(echo ${folder_structure[$folder]} | jq ". + [$file_data]")
+        done
+
+        # Buat file JSON akhir
+        echo "[" > file-structure.json
+        for folder in "${!folder_structure[@]}"; do
+          echo "{\"id\": \"$folder\", \"name\": \"$folder\", \"type\": \"folder\", \"children\": ${folder_structure[$folder]}}" >> file-structure.json
+        done
+        echo "]" >> file-structure.json
 
     - name: Commit and push file structure
       run: |
