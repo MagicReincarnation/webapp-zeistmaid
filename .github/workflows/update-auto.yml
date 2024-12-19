@@ -23,7 +23,7 @@ jobs:
 
         declare -A folder_structure
 
-        # Iterate semua file di dalam repo
+        # Iterasi semua file di dalam repo
         while IFS= read -r file; do
           folder=$(dirname "$file")
           filename=$(basename "$file")
@@ -51,18 +51,21 @@ jobs:
           fi
 
           # Tambahkan file ke dalam folder yang sesuai
-          folder_structure[$folder]=$(echo ${folder_structure[$folder]} | jq ". + [$file_data]")
+          folder_structure[$folder]=$(echo "${folder_structure[$folder]}" | jq ". + [$file_data]")
         done < <(find . -type f)
 
         # Buat file JSON akhir
-        echo "[" > file-structure.json
+        json_output="["
         for folder in "${!folder_structure[@]}"; do
           # Hanya masukkan folder yang tidak kosong
           if [[ ${folder_structure[$folder]} != "[]" ]]; then
-            echo "{\"id\": \"$folder\", \"name\": \"$folder\", \"type\": \"folder\", \"children\": ${folder_structure[$folder]}}" >> file-structure.json
+            json_output="$json_output{\"id\": \"$folder\", \"name\": \"$folder\", \"type\": \"folder\", \"children\": ${folder_structure[$folder]}},"
           fi
         done
-        echo "]" >> file-structure.json
+        json_output="${json_output%,}]"
+        
+        # Tulis ke file-structure.json
+        echo "$json_output" > file-structure.json
 
     - name: Commit and push file structure
       run: |
