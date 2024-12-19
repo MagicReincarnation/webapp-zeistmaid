@@ -1,0 +1,30 @@
+name: Update Manifest JSON
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Generate Manifest
+      run: |
+        echo "[" > manifest.json
+        find . -type d -exec bash -c 'echo "{\"name\": \"$(basename {})\", \"type\": \"dir\", \"children\": []}," >> manifest.json' \;
+        find . -type f -exec bash -c 'echo "{\"name\": \"$(basename {})\", \"type\": \"file\", \"url\": \"https://raw.githubusercontent.com/${{ github.repository }}/main/{#}\", \"size\": \"$(stat -c %s {})\"}," >> manifest.json' \;
+        sed -i '$ s/,$//' manifest.json
+        echo "]" >> manifest.json
+
+    - name: Commit and Push
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add manifest.json
+        git commit -m "Update manifest.json"
+        git push
