@@ -3,25 +3,28 @@ name: Update Manifest JSON
 on:
   push:
     branches:
-      - main
+      - main  # Ganti dengan branch utama repository Anda jika berbeda
 
 jobs:
   update-manifest:
     runs-on: ubuntu-latest
 
     steps:
+    # 1. Checkout repository
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    # 2. Jalankan script untuk membuat manifest.json
     - name: Generate Manifest
       run: |
         echo "[" > manifest.json
-        find . -type d -exec bash -c 'echo "{\"name\": \"$(basename {})\", \"type\": \"dir\", \"children\": []}," >> manifest.json' \;
-        find . -type f -exec bash -c 'echo "{\"name\": \"$(basename {})\", \"type\": \"file\", \"url\": \"https://raw.githubusercontent.com/${{ github.repository }}/main/{#}\", \"size\": \"$(stat -c %s {})\"}," >> manifest.json' \;
+        find . -type d -not -path './.github*' -exec bash -c 'echo "{\"path\": \"{}\", \"name\": \"$(basename {})\", \"type\": \"dir\"}," >> manifest.json' \;
+        find . -type f -not -path './.github*' -exec bash -c 'echo "{\"path\": \"{}\", \"name\": \"$(basename {})\", \"type\": \"file\", \"url\": \"https://raw.githubusercontent.com/${{ github.repository }}/main/$(realpath --relative-to=. {})\", \"size\": \"$(stat -c %s {})\"}," >> manifest.json' \;
         sed -i '$ s/,$//' manifest.json
         echo "]" >> manifest.json
 
-    - name: Commit and Push
+    # 3. Commit dan push manifest.json ke repository
+    - name: Commit and Push Manifest
       run: |
         git config --local user.name "github-actions[bot]"
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
