@@ -18,15 +18,14 @@ jobs:
 
     - name: Generate folder structure JSON
       run: |
-        # Script untuk menghasilkan struktur folder
         declare -A folder_structure
 
-        # Iterate semua file di dalam repo
+        # Iterasi semua file di dalam repo
         while IFS= read -r file; do
           folder=$(dirname "$file")
           filename=$(basename "$file")
 
-          # Abaikan folder .git, git log dan file sampel yang tidak diinginkan
+          # Abaikan folder .git, git log dan file sampel
           if [[ "$file" == *".git"* || "$file" == *"git-log"* || "$file" == *"sample"* ]]; then
             continue
           fi
@@ -50,7 +49,6 @@ jobs:
         # Buat file JSON akhir
         echo "[" > file-structure.json
         for folder in "${!folder_structure[@]}"; do
-          # Hanya masukkan folder yang tidak kosong
           if [[ ${folder_structure[$folder]} != "[]" ]]; then
             echo "{\"id\": \"$folder\", \"name\": \"$folder\", \"type\": \"folder\", \"children\": ${folder_structure[$folder]}}" >> file-structure.json
           fi
