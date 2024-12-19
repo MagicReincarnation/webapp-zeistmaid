@@ -18,23 +18,31 @@ jobs:
 
     - name: Generate folder structure JSON
       run: |
+        # Install jq jika belum ada
+        sudo apt-get install jq
+
         declare -A folder_structure
 
-        # Iterasi semua file di dalam repo
+        # Iterate semua file di dalam repo
         while IFS= read -r file; do
           folder=$(dirname "$file")
           filename=$(basename "$file")
 
-          # Abaikan folder .git, git log dan file sampel
+          # Abaikan folder .git, git log dan file sampel yang tidak diinginkan
           if [[ "$file" == *".git"* || "$file" == *"git-log"* || "$file" == *"sample"* ]]; then
             continue
           fi
 
+          # Hapus './' pada path
+          folder=${folder#./}
+          filename=${filename#./}
+          
+          # Dapatkan ukuran file dan waktu update terakhir
           size=$(stat -c %s "$file")
           updated_at=$(git log -1 --format=%cd -- "$file")
           download_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$file"
           
-          # Format file data
+          # Format data file
           file_data="{\"name\": \"$filename\", \"type\": \"file\", \"size\": \"$size\", \"download_url\": \"$download_url\", \"updated_at\": \"$updated_at\"}"
 
           # Jika folder belum ada dalam struktur, buat entri untuk folder tersebut
@@ -49,6 +57,7 @@ jobs:
         # Buat file JSON akhir
         echo "[" > file-structure.json
         for folder in "${!folder_structure[@]}"; do
+          # Hanya masukkan folder yang tidak kosong
           if [[ ${folder_structure[$folder]} != "[]" ]]; then
             echo "{\"id\": \"$folder\", \"name\": \"$folder\", \"type\": \"folder\", \"children\": ${folder_structure[$folder]}}" >> file-structure.json
           fi
