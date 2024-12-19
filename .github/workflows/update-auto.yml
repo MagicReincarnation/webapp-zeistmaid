@@ -20,13 +20,13 @@ jobs:
       run: |
         # Script untuk menghasilkan struktur folder
         declare -A folder_structure
-        
+
         # Iterate semua file di dalam repo
-        for file in $(find . -type f); do
+        while IFS= read -r file; do
           folder=$(dirname "$file")
           filename=$(basename "$file")
           size=$(stat -c %s "$file")
-          updated_at=$(git log -1 --format=%cd -- $file)
+          updated_at=$(git log -1 --format=%cd -- "$file")
           download_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/$file"
           
           # Format file data
@@ -39,7 +39,7 @@ jobs:
 
           # Tambahkan file ke dalam folder yang sesuai
           folder_structure[$folder]=$(echo ${folder_structure[$folder]} | jq ". + [$file_data]")
-        done
+        done < <(find . -type f)
 
         # Buat file JSON akhir
         echo "[" > file-structure.json
