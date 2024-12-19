@@ -1,0 +1,55 @@
+name: Generate File Structure
+
+on:
+  push:
+    branches:
+      - main  # Trigger ketika ada perubahan di branch utama
+  pull_request:
+    branches:
+      - main  # Trigger ketika ada PR di branch utama
+
+jobs:
+  generate_json:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Generate file structure
+      run: |
+        echo "{" > file-structure.json
+        echo '  "root": {' >> file-structure.json
+        for dir in $(find . -type d); do
+          dir_name=$(basename "$dir")
+          echo "    \"$dir_name\": {" >> file-structure.json
+          
+          for file in $(find "$dir" -type f); do
+            file_name=$(basename "$file")
+            last_updated=$(git log -1 --format=%ci -- $file)
+            file_type=$(echo $file_name | awk -F. '{print $NF}')
+            file_url="https://github.com/username/repo/blob/main/$file"
+            echo "      \"$file_name\": {" >> file-structure.json
+            echo "        \"last_updated\": \"$last_updated\"," >> file-structure.json
+            echo "        \"file_type\": \"$file_type\"," >> file-structure.json
+            echo "        \"link\": \"$file_url\"" >> file-structure.json
+            echo "      }," >> file-structure.json
+          done
+          
+          # Menghapus koma di akhir folder
+          sed -i '$ s/,$//' file-structure.json
+          echo "    }," >> file-structure.json
+        done
+        
+        # Menghapus koma di akhir root
+        sed -i '$ s/,$//' file-structure.json
+        echo '  }' >> file-structure.json
+        echo "}" >> file-structure.json
+
+    - name: Commit and push file structure
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git add file-structure.json
+        git commit -m "Update file structure JSON"
+        git push
