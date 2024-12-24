@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter list zeistmangav3.1_demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+</head>
+
+<body>
+ <div id="listItem">
+  <div class="list-judul">
+    <h3>Overlord</h3>
+  </div>
+  <div class="searcch">
+    <input id="searchchapter" onkeyup="searchlistchapt()" placeholder="Search by Chapter Ex: 99" type="text">
+  </div>
+  <div id="latest">
+    <script>
+      var outputDiv = 'latest',
+        label = 'Overlord',
+        sortby = 'date';
+      runEpList();
+    </script>
+  </div>
+</div>
+
+  <script src="search_chapter.js"></script>
+</body>
+</html>

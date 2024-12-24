@@ -1,0 +1,16 @@
+<div id="listItem">
+  <div class="list-judul">
+    <h3>Judul</h3>
+  </div>
+  <div class="searcch">
+    <input id="searchchapter" onkeyup="searchlistchapt()" placeholder="Search by Chapter Ex: 99" type="text"/>
+  </div>
+  <div id="latest">
+    <script>
+      var outputDiv = 'latest',
+        label = 'Label',
+        sortby = 'date';
+      runEpList();
+    </script>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<script>
+ //<![CDATA[
+ var start = 1,
+  max = 150,
+  epListArr = new Array;
+
+ function runEpList() {
+  var e = document.createElement("script");
+  e.src = "/feeds/posts/default/-/" + label + "?alt=json&callback=epList&start-index=" + start + "&max-results=" + max, document.body.appendChild(e)
+ }
+
+ function epList(e) {
+  var t = document.getElementById(outputDiv);
+  if (t) {
+   t.innerHTML = "";
+   var r = e.feed;
+   if (r.entry.length > 0) {
+    for (var a = 0; a < r.entry.length; a++)
+     for (var l = r.entry[a], s = l.title.$t, n = l.published.$t, i = 0; i < l.link.length; i++)
+      if ("alternate" == l.link[i].rel) {
+       var u = l.link[i].href;
+       u && u.length > 0 && s && s.length > 0 && n && n.length > 0 && epListArr.push({
+        url: u,
+        judul: s,
+        tanggal: n
+       });
+       break
+      } if (r.entry.length >= max) start += max, runEpList();
+    else {
+     for (var p, c = "", p = "title" === sortby ? epListArr.sort(function(e, t) {
+       return e.judul > t.judul ? 1 : -1
+      }) : epListArr, d = 0; d < p.length; d++) {
+      var o = p[d].tanggal,
+       g = o.substring(0, 4),
+       h = o.substring(5, 7),
+       f = o.substring(8, 10),
+       v = new Array;
+      v[1] = "Jan", v[2] = "Feb", v[3] = "Mar", v[4] = "Apr", v[5] = "May", v[6] = "Jun", v[7] = "Jul", v[8] = "Aug", v[9] = "Sep", v[10] = "Oct", v[11] = "Nov", v[12] = "Dec";
+      try {
+       if (p[d].judul.includes("Chapter")) {
+        var m = p[d].judul.split("Chapter")[1];
+        m = m.replace(/[^0-9\.-]+/g, "")
+       } else if (p[d].judul.includes("Episode")) {
+        var m = p[d].judul.split("Episode")[1];
+        m = m.replace(/[^0-9\.-]+/g, "")
+       } else var m = "N/A"
+      } catch (e) {
+       console.log("error")
+      }
+      c += '<li class="char"><div class="ep-right"><span class="eps"><a href="' + p[d].url + '"><chapter>' + m + '</chapter></a></span></div><div class="ep-left"><span class="eps-jdl"><a href="' + p[d].url + '">' + p[d].judul + '</a></span><span class="eps-date">' + f + " " + v[parseInt(h, 10)] + " " + g + "</span></div></li>"
+     }
+     t.innerHTML = '<ul class="ep-item">' + c + "</ul>"
+    }
+   }
+  }
+ }
+ //]]>
+</script>
+<script>
+ //<![CDATA[
+ function searchlistchapt() {
+  var e, t, n, a, l, s, m;
+  for (e = document.getElementById("searchchapter"), t = e.value.toUpperCase(), n = document.getElementById("listItem"), a = n.getElementsByTagName("li"), s = 0; s < a.length; s++) l = a[s].getElementsByTagName("chapter")[0], m = l.textContent || l.innerText, m.toUpperCase().indexOf(t) > -1 ? a[s].style.display = "" : a[s].style.display = "none"
+ }
+ //]]>
+</script>
