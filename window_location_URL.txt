@@ -1,0 +1,23 @@
+
+URL : http://localhost:4200/landing?query=1#2
+
+
+Ouput window location > :
+
+window.location.hash: "#2"
+
+window.location.host: "localhost:4200"
+
+window.location.hostname: "localhost"
+
+window.location.href: "http://localhost:4200/landing?query=1#2"
+
+window.location.origin: "http://localhost:4200"
+
+window.location.pathname: "/landing"
+
+window.location.port: "4200"
+
+window.location.protocol: "http:"
+
+window.location.search: "?query=1"
