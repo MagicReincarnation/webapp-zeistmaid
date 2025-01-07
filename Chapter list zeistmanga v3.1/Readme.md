@@ -3,4 +3,4 @@
 kode ini adalah code awal yang aku gunakan di`zeistmaid`, yang dizeistmaid adalah versi yang sudah dikembangkan.
 
 - source original:  `zeistmaanga v3.1`.
-- developer: `dayat.id`.
+- developer original : `Unknown`.
