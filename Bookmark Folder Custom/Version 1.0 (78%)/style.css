@@ -1,0 +1,225 @@
+/* partial */
+.bookmark_hr {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.bookmark_hr:hover {
+  background-color: #f3f4f6;
+}
+
+.bookmark_hr.active svg {
+  fill: currentColor;
+}
+/*css menu*/
+.bookmark_popupmenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.bookmark_popupmenu.active {
+  display: flex;
+}
+
+.bookmark_list_folder {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  width: 20rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bookmark_list_folder h3 {
+  font-size: 1rem;
+  color: #1F2937;
+  margin-bottom: 1rem;
+}
+
+.list_folder_set {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#add_folder_new {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+}
+
+#btnsave_folder_new {
+  padding: 0.5rem 1rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+#btnsave_folder_new:hover {
+  background: #1d4ed8;
+}
+
+.list_ouput_folder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.folder_custom {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: #F9FAFB;
+  border-radius: 0.375rem;
+  cursor: move;
+}
+
+.folder_custom.dragging {
+  opacity: 0.5;
+}
+
+.folder_custom label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.folder_custom .delete-btn {
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.folder_custom:hover .delete-btn {
+  opacity: 1;
+}
+
+
+.bookmark_popupmenu .cc_btn_set {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+
+.bookmark_popupmenu .cancel-btn, .bookmark_popupmenu .save-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+
+.bookmark_popupmenu .cancel-btn {
+  background: none;
+  border: none;
+  color: #4b5563;
+}
+
+
+.bookmark_popupmenu .save-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+
+.bookmark_popupmenu .save-btn:hover {
+  background: #1d4ed8;
+}
+
+
+.bookmark_popupmenu .cancel-btn:hover {
+  color: #1f2937;
+}
+
+/*List Bookmark*/
+    .cc_tabs_folder_hr {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+    .tab_list_hr {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+    }
+    .tab_list_hr .tab-item {
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .tab_list_hr .tab-item.active {
+      background-color: #535C91;
+      color: #fff;
+    }
+    .cc_listpost {
+      margin-top: 20px;
+    }
+    #tabs_listpost .post-item {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #535C91;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+    }
+   #tabs_listpost .post-item ._imgthumb_post {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+    margin-right: 10px;   
+   }
+   #tabs_listpost .post-item h3 {
+      margin: 0;
+      margin-right: 10px;
+    }
+    
+   #tabs_listpost .post-item h3 a {
+      color:#FFFFFF;
+      text-decoration: none;
+    }
+    ._boxpost {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cc_fitur_backup {
+      margin-top: 20px;
+    }
+    .cc_fitur_backup button {
+      padding: 10px;
+      background-color: #535C91;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .cc_fitur_backup button:hover {
+      background-color: #000957;
+    }
+/* partial */
+

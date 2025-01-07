@@ -1,0 +1,331 @@
+    <script>/*<![CDATA[*/
+ const dbName = "bookmarkDB",
+    dbVersion = 1;
+    let db;
+    const initDB = () => new Promise((e, t) => {
+        let a = indexedDB.open("bookmarkDB", 1);
+        a.onerror = () => t(a.error), a.onsuccess = () => {
+            e(db = a.result)
+        }, a.onupgradeneeded = e => {
+            let t = e.target.result;
+            t.objectStoreNames.contains("folders") || t.createObjectStore("folders"), t.objectStoreNames.contains("bookmarkStatus") || t.createObjectStore("bookmarkStatus"), t.objectStoreNames.contains("folderOrder") || t.createObjectStore("folderOrder")
+        }
+    }),
+    saveFolderOrder = async e => {
+        let t = db.transaction("folderOrder", "readwrite"),
+            a = t.objectStore("folderOrder");
+        await a.put(e, "order")
+    }, getFolderOrder = async () => {
+        let e = db.transaction("folderOrder", "readonly"),
+            t = e.objectStore("folderOrder"),
+            a = t.get("order");
+        return new Promise(e => {
+            a.onsuccess = () => e(a.result || [])
+        })
+    }, saveBookmark = async (e, t) => new Promise((a, r) => {
+        let o = db.transaction(["folders", "bookmarkStatus"], "readwrite"),
+            l = o.objectStore("folders"),
+            s = o.objectStore("bookmarkStatus");
+        o.onerror = () => r(o.error), o.oncomplete = () => a();
+        let n = s.get(e.id);
+        n.onsuccess = () => {
+            let a = n.result || {},
+                r = {};
+            t.forEach(e => {
+                r[e] = !0
+            }), JSON.stringify(a) !== JSON.stringify(r) && s.put(r, e.id), t.forEach(t => {
+                let a = l.get(t);
+                a.onsuccess = () => {
+                    let o = a.result || {
+                        posts: {}
+                    };
+                    r[t] ? o.posts[e.id] = e : delete o.posts[e.id], l.put(o, t)
+                }
+            }), Object.keys(a).forEach(t => {
+                if (!r[t]) {
+                    let a = l.get(t);
+                    a.onsuccess = () => {
+                        let r = a.result || {
+                            posts: {}
+                        };
+                        delete r.posts[e.id], l.put(r, t)
+                    }
+                }
+            })
+        }
+    }), getBookmarkStatus = async e => {
+        let t = db.transaction("bookmarkStatus", "readonly"),
+            a = t.objectStore("bookmarkStatus"),
+            r = a.get(e);
+        return new Promise(e => {
+            r.onsuccess = () => e(r.result || {})
+        })
+    };
+document.addEventListener("DOMContentLoaded", () => {
+    let e = document.getElementById("bookmark_set"),
+        t = document.getElementById("ouput_listfolder"),
+        a = document.getElementById("add_folder_new"),
+        r = document.getElementById("btnsave_folder_new");
+    if (e && t && a && r) {
+        let o = document.querySelector(".save-btn"),
+            l = document.querySelector(".cancel-btn");
+        document.querySelectorAll(".rename-btn"), document.querySelectorAll(".move-up-btn"), document.querySelectorAll(".move-down-btn"), document.querySelectorAll(".delete-btn");
+        let s = null,
+            n = (e, t) => {
+                let a = document.createElement("div");
+                return a.className = "folder_custom", a.dataset.folder = e, a.innerHTML = `
+    <div class="bxBtn_book_one">
+     <button class="move-up-btn" data-folder="${e}">↑</button> 
+     <button class="move-down-btn" data-folder= "${e}">↓</button>
+     </div>
+    <label>
+    <input type="checkbox" data-folder="${e}">
+      ${e} (${t})
+    </label>
+    <div class="bxBtn_book_two">
+    <button class="rename-btn" data-folder="${e}">Rename</button>
+    <button class="delete-btn" data-folder="${e}">\xd7</button>
+    </div>
+  `, a
+            },
+            d = async e => {
+                let a = prompt("Enter a new name for the folder:", e);
+                if (a && a !== e) {
+                    let r = await getFolderOrder(),
+                        o = r.indexOf(e);
+                    await getBookmarkStatus(e);
+                    let l = {},
+                        s = t.querySelectorAll(".folder_custom");
+                    if (s.forEach(t => {
+                            let a = t.querySelector(`input[data-folder="${e}"]`);
+                            a && a.checked ? l[e] = !0 : l[e] = !1
+                        }), -1 !== o) {
+                        r[o] = a, await saveFolderOrder(r);
+                        let n = db.transaction(["folders", "bookmarkStatus"], "readwrite"),
+                            d = n.objectStore("folders"),
+                            i = n.objectStore("bookmarkStatus"),
+                            c = d.get(e);
+                        c.onsuccess = () => {
+                            let t = c.result || {
+                                posts: {}
+                            };
+                            e !== a && (Object.keys(t.posts).forEach(e => {
+                                t.posts[e], i.get(e).onsuccess = t => {
+                                    let r = t.target.result || {};
+                                    r[a] = !0, i.put(r, e)
+                                }
+                            }), d.delete(e)), d.put(t, a)
+                        }, await u();
+                        let b = t.querySelector(`.folder-item[data-folder="${a}"]`);
+                        if (b) {
+                            let f = b.querySelector(`input[data-folder="${a}"]`);
+                            l[e] && (f.checked = !0)
+                        }
+                    }
+                }
+            };
+        t.addEventListener("click", async e => {
+            if (e.target.classList.contains("rename-btn")) {
+                let t = e.target.dataset.folder;
+                d(t)
+            }
+        });
+        let i = async e => {
+            let t = await getFolderOrder(),
+                a = t.indexOf(e);
+            a > 0 && ([t[a], t[a - 1]] = [t[a - 1], t[a]], await saveFolderOrder(t), await u())
+        }, c = async e => {
+            let t = await getFolderOrder(),
+                a = t.indexOf(e);
+            a < t.length - 1 && ([t[a], t[a + 1]] = [t[a + 1], t[a]], await saveFolderOrder(t), await u())
+        };
+        t.addEventListener("click", async e => {
+            if (e.target.classList.contains("move-up-btn")) {
+                let t = e.target.dataset.folder;
+                i(t)
+            }
+        }), t.addEventListener("click", async e => {
+            if (e.target.classList.contains("move-down-btn")) {
+                let t = e.target.dataset.folder;
+                c(t)
+            }
+        });
+        let u = async () => {
+            t.innerHTML = "";
+            let e = await getFolderOrder();
+            for (let a of e) {
+                let r = await getFolderData(a),
+                    o = r?.posts ? Object.keys(r.posts).length : 0,
+                    l = n(a, o);
+                t.appendChild(l)
+            }
+            if (s) {
+                let d = await getBookmarkStatus(s.id);
+                Object.entries(d).forEach(([e, a]) => {
+                    let r = t.querySelector(`input[data-folder="${e}"]`);
+                    r && (r.checked = a)
+                })
+            }
+        };
+        r.addEventListener("click", async () => {
+            let e = a.value.trim();
+            if (!e) return;
+            let t = await getFolderOrder();
+            t.includes(e) || (t.push(e), await saveFolderOrder(t), await u()), a.value = ""
+        });
+        let b = async e => {
+            let t = Math.floor(1e3 + 9e3 * Math.random()),
+                a = prompt(`Masukkan password untuk menghapus folder ${e}. 
+        
+ password: ${t}`);
+            if (a === t.toString()) {
+                let r = await getFolderOrder(),
+                    o = r.filter(t => t !== e);
+                await saveFolderOrder(o), await u()
+            } else alert("Password salah!")
+        };
+        t.addEventListener("click", async e => {
+            if (e.target.classList.contains("delete-btn")) {
+                let t = e.target.dataset.folder;
+                b(t)
+            }
+        }), document.addEventListener("click", async t => {
+            if (t.target.classList.contains("bookmark_hr") || t.target.closest(".bookmark_hr")) {
+                let a = t.target.classList.contains("bookmark_hr") ? t.target : t.target.closest(".bookmark_hr");
+                s = {
+                    id: a.dataset.id,
+                    title: a.dataset.title,
+                    img: a.dataset.img,
+                    label: a.dataset.label,
+                    link: a.dataset.link
+                }, e.classList.add("active"), await u()
+            }
+        }), o.addEventListener("click", async () => {
+            if (!s) return;
+            let a = Array.from(t.querySelectorAll('input[type="checkbox"]:checked')).map(e => e.dataset.folder);
+            await saveBookmark(s, a), await u();
+            let r = document.querySelector(`.bookmark_hr[data-id="${s.id}"]`);
+            r.classList.toggle("active", a.length > 0), e.classList.remove("active"), s = null
+        }), l.addEventListener("click", () => {
+            e.classList.remove("active"), s = null
+        })
+    } else console.log("script bookmark Tidak bekerja karena class dan id yang dibutuhkan bookmark tidak ada")
+}), window.indexedDB ? document.addEventListener("DOMContentLoaded", async () => {
+    await initDB();
+    let e = document.querySelectorAll(".bookmark_hr");
+    for (let t of e) {
+        let a = t.dataset.id,
+            r = await getBookmarkStatus(a);
+        Object.values(r).includes(!0) && t.classList.add("active")
+    }
+}) : alert("Fitur ini tidak support di browser kamu, silahkan update browser atau ganti browser kamu.");
+const renderFolderTabs = async () => {
+    let e = document.getElementById("tabList");
+    if (!e) return;
+    let t = await getFolderOrder();
+    e.innerHTML = "", t.forEach(t => {
+        let a = document.createElement("div");
+        a.className = "tab-item", a.textContent = t, a.dataset.folder = t, a.addEventListener("click", () => displayFolderContent(t)), e.appendChild(a)
+    }), t.length > 0 && (e.querySelector(".tab-item").classList.add("active"), displayFolderContent(t[0]))
+}, displayFolderContent = async e => {
+    let t = document.querySelectorAll(".tab-item");
+    if (0 === t.length) return;
+    t.forEach(e => e.classList.remove("active"));
+    let a = Array.from(t).find(t => t.dataset.folder === e);
+    a && a.classList.add("active");
+    let r = document.getElementById("tabs_listpost");
+    if (!r) return;
+    r.innerHTML = "";
+    let o = await getFolderData(e);
+    let s = o?.posts ? Object.keys(o.posts).length : 0;
+        l = document.createElement("div");
+    l.className = "_boxpost", 
+    l.innerHTML = `<b>Total Posts: ${s}</b>`, 
+    r.appendChild(l);
+    if (o && o.posts && s) {
+        Object.values(o.posts).forEach(e => {
+            let t = document.createElement("div");
+            t.className = "post-item", t.innerHTML = `
+              <img class="_imgthumb_post" src="${e.img}" alt="${e.title}">
+              <h3><a href="${e.link}" target="_blank">${e.title}</a></h3>
+            `, r.appendChild(t)
+        });
+    } else r.innerHTML = "<p>No posts in this folder.</p>"
+}, getFolderData = async e => {
+    let t = db.transaction("folders", "readonly"),
+        a = t.objectStore("folders"),
+        r = a.get(e);
+    return new Promise(e => {
+        r.onsuccess = () => e(r.result)
+    })
+}, backupData = async () => {
+    let e = {},
+        t = db.transaction("folders", "readonly").objectStore("folders"),
+        a = t.openCursor();
+    a.onsuccess = t => {
+        let a = t.target.result;
+        if (a) {
+            let r = a.key;
+            e[r] = {
+                folderData: a.value,
+                status: {}
+            }, a.continue()
+        } else {
+            let o = db.transaction("bookmarkStatus", "readonly").objectStore("bookmarkStatus"),
+                l = o.openCursor();
+            l.onsuccess = t => {
+                let a = t.target.result;
+                if (a) {
+                    let r = a.key,
+                        o = a.value;
+                    for (let l in e) e[l].folderData.posts[r] && (e[l].status[r] = o);
+                    a.continue()
+                } else {
+                    let s = new Blob([JSON.stringify(e, null, 2)], {
+                            type: "application/json"
+                        }),
+                        n = document.createElement("a");
+                    n.href = URL.createObjectURL(s), n.download = "backup.json", n.click()
+                }
+            }
+        }
+    }
+}, restoreBackup = () => {
+    let e = document.createElement("input");
+    e.type = "file", e.accept = ".json", e.addEventListener("change", async e => {
+        let t = e.target.files[0];
+        if (t) {
+            let a = new FileReader;
+            a.onload = async e => {
+                let t = JSON.parse(e.target.result),
+                    a = db.transaction("folders", "readwrite").objectStore("folders");
+                for (let r in t) {
+                    let o = t[r].folderData;
+                    await a.put(o, r)
+                }
+                let l = db.transaction("bookmarkStatus", "readwrite").objectStore("bookmarkStatus");
+                for (let s in t) {
+                    let n = t[s].status || {};
+                    for (let d in n) {
+                        let i = n[d];
+                        await l.put(i, d)
+                    }
+                }
+                await renderFolderTabs()
+            }, a.readAsText(t)
+        }
+    }), e.click()
+}, clearFolderData = async () => {
+    let e = db.transaction("folders", "readwrite"),
+        t = e.objectStore("folders");
+    return t.clear(), new Promise(t => e.oncomplete = t)
+}, saveFolderData = async (e, t) => {
+    let a = db.transaction("folders", "readwrite"),
+        r = a.objectStore("folders");
+    return r.put(t, e), new Promise(e => a.oncomplete = e)
+};
+document.addEventListener("DOMContentLoaded", async () => {
+    let e = document.getElementById("tabList"),
+        t = document.getElementById("tabs_listpost");
+    e && t && (await initDB(), await renderFolderTabs())
+});/*]]>*/</script>
