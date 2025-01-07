@@ -1,8 +1,8 @@
     <script>/*<![CDATA[*/
- const dbName = "bookmarkDB",
+const dbName = "bookmarkDB",
     dbVersion = 1;
-    let db;
-    const initDB = () => new Promise((e, t) => {
+let db;
+const initDB = () => new Promise((e, t) => {
         let a = indexedDB.open("bookmarkDB", 1);
         a.onerror = () => t(a.error), a.onsuccess = () => {
             e(db = a.result)
@@ -236,20 +236,20 @@ const renderFolderTabs = async () => {
     let r = document.getElementById("tabs_listpost");
     if (!r) return;
     r.innerHTML = "";
-    let o = await getFolderData(e);
-    let s = o?.posts ? Object.keys(o.posts).length : 0;
+    let o = await getFolderData(e),
         l = document.createElement("div");
-    l.className = "_boxpost", 
-    l.innerHTML = `<b>Total Posts: ${s}</b>`, 
-    r.appendChild(l);
+    l.className = "folder-header", l.innerHTML = `<h2>${e}</h2>`, r.appendChild(l);
+    let s = o?.posts ? Object.keys(o.posts).length : 0;
     if (o && o.posts && s) {
         Object.values(o.posts).forEach(e => {
             let t = document.createElement("div");
             t.className = "post-item", t.innerHTML = `
-              <img class="_imgthumb_post" src="${e.img}" alt="${e.title}">
+              <img src="${e.img}" alt="${e.title}" style="width: 100px; height: 100px; object-fit: cover; margin-right: 10px;">
               <h3><a href="${e.link}" target="_blank">${e.title}</a></h3>
             `, r.appendChild(t)
         });
+        let n = document.createElement("p");
+        n.textContent = `Total Posts: ${Object.keys(o.posts).length}`, r.appendChild(n)
     } else r.innerHTML = "<p>No posts in this folder.</p>"
 }, getFolderData = async e => {
     let t = db.transaction("folders", "readonly"),
@@ -292,29 +292,32 @@ const renderFolderTabs = async () => {
     }
 }, restoreBackup = () => {
     let e = document.createElement("input");
-    e.type = "file", e.accept = ".json", e.addEventListener("change", async e => {
+    e.type = "file", e.accept = "application/json", e.onchange = async e => {
         let t = e.target.files[0];
-        if (t) {
-            let a = new FileReader;
-            a.onload = async e => {
+        if (!t) return;
+        let a = new FileReader;
+        a.onload = async e => {
+            try {
                 let t = JSON.parse(e.target.result),
-                    a = db.transaction("folders", "readwrite").objectStore("folders");
-                for (let r in t) {
-                    let o = t[r].folderData;
-                    await a.put(o, r)
+                    a = db.transaction(["folders", "bookmarkStatus", "folderOrder"], "readwrite");
+                a.objectStore("folders").clear(), a.objectStore("bookmarkStatus").clear(), a.objectStore("folderOrder").clear();
+                let r = Object.keys(t);
+                for (let o of (await saveFolderOrder(r), r)) {
+                    let l = t[o].folderData;
+                    a.objectStore("folders").put(l, o);
+                    let s = a.objectStore("bookmarkStatus");
+                    for (let n in t[o].status) s.put(t[o].status[n], n)
                 }
-                let l = db.transaction("bookmarkStatus", "readwrite").objectStore("bookmarkStatus");
-                for (let s in t) {
-                    let n = t[s].status || {};
-                    for (let d in n) {
-                        let i = n[d];
-                        await l.put(i, d)
-                    }
+                a.oncomplete = () => {
+                    alert("Backup restored successfully!"), location.reload()
+                }, a.onerror = () => {
+                    console.error("Error restoring backup:", a.error)
                 }
-                await renderFolderTabs()
-            }, a.readAsText(t)
-        }
-    }), e.click()
+            } catch (d) {
+                console.error("Error reading backup file:", d), alert("Invalid backup file!")
+            }
+        }, a.readAsText(t)
+    }, e.click()
 }, clearFolderData = async () => {
     let e = db.transaction("folders", "readwrite"),
         t = e.objectStore("folders");
@@ -328,4 +331,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     let e = document.getElementById("tabList"),
         t = document.getElementById("tabs_listpost");
     e && t && (await initDB(), await renderFolderTabs())
-});/*]]>*/</script>
+});
+    /*]]>*/</script>
