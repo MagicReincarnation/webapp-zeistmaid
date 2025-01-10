@@ -1,0 +1,73 @@
+<div class="modal_novel_reader">
+        <div class="modal_c__novel_reader">
+            <span class="close_button_novel_reader">x</span>
+            <h2>Novel reader!</h2>
+            <div class="cc_tts">
+                <div id="bx_controls" class="controls">
+                    <div class="main-controls">
+                        <button id="playPauseBtn" class="btn">
+                            <span class="play-icon">Play</span>
+                            <span class="pause-icon hidden">Pause</span>
+                        </button>
+                        <button id="prevParagraphBtn" class="btn hidden">⏮</button>
+                        <button id="nextParagraphBtn" class="btn hidden">⏭</button>
+                        <button id="restartBtn" class="btn hidden">↺</button>
+                        <label for="autoRestartCheckbox">Auto↺
+                            <input type="checkbox" name="autoRestartCheckbox" id="autoRestartCheckbox" />
+                        </label>
+                    </div>
+
+                    <div class="settings">
+                        <div class="language-controls">
+                            <select id="languageSelect" class="select">
+                                <option value="en-US">English (US)</option>
+                                <option value="en-GB">English (UK)</option>
+                                <option value="id-ID">Indonesian</option>
+                                <option value="ja-JP">Japanese</option>
+                                <option value="ko-KR">Korean</option>
+                                <option value="zh-CN">Chinese (Simplified)</option>
+                                <option value="zh-TW">Chinese (Traditional)</option>
+                                <option value="fr-FR">French</option>
+                                <option value="de-DE">German</option>
+                                <option value="es-ES">Spanish</option>
+                                <option value="it-IT">Italian</option>
+                                <option value="ru-RU">Russian</option>
+                            </select>
+                            <button id="translateBtn" class="btn">Change</button>
+                        </div>
+
+                        <div class="voice-info">
+                            <span>Current Voice: </span>
+                            <span id="currentVoice">Default</span>
+                        </div>
+
+                        <div class="slider-cc_tts">
+                            <label>Speed: <span id="speedValue">1</span>x</label>
+                            <input type="range" id="speedRange" min="0.5" max="2" step="0.1" value="1"/>
+                        </div>
+
+                        <div class="slider-cc_tts">
+                            <label>Pitch: <span id="pitchValue">1</span></label>
+                            <input type="range" id="pitchRange" min="0.5" max="2" step="0.1" value="1"/>
+                        </div>
+
+                        <div class="slider-cc_tts">
+                            <label>Volume: <span id="volumeValue">1</span></label>
+                            <input type="range" id="volumeRange" min="0" max="1" step="0.1" value="1"/>
+                        </div>
+
+                        <button id="resetBtn" class="btn">Reset Settings</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>     
+<script>
+   /*<![CDATA[*/
+   
+ let id_div_novel="novel_reader_tts_translate";
+    
+class NovelReader{constructor(){if("undefined"==typeof window||!window.speechSynthesis){document.querySelector("#bx_controls").innerHTML="Speech synthesis is not supported in your browser. Please try Chrome, Edge, or Safari.";return}this.synth=window.speechSynthesis,this.utterance=null,this.isPlaying=!1,this.currentParagraphIndex=0,this.voices=[],this.originalText=[],this.currentVoice=null,this.autoRestart=!0,this.readableTags=["p","b","span","div","h1","h2","h3","h4","strong"],this.skipClass="jangan_dibaca",this.playPauseBtn=document.getElementById("playPauseBtn"),this.prevParagraphBtn=document.getElementById("prevParagraphBtn"),this.nextParagraphBtn=document.getElementById("nextParagraphBtn"),this.languageSelect=document.getElementById("languageSelect"),this.speedRange=document.getElementById("speedRange"),this.pitchRange=document.getElementById("pitchRange"),this.volumeRange=document.getElementById("volumeRange"),this.resetBtn=document.getElementById("resetBtn"),this.novel_reader_tts_translate=document.getElementById(id_div_novel),this.translateBtn=document.getElementById("translateBtn"),this.currentVoiceSpan=document.getElementById("currentVoice"),this.autoRestartCheckbox=document.getElementById("autoRestartCheckbox"),this.readableElements=Array.from(this.novel_reader_tts_translate.querySelectorAll(this.readableTags.map(t=>`${t}:not(.${this.skipClass})`).join(","))),this.originalText=this.readableElements.map(t=>t.textContent),setTimeout(()=>{this.initializeVoices(),this.loadSettings(),this.setupEventListeners()},1e3)}initializeVoices(){let t=()=>{this.voices=this.synth.getVoices(),this.updateVoiceForLanguage(this.languageSelect.value)};t(),this.synth.addEventListener("voiceschanged",t)}updateVoiceForLanguage(t){if(!this.voices||0===this.voices.length){console.log("No voices available yet");return}let e=this.voices.filter(e=>e.lang.toLowerCase().startsWith(t.toLowerCase()));this.currentVoice=e.find(t=>!t.localService)||e[0]||this.voices[0],this.currentVoice?this.currentVoiceSpan.textContent=`${this.currentVoice.name} (${this.currentVoice.lang})`:this.currentVoiceSpan.textContent="Default Voice",this.isPlaying&&this.restartFromCurrentPosition(),this.saveSettings()}async translateText(t,e){let a=e.split("-")[0],s=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${a}&dt=t&q=${encodeURIComponent(t)}`;try{let i=await fetch(s),n=await i.json();return n[0][0][0]}catch(r){return console.error("Translation error:",r),t}}async translateContent(){let t=this.languageSelect.value;this.translateBtn.disabled=!0,this.translateBtn.textContent="Translating...";try{for(let e=0;e<this.readableElements.length;e++){let a=await this.translateText(this.originalText[e],t);this.readableElements[e].textContent=a}this.updateVoiceForLanguage(t)}catch(s){console.error("Translation failed:",s)}finally{this.translateBtn.disabled=!1,this.translateBtn.textContent="Translate & Change Voice"}}loadSettings(){this.speedRange.value=localStorage.getItem("speed")||1,this.pitchRange.value=localStorage.getItem("pitch")||1,this.volumeRange.value=localStorage.getItem("volume")||1,this.languageSelect.value=localStorage.getItem("language")||"en-US",this.autoRestart="false"!==localStorage.getItem("autoRestart"),this.autoRestartCheckbox&&(this.autoRestartCheckbox.checked=this.autoRestart),this.updateValueDisplays(),this.updateVoiceForLanguage(this.languageSelect.value)}saveSettings(){localStorage.setItem("speed",this.speedRange.value),localStorage.setItem("pitch",this.pitchRange.value),localStorage.setItem("volume",this.volumeRange.value),localStorage.setItem("language",this.languageSelect.value),localStorage.setItem("autoRestart",this.autoRestart)}updateValueDisplays(){document.getElementById("speedValue").textContent=this.speedRange.value,document.getElementById("pitchValue").textContent=this.pitchRange.value,document.getElementById("volumeValue").textContent=this.volumeRange.value}togglePlayPause(){this.isPlaying?this.pause():this.startReading()}startReading(){this.isPlaying=!0,this.updatePlayPauseButton(),this.readParagraph()}pause(){this.isPlaying=!1,this.synth.cancel(),this.updatePlayPauseButton()}previousParagraph(){this.currentParagraphIndex=Math.max(0,this.currentParagraphIndex-1),this.isPlaying&&this.startReading()}nextParagraph(){this.currentParagraphIndex<this.readableElements.length-1&&(this.currentParagraphIndex++,this.isPlaying&&this.startReading())}updatePlayPauseButton(){let t=this.playPauseBtn.querySelector(".play-icon"),e=this.playPauseBtn.querySelector(".pause-icon");this.isPlaying?(t.classList.add("hidden"),e.classList.remove("hidden")):(t.classList.remove("hidden"),e.classList.add("hidden"))}readParagraph(){if(!this.currentVoice){console.log("Voice not available yet, retrying..."),setTimeout(()=>this.readParagraph(),500);return}if(this.currentParagraphIndex>=this.readableElements.length){this.autoRestart?(this.currentParagraphIndex=0,this.readParagraph()):(this.isPlaying=!1,this.updatePlayPauseButton());return}this.readableElements.forEach(t=>t.classList.remove("highlight"));let t=this.readableElements[this.currentParagraphIndex];t.classList.add("highlight"),t.scrollIntoView({behavior:"smooth",block:"center"}),this.utterance=new SpeechSynthesisUtterance(t.textContent),this.utterance.voice=this.currentVoice,this.utterance.lang=this.languageSelect.value,this.utterance.rate=parseFloat(this.speedRange.value),this.utterance.pitch=parseFloat(this.pitchRange.value),this.utterance.volume=parseFloat(this.volumeRange.value),this.utterance.onend=()=>{this.isPlaying&&(this.currentParagraphIndex++,this.readParagraph())},this.synth.speak(this.utterance)}restartFromCurrentPosition(){this.isPlaying&&(this.synth.cancel(),this.readParagraph())}setupEventListeners(){this.playPauseBtn.addEventListener("click",()=>this.togglePlayPause()),this.prevParagraphBtn.addEventListener("click",()=>this.previousParagraph()),this.nextParagraphBtn.addEventListener("click",()=>this.nextParagraph()),this.autoRestartCheckbox&&this.autoRestartCheckbox.addEventListener("change",t=>{this.autoRestart=t.target.checked,this.saveSettings()}),[this.speedRange,this.pitchRange,this.volumeRange].forEach(t=>{t.addEventListener("input",()=>{this.updateValueDisplays(),this.saveSettings(),this.isPlaying&&this.restartFromCurrentPosition()})}),this.languageSelect.addEventListener("change",()=>{this.updateVoiceForLanguage(this.languageSelect.value),this.saveSettings()}),this.resetBtn.addEventListener("click",()=>{localStorage.clear(),this.loadSettings(),this.readableElements.forEach((t,e)=>{t.textContent=this.originalText[e]}),this.isPlaying&&this.restartFromCurrentPosition()}),this.translateBtn.addEventListener("click",()=>this.translateContent())}}window.addEventListener("DOMContentLoaded",()=>{new NovelReader});var modal_novel_reader=document.querySelector(".modal_novel_reader"),triggers_novel_reader=document.querySelectorAll(".trigger_novel_reader"),closeButton_novel_reader=document.querySelector(".close_button_novel_reader");function toggleModal_novel_reader(){modal_novel_reader.classList.toggle("show_modal_novel_reader")}function windowOnClick_novel_reader(e){e.target===modal_novel_reader&&toggleModal_novel_reader()}for(var i=0,len=triggers_novel_reader.length;i<len;i++)triggers_novel_reader[i].addEventListener("click",toggleModal_novel_reader);closeButton_novel_reader.addEventListener("click",toggleModal_novel_reader),window.addEventListener("click",windowOnClick_novel_reader);
+/*]]>*/
+   </script>
+    
