@@ -9,3 +9,19 @@
 <button onclick="backupData()">Backup Data</button>
 <button onclick="restoreBackup()">Restore Backup</button>
   </div>
+  <!--Menu Set bookmark-->
+  <div class="bookmark_popupmenu" id="bookmark_set">
+    <div class="bookmark_list_folder">
+      <h3>Save to folders</h3>
+      <div class="list_folder_set">
+        <input type="text" id="add_folder_new" placeholder="New folder name"/>
+        <button id="btnsave_folder_new">Add Folder</button>
+      </div>
+      <div class="list_ouput_folder" id="ouput_listfolder">
+      </div>
+      <div class="cc_btn_set">
+        <button class="cancel-btn">Cancel</button>
+        <button class="save-btn">Save</button>
+      </div>
+    </div>
+  </div>
