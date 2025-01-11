@@ -1,0 +1,1 @@
+<b:include cond='data:post.labels any ( l =&gt; l.name in [&quot;NSFW&quot;] )' name='popupKonfirmasi_hirutshuji'/>       

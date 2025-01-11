@@ -1,0 +1,33 @@
+<b:includable id='popupKonfirmasi_hirutshuji'>
+<span class='judulSeries' expr:data-post-title='data:post.title'/>
+<script>/*<![CDATA[*/const useLocalStorage=!1;function showNotification(){let t=document.querySelector(".judulSeries"),e=t?t.getAttribute("data-post-title"):"Judul Tidak Ditemukan";Confirm.open({title:e,messageTitle:"Kamu yakin?",onok(){},oncancel(){}})}function enableNotification(){}function closeSuccessPopup(){let t=document.querySelector(".confirm2");document.body.removeChild(t)}window.addEventListener("DOMContentLoaded",t=>{{let e=localStorage.getItem("disableNotification");e&&"true"===e||showNotification()}});const Confirm={open(t){t=Object.assign({},{title:"",messageTitle:"",okText:"buka",cancelText:"Kembali",onok:function(){},oncancel:function(){}},t);let e=`
+<div class="confirm">
+<div class="confirm__window">
+<div class="svg_warning">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#f8bb86" d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m0 26a12 12 0 1 1 12-12a12 12 0 0 1-12 12"/><path fill="#f8bb86" d="M15 8h2v11h-2zm1 14a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 22"/></svg></div>
+<div class="confirm__titlebar">
+<h2>${t.messageTitle}</h2>
+</div>
+                    
+<div class="box__content">Novel berjudul <b class="title_series">${t.title}</b> ini berisi konten dewasa, kamu yakin ingin buka?
+  <p class="warning_title">*resiko ditanggung masing masing</p>               </div> 
+<div class="confirm__buttons">
+<button class="button_yes_or_no confirm_button_oke confirm_button_fill">${t.okText}</button>
+                        
+<button class="button_yes_or_no confirm_button_cancel">${t.cancelText}</button>
+                    </div>
+                </div>
+            </div>`,n=document.createElement("template");n.innerHTML=e;let i=n.content.querySelector(".confirm"),o=n.content.querySelector(".confirm_button_oke"),c=n.content.querySelector(".confirm_button_cancel");i.addEventListener("click",e=>{e.target===i&&(t.oncancel(),this._close(i),window.location.href=window.location.origin)}),o.addEventListener("click",()=>{t.onok(),this._close(i);let e=`
+    <div class="confirm2">
+        <div class="confirm__window2">
+            <div class="svg_warning2">
+<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg></div>
+            <div class="confirm__titlebar2">
+                <h2>Yey!</h2>
+            </div>
+            <div class="box__content2">Selamat Menikmati</div> 
+            <div class="confirm__buttons2">
+                <button class="button_yes_or_no2 confirm_button_oke2 confirm_button_fill2" onclick="closeSuccessPopup()">Ok</button>
+            </div>
+        </div>
+    </div>`;document.body.insertAdjacentHTML("beforeend",e)}),[c].forEach(e=>{e.addEventListener("click",()=>{t.oncancel(),this._close(i),window.location.href=window.location.origin})}),document.body.appendChild(n.content)},_close(t){t.classList.add("confirm--close"),t.addEventListener("animationend",()=>{document.body.removeChild(t)})}};/*]]>*/</script></b:includable>

@@ -1,0 +1,123 @@
+<b:includable id='popupKonfirmasi_hirutshuji'>
+<span class='judulSeries' expr:data-post-title='data:post.title'/>
+    <script>
+    /*<![CDATA[*/
+    // Boolean xxx untuk mengaktifkan atau menonaktifkan localStorage
+    const useLocalStorage = false;
+
+    function showNotification() {
+      const titleElement = document.querySelector('.judulSeries');
+      const title = titleElement ? titleElement.getAttribute('data-post-title') : 'Judul Tidak Ditemukan';
+
+      Confirm.open({
+        title: title,
+        messageTitle: 'Kamu yakin?',
+        onok: () => {
+          // Apa yang harus dilakukan ketika diklik "OK"
+        },
+        oncancel: () => {
+          // Apa yang harus dilakukan ketika diklik "Cancel"
+        }
+      });
+    }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    if (useLocalStorage !== "true") {
+      const isNotificationDisabled = localStorage.getItem('disableNotification');
+      if (!isNotificationDisabled || isNotificationDisabled !== "true") {
+        showNotification();
+      }
+    }
+  });
+function enableNotification() {
+    if (useLocalStorage) {
+      localStorage.removeItem('disableNotification');
+    }
+  }
+function closeSuccessPopup() {
+    const confirmPopupSuccess = document.querySelector('.confirm2');
+    document.body.removeChild(confirmPopupSuccess);
+}
+const Confirm = {
+    open (options) {
+        options = Object.assign({}, {
+            title: '',
+            messageTitle: '',
+            okText: 'buka',
+            cancelText: 'Kembali',
+            onok: function () {},
+            oncancel: function () {}
+        }, options);
+        
+        const boxWarning = `
+<div class="confirm">
+<div class="confirm__window">
+<div class="svg_warning">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#f8bb86" d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m0 26a12 12 0 1 1 12-12a12 12 0 0 1-12 12"/><path fill="#f8bb86" d="M15 8h2v11h-2zm1 14a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 22"/></svg></div>
+<div class="confirm__titlebar">
+<h2>${options.messageTitle}</h2>
+</div>
+                    
+<div class="box__content">Novel berjudul <b class="title_series">${options.title}</b> ini berisi konten dewasa, kamu yakin ingin buka?
+  <p class="warning_title">*resiko ditanggung masing masing</p>               </div> 
+<div class="confirm__buttons">
+<button class="button_yes_or_no confirm_button_oke confirm_button_fill">${options.okText}</button>
+                        
+<button class="button_yes_or_no confirm_button_cancel">${options.cancelText}</button>
+                    </div>
+                </div>
+            </div>`;
+
+
+        const boxPopupWarning = document.createElement('template');
+      boxPopupWarning.innerHTML = boxWarning;
+        const confirmEl = boxPopupWarning.content.querySelector('.confirm');
+        const btnOk = boxPopupWarning.content.querySelector('.confirm_button_oke');
+        const btnCancel = boxPopupWarning.content.querySelector('.confirm_button_cancel');
+        confirmEl.addEventListener('click', e => {
+            if (e.target === confirmEl) {
+                options.oncancel();
+                this._close(confirmEl);
+window.location.href = window.location.origin;
+            }
+        });
+
+        btnOk.addEventListener('click', () => {
+            options.onok();
+            this._close(confirmEl);
+const boxPopupSuccess = `
+    <div class="confirm2">
+        <div class="confirm__window2">
+            <div class="svg_warning2">
+<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg></div>
+            <div class="confirm__titlebar2">
+                <h2>Yey!</h2>
+            </div>
+            <div class="box__content2">Selamat Menikmati</div> 
+            <div class="confirm__buttons2">
+                <button class="button_yes_or_no2 confirm_button_oke2 confirm_button_fill2" onclick="closeSuccessPopup()">Ok</button>
+            </div>
+        </div>
+    </div>`;
+document.body.insertAdjacentHTML('beforeend', boxPopupSuccess);
+    if (useLocalStorage) {
+localStorage.setItem('disableNotification', 'true');
+            }
+        });
+        [btnCancel].forEach(el => {
+            el.addEventListener('click', () => {
+                options.oncancel();
+                this._close(confirmEl);
+    window.location.href = window.location.origin;
+            });
+        });
+document.body.appendChild(boxPopupWarning.content);
+    },
+    _close (confirmEl) {
+confirmEl.classList.add('confirm--close');
+confirmEl.addEventListener('animationend', () => {
+document.body.removeChild(confirmEl);
+        });
+    }
+};/*]]>*/
+</script>
+ </b:includable>
