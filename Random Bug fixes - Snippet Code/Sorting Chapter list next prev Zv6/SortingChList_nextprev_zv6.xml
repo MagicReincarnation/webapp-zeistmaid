@@ -1,0 +1,38 @@
+/*
+https://emissionhex.blogspot.com/2023/08/zeistmanga-v6.html?commentPage=6&m=1#c5409533466867428021
+*/
+
+Video tutorial: https://youtube.com/shorts/sIt755gTTJo?si=hIllyZVh9crhg2vm
+    
+sortby: "title", //mode sorting 'title','date','default'.  
+/*minify*/
+sort:t=>{let e=npXbottom.config.sortby||"title";return"title"===e?t.sort((t,e)=>{let l=t=>{let e=t.match(/[\d.]+/);return e?parseFloat(e[0]):0},r=l(t.title),i=l(e.title);return r===i?t.title.localeCompare(e.title):r-i}):"date"===e?t.sort((t,e)=>new Date(e.date)-new Date(t.date)):t.sort((t,e)=>t.title.localeCompare(e.title,void 0,{numeric:!0}))},
+
+
+
+/* raw code */
+sort: (arr) => {
+    const sort_listCh = npXbottom.config.sortby || "title";
+    if (sort_listCh === "title") {
+        return arr.sort((top, bottom) => {
+            const extractCh = (title) => {
+                const match = title.match(/[\d.]+/);
+                return match ? parseFloat(match[0]) : 0;
+            };
+            const sort_top = extractCh(top.title);
+            const sort_bottom = extractCh(bottom.title);
+            if (sort_top === sort_bottom) return top.title.localeCompare(bottom.title);
+            return sort_top - sort_bottom; 
+        });
+    } else if (sort_listCh === "date") {
+        return arr.sort((top, bottom) => new Date(bottom.date) - new Date(top.date));
+    } else {
+        return arr.sort((top, bottom) =>
+            top.title.localeCompare(bottom.title, undefined, { numeric: true })
+        );
+    }
+},
+
+
+/* Bakcup code */
+	sort:e=>e.sort((e,t)=>e.title.localeCompare(t.title,void 0,{numeric: !0})),
