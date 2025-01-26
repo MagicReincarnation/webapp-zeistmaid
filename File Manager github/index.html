@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>File Manager</title>
+ <link rel="stylesheet" href="style.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.js" integrity="sha512-3FKAKNDHbfUwAgW45wNAvfgJDDdNoTi5PZWU7ak3Xm0X8u0LbDBWZEyPklRebTZ8r+p0M2KIJWDYZQjDPyYQEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+ <div id="dd_filemanager" class="hiddeNotIframe">
+  <div class="header_filemanager">
+   <label for="downloadZip">
+    <input type="checkbox" id="downloadZipCheckbox" name="downloadZip" />
+    Select
+   </label>
+   <span class="breadcrumb" id="breadcrumb"></span>
+   <button id="downloadSelectedButton">ZIP</button>
+  </div>
+
+  <div id="fileList" class="file-list"></div>
+
+  <div class="footer_filemanager">
+   <button id="homeButton">Home</button>
+   <button id="backButton">Back</button>
+  </div>
+ </div>
+
+
+ <script src="main.js"></script>
+</body>
+
+</html>

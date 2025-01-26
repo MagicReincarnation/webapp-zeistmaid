@@ -1,0 +1,222 @@
+[{
+ "name": ".",
+ "path": ".",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 0,
+ "created_at": "2025-01-26T00:41:53+07:00",
+ "updated_at": "2025-01-26T00:41:53+07:00",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/.?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/tree/main/.",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/trees/a6a48585da8e5d502fc85215cb175075571803a4:.",
+ "download_url": null,
+ "type": "dir",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/.?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/trees/a6a48585da8e5d502fc85215cb175075571803a4:.",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/tree/main/."
+ }
+}, {
+ "name": "Lisensi database Github",
+ "path": "Lisensi database Github",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 0,
+ "created_at": "2025-01-26T00:41:53+07:00",
+ "updated_at": "2025-01-26T00:41:53+07:00",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/tree/main/Lisensi database Github",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/trees/a6a48585da8e5d502fc85215cb175075571803a4:Lisensi database Github",
+ "download_url": null,
+ "type": "dir",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/trees/a6a48585da8e5d502fc85215cb175075571803a4:Lisensi database Github",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/tree/main/Lisensi database Github"
+ }
+}, {
+ "name": "demo",
+ "path": "Lisensi database Github/demo",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 0,
+ "created_at": "2025-01-26T00:41:53+07:00",
+ "updated_at": "2025-01-26T00:41:53+07:00",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/demo?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/tree/main/Lisensi database Github/demo",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/trees/a6a48585da8e5d502fc85215cb175075571803a4:Lisensi database Github/demo",
+ "download_url": null,
+ "type": "dir",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/demo?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/trees/a6a48585da8e5d502fc85215cb175075571803a4:Lisensi database Github/demo",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/tree/main/Lisensi database Github/demo"
+ }
+}, {
+ "name": "Lisensi Code XOR",
+ "path": "Lisensi Code XOR",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 0,
+ "created_at": "2025-01-26T00:41:53+07:00",
+ "updated_at": "2025-01-26T00:41:53+07:00",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi Code XOR?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/tree/main/Lisensi Code XOR",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/trees/a6a48585da8e5d502fc85215cb175075571803a4:Lisensi Code XOR",
+ "download_url": null,
+ "type": "dir",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi Code XOR?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/trees/a6a48585da8e5d502fc85215cb175075571803a4:Lisensi Code XOR",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/tree/main/Lisensi Code XOR"
+ }
+}, {
+ "name": "Lisensi_versi_callback.js",
+ "path": "Lisensi_versi_callback.js",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 7412,
+ "created_at": "20250125 17:42:03.969141463 +0000",
+ "updated_at": "2025-01-25 17:42:03.970141460 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi_versi_callback.js?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi_versi_callback.js",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/Lisensi_versi_callback.js",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi_versi_callback.js?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi_versi_callback.js"
+ }
+}, {
+ "name": "index_lisensi.html",
+ "path": "Lisensi database Github/demo/index_lisensi.html",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 3724,
+ "created_at": "20250125 17:42:03.969141463 +0000",
+ "updated_at": "2025-01-25 17:42:03.969141463 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/demo/index_lisensi.html?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi database Github/demo/index_lisensi.html",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/Lisensi database Github/demo/index_lisensi.html",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/demo/index_lisensi.html?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi database Github/demo/index_lisensi.html"
+ }
+}, {
+ "name": "lisensi.js",
+ "path": "Lisensi database Github/lisensi.js",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 2683,
+ "created_at": "20250125 17:42:03.969141463 +0000",
+ "updated_at": "2025-01-25 17:42:03.969141463 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/lisensi.js?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi database Github/lisensi.js",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/Lisensi database Github/lisensi.js",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/lisensi.js?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi database Github/lisensi.js"
+ }
+}, {
+ "name": "Readme.md",
+ "path": "Lisensi database Github/Readme.md",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 100,
+ "created_at": "20250125 17:42:03.969141463 +0000",
+ "updated_at": "2025-01-25 17:42:03.969141463 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/Readme.md?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi database Github/Readme.md",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/Lisensi database Github/Readme.md",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/Readme.md?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi database Github/Readme.md"
+ }
+}, {
+ "name": "index.html",
+ "path": "Lisensi database Github/index.html",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 3631,
+ "created_at": "20250125 17:42:03.969141463 +0000",
+ "updated_at": "2025-01-25 17:42:03.969141463 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/index.html?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi database Github/index.html",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/Lisensi database Github/index.html",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi database Github/index.html?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi database Github/index.html"
+ }
+}, {
+ "name": "Dasboard Create Lisensi.xml",
+ "path": "Lisensi Code XOR/Dasboard Create Lisensi.xml",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 1532,
+ "created_at": "20250125 17:42:03.969141463 +0000",
+ "updated_at": "2025-01-25 17:42:03.969141463 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi Code XOR/Dasboard Create Lisensi.xml?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi Code XOR/Dasboard Create Lisensi.xml",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/Lisensi Code XOR/Dasboard Create Lisensi.xml",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi Code XOR/Dasboard Create Lisensi.xml?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi Code XOR/Dasboard Create Lisensi.xml"
+ }
+}, {
+ "name": "Readme.md",
+ "path": "Lisensi Code XOR/Readme.md",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 3680,
+ "created_at": "20250125 17:42:03.969141463 +0000",
+ "updated_at": "2025-01-25 17:42:03.969141463 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi Code XOR/Readme.md?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi Code XOR/Readme.md",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/Lisensi Code XOR/Readme.md",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/Lisensi Code XOR/Readme.md?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/Lisensi Code XOR/Readme.md"
+ }
+}, {
+ "name": "file-structure.json",
+ "path": "file-structure.json",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 13370,
+ "created_at": "20250125 17:42:03.970141460 +0000",
+ "updated_at": "2025-01-25 17:42:03.970141460 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/file-structure.json?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/file-structure.json",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/file-structure.json",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/file-structure.json?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/file-structure.json"
+ }
+}, {
+ "name": "README.md",
+ "path": "README.md",
+ "sha": "a6a48585da8e5d502fc85215cb175075571803a4",
+ "size": 21,
+ "created_at": "20250125 17:42:03.970141460 +0000",
+ "updated_at": "2025-01-25 17:42:03.970141460 +0000",
+ "url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/README.md?ref=main",
+ "html_url": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/README.md",
+ "git_url": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+ "download_url": "https://raw.githubusercontent.com/MagicReincarnation/Lisensi-Code/main/README.md",
+ "type": "file",
+ "_links": {
+  "self": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/contents/README.md?ref=main",
+  "git": "https://api.github.com/repos/MagicReincarnation/Lisensi-Code/git/blobs/a6a48585da8e5d502fc85215cb175075571803a4",
+  "html": "https://github.com/MagicReincarnation/Lisensi-Code/blob/main/README.md"
+ }
+}]
