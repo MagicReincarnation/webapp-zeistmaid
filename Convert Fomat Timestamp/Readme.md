@@ -1,24 +1,39 @@
 # Format Timestamp (timeago, 12hour, 24hour)
 
-Fungsi `formatTimestamp_hstry` digunakan untuk memformat waktu (*timestamp*) ke beberapa jenis format, seperti:
+Fungsi `formatTimestamp` digunakan untuk memformat waktu (*timestamp*) ke beberapa jenis format, seperti:
 
-- **12-hour:** Format waktu 12 jam, contoh: `15/08/2024 02:30 PM`.
+- **12-hour (v1 & v2):**  
+  - **v1:** Format tanggal saja, contoh: `15/08/2024`.  
+  - **v2:** Format waktu 12 jam dengan periode, contoh: `15/08/2024 02:30 PM`.
 - **24-hour:** Format waktu 24 jam, contoh: `15/08/2024 14:30`.
-- **timeago:** Format waktu relatif, contoh: `5 minutes ago`.
+- **timeago:** Format waktu relatif, contoh:  
+  - Dalam bahasa Inggris: `5 minutes ago`.  
+  - Dalam bahasa Indonesia: `5 menit yang lalu`.
 
 ## Parameter
 
-1. **`timestamp`**: 
-   - Waktu dalam milidetik (contoh: `Date.now()`).
-   - Wajib diberikan sebagai parameter untuk menentukan waktu yang akan diformat.
+1. **`timestamp`**  
+   - Waktu dalam milidetik (contoh: `Date.now()`).  
+   - **Wajib diberikan** sebagai parameter untuk menentukan waktu yang akan diformat.
 
-2. **`format`**:
-   - Jenis format yang diinginkan. Pilihan format:
-     - `'12hour'` (default): Untuk format 12 jam.
-     - `'24hour'`: Untuk format 24 jam.
-     - `'timeago'`: Untuk format waktu relatif seperti "5 minutes ago".
+2. **`format`** *(opsional)*  
+   - Jenis format yang diinginkan. Pilihan format:  
+     - `'12hourv1'`: Format tanggal saja.  
+     - `'12hourv2'`: Format waktu 12 jam dengan periode (AM/PM).  
+     - `'24hour'`: Format waktu 24 jam.  
+     - `'timeago_en'`: Format waktu relatif dalam bahasa Inggris.  
+     - `'timeago_id'`: Format waktu relatif dalam bahasa Indonesia.  
+   - Default: Format yang ditentukan oleh konfigurasi `config.modeFormat`.
 
+## Config
 
+```javascript
+const config = {
+    modeFormat: "24hour", // Format default jika parameter 'format' tidak diberikan
+    timeago_auto12hourv1: true, // Aktifkan pengubahan otomatis ke format '12hourv1'
+    auto12hourv1_dalam: 7, // Jumlah hari setelah timestamp untuk mengubah ke '12hourv1'
+};
+```
 ## contoh pakai
 
 
