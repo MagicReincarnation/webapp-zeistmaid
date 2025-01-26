@@ -1,0 +1,48 @@
+          <b:widget id='ContactForm1' locked='false' title='Get in touch' type='ContactForm' version='1'>
+            <b:includable id='main'>
+              <b:class name='container'/>
+              <div class='row'>
+                <div class='col-md-4'>
+                  <b:if cond='data:title != &quot;&quot;'><div class='animated fadeInUp' style='animation-duration: 1s;'><h2 class='section-title'><data:title/></h2></div></b:if>
+                  <div class='spacer' data-height='60'/>
+                  <div class='contact-info'>
+                    <div class='animated fadeInUp' style='animation-duration: 1s;'>
+                      <h3>Let&#39;s talk about everything!</h3>
+                    </div>
+                    <div class='animated fadeInUp' style='animation-duration: 1s;'>
+                      <p>Don&#39;t like forms? Send me an <a href='mailto:lunapgr01@gmail.com'>email</a>. 👋</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class='contact-form-error-message' expr:id='data:widget.instanceId + &quot;_contact-form-error-message&quot;'/>
+                    <p class='contact-form-success-message' expr:id='data:widget.instanceId + &quot;_contact-form-success-message&quot;'/>
+                  </div>
+                </div>
+                <div class='col-md-8 contact-form-widget'>
+                  <div class='form'>
+                    <form class='contact-form mt-6' id='contact-form' name='contact-form'>
+                      <div class='row'>
+                        <div class='column col-md-12'>
+                          <div class='form-group'>
+                            <input class='form-control contact-form-name' expr:id='data:widget.instanceId + &quot;_contact-form-name&quot;' name='name' placeholder='Your name' type='text' value=''/>
+                          </div>
+                        </div>
+                        <div class='column col-md-12'>
+                          <div class='form-group'>
+                            <input class='form-control contact-form-email' expr:id='data:widget.instanceId + &quot;_contact-form-email&quot;' name='email' placeholder='Email address' type='email' value=''/>
+                          </div>
+                        </div>
+                        <div class='column col-md-12'>
+                          <div class='form-group'>
+                            <textarea class='form-control contact-form-email-message' expr:id='data:widget.instanceId + &quot;_contact-form-email-message&quot;' name='email-message' placeholder='Message'/>
+                          </div>
+                        </div>
+                      </div>
+                      <button class='btn btn-default contact-form-button contact-form-button-submit' expr:id='data:widget.instanceId + &quot;_contact-form-submit&quot;' expr:value='data:contactFormSendMsg' name='submit' type='button'>Send</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <b:include name='quickedit'/>
+            </b:includable>
+          </b:widget>
