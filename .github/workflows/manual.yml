@@ -1,0 +1,53 @@
+name: Generate Folder
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  generate_json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generate folder structure JSON
+        run: |
+          # Install jq
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+          # Iterasi folder
+          folder_structure=$(find . -type d ! -path "./.git*" -print0 | while IFS= read -r -d '' folder; do
+            first_commit_date=$(git log --format=%aI --reverse -- "$folder" | head -1)
+            last_commit_date=$(git log -1 --format=%aI -- "$folder")
+            echo "{\"name\": \"$(basename "$folder")\", \"path\": \"${folder#./}\", \"sha\": \"$(git log -1 --format=%H -- "$folder")\", \"size\": 0, \"created_at\": \"$first_commit_date\", \"updated_at\": \"$last_commit_date\", \"download_url\": null, \"type\": \"dir\"},"
+          done)
+
+          # Iterasi file
+          files_structure=$(find . -type f ! -path "./.git*" -print0 | while IFS= read -r -d '' file; do
+            size=$(stat -c %s "$file")
+            created_at=$(stat -c %w "$file" | sed 's/-//g' | awk '{print ($1 == "") ? "Not Available" : $0}') # Waktu dibuat
+            updated_at=$(stat -c %y "$file") # waktu last Update
+            sha=$(git log -1 --format=%H -- "$file")
+            echo "{\"name\": \"$(basename "$file")\", \"path\": \"${file#./}\", \"sha\": \"$sha\", \"size\": $size, \"created_at\": \"$created_at\", \"updated_at\": \"$updated_at\", \"download_url\": \"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/${file#./}\", \"type\": \"file\"},"
+          done)
+
+          # Gabungkan JSON
+          combined_json="[${folder_structure}${files_structure%,}]"
+
+          # Simpan ke file
+          echo "$combined_json" > file-structure.json
+
+      - name: Commit and push file structure
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add file-structure.json
+          git commit -m "Update file structure JSON"
+          git push
