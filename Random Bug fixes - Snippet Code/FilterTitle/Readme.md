@@ -83,4 +83,47 @@ Kode **tidak akan mengubah** judul jika tidak mengandung pola yang ditargetkan.
 
 - **Mendukung berbagai format judul** untuk ch manga, novel, dan series.  
 - **Dapat mengenali berbagai variasi huruf besar/kecil & singkatan umum.**  
-- **Menghindari perubahan pada judul yang tidak mengandung pola yang ditargetkan.**
+- **Menghindari perubahan pada judul yang tidak mengandung pola yang ditargetkan.**.
+
+
+
+## Demo Cara Pakai
+
+- **Pakai Kode `Filter_title.js` ke dalam kode kamu**  
+  - Pastikan kode yang ada difile `Filter_title.js` yang berisi function `mangaPost_settingTitle(title)` sudah diletakan discript kamu.
+
+- **Contoh Cara Pakai scriptnya**  
+
+  - **Ubah judul sebelum ditampilkan:**  
+    ```js
+    let rawTitle = "Volume 12 Chapter 5 Extra Chapter";
+    
+    let formattedTitle = mangaPost_settingTitle(rawTitle);// ini mangaPost_settingTitle
+    
+    console.log(formattedTitle); // Output: "Vol 12 Ch 5 Etc"
+    ```
+
+  - **Pakai di event button:**  
+    ```js
+    document.getElementById("titleButton").addEventListener("click", function() {
+        let inputTitle = document.getElementById("titleInput").value;
+        
+        let formatted = mangaPost_settingTitle(inputTitle);// ini mangaPost_settingTitle
+        
+        alert("Judul Setelah Diformat: " + formatted);
+    });
+    ```
+
+  - **Ubah data array judul:**  
+    ```js
+    let mangaList = [
+        "Season 2 Episode 3",
+        "Volume 5 Chapter 20",
+        "Extra Chapter 7"
+    ];
+    
+    let formattedList = mangaList.map(title => mangaPost_settingTitle(title)); // ini mangaPost_settingTitle
+    
+    console.log(formattedList);
+    // Output: ["S 2 Ep 3", "Vol 5 Ch 20", "Etc 7"]
+    ```

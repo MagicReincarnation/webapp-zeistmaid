@@ -25,3 +25,8 @@ function mangaPost_settingTitle(title) {
  });
  return filteredTitle;
 }
+
+
+// Contoh
+console.log(mangaPost_settingTitle("Volume 12 Chapter 5 Extra Chapter")); // Output: "Vol 12 Ch 5 Etc"
+console.log(mangaPost_settingTitle("Season 3 Episode 10")); // Output: "S 3 Ep 10"
