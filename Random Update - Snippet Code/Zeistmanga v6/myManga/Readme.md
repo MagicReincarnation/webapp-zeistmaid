@@ -1,3 +1,7 @@
+# Tutorial Update > zeistmangav6 
+
+### [Link Video Tutorial](https://youtube.com/shorts/PEinAMQQ6LI?si=JiEd89jW-iD2JwEn)
+ 
 # Format Judul yang Didukung  
 
 Kode ini secara otomatis menyesuaikan format judul manga, novel, atau episode agar lebih ringkas.  
