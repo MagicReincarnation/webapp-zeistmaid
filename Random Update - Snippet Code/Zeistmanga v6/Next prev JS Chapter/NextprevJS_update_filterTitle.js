@@ -1,13 +1,12 @@
 // <script defer='defer' fetchpriority='low'>
      /*<![CDATA[*/
-      /*]]>*/ 
-// </script>
  const npXbottom = {
   arr: new Array,
   config: {
    max: 150,
    start: 1,
-   labelMain: "Series"
+   labelMain: "Series",
+   sortby: "title", //mode sorting 'title','date','default'
   },
   config_settingtitle_nextPrev: {
    modif_title_Chapter: ["([vV]olume|[cC]hapter|[pP]rolog[ue]?|[eE]pisode|[sS]eason|[cC]h|[vV]ol|[eE]p|[sS])\\s*\\d+(?=[\\s\\W]|$)(.*)"],
@@ -20,9 +19,7 @@
     { target: "Chapter", change_to: "Ch" },
     ]
   },
-  sort: e => e.sort((e, t) => e.title.localeCompare(t.title, void 0, {
-   numeric: !0
-  })),
+sort:t=>{let e=npXbottom.config.sortby||"title";return"title"===e?t.sort((t,e)=>{let l=t=>{let e=t.match(/[\d.]+/);return e?parseFloat(e[0]):0},r=l(t.title),i=l(e.title);return r===i?t.title.localeCompare(e.title):r-i}):"date"===e?t.sort((t,e)=>new Date(e.date)-new Date(t.date)):t.sort((t,e)=>t.title.localeCompare(e.title,void 0,{numeric:!0}))},
   compile: function() {
    let e = this.sort(this.arr).reverse(),
     t = this.config,
@@ -86,3 +83,5 @@
  }
 
  npXbottom.run();
+       /*]]>*/ 
+//</script>
