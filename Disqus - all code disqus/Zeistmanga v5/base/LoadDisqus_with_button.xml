@@ -1,0 +1,20 @@
+<script>
+    let disqus_config = () =&gt; {
+          this.page.url = &#39;<data:post.url.canonical/>&#39;;
+          this.page.identifier = &#39;<data:post.id/>&#39;;
+          }
+     const disqusLaz = (e) =&gt; {
+          if (!e.classList.contains(&#39;loaded&#39;)) {
+          let script = document.createElement(&#39;script&#39;);
+          script.src = &#39;//scanslation.disqus.com/embed.js&#39;;
+          document.body.appendChild(script);
+          e.classList.add(&#39;loaded&#39;);
+          }
+       }
+        </script>
+        <div id='disqus_thread'>
+          <div class='flex jcc'>
+            <div id='buttonDisqs' onclick='disqusLaz(this)' role='button'>Show Comments
+              </div>
+            </div>
+        </div>
