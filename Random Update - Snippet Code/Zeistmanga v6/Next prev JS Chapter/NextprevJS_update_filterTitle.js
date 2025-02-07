@@ -40,7 +40,7 @@ sort:t=>{let e=npXbottom.config.sortby||"title";return"title"===e?t.sort((t,e)=>
     t = e.config;
    $.ajax({
     type: "get",
-    url: `${t.site||""}/feeds/posts/summary/-/${t.cat}`,
+    url: `${t.site||""}/feeds/posts/summary/-/${encodeURIComponent(t.cat)}`,
     data: {
      alt: "json",
      "start-index": t.start,

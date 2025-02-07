@@ -81,7 +81,7 @@ const clwd_volume = {
   })
  },
  run_volume: function(t) {
-  this.settings.cat = t, "function" == typeof jQuery && document.getElementById("clwd_volume") ? this.get_volume(jQuery) : console.log("Output Nothing")
+  this.settings.cat = encodeURIComponent(t), "function" == typeof jQuery && document.getElementById("clwd_volume") ? this.get_volume(jQuery) : console.log("Output Nothing")
  },
  settings: {
   max: 150,
