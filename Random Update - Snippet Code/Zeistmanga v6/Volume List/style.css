@@ -1,0 +1,7 @@
+
+/*Volume List*/
+#clwd_volume ul > li a::after{position:absolute;right:1rem;content:"Read now >";opacity:0;color:#007bff;margin-right:1rem;transition:all .3s;font-weight:500}
+#clwd_volume ul > li a:hover::after{opacity:1;margin-right:0}
+#clwd_volume ul > li a span:last-child{white-space:nowrap;opacity:1;transition:all .3s}
+#clwd_volume ul > li a:hover span:last-child{opacity:0}
+#clwd_volume ul {max-height: 500px;overflow: auto;}
