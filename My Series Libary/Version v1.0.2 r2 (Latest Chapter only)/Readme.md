@@ -1,6 +1,12 @@
 # Change Log
+## Release:  
+ - [1.0.2] R2 - 2024-12-18
 
-## [1.0.2] R2 - 2024-12-18
+## Last Update
+ - [1.0.2] R2 - 2025-02-09 
+    
+   sedikit tambahan yg sebelumnya kelupaan jadi tidak ada perubahan version.
+
 ### Changed
 - **Penghapusan Volume Batch dan All Chapters** - 2024-12-16: 
   
@@ -32,6 +38,10 @@
 
   menambahkan session storage untuk series yang sudah dimuat sebelumnya agar tidak memulai dari index awal lagi.
 
+- **Label: Language, Country, Other** - 2025-02-09 : 
+
+  menambahkan 3 Jenis label baru untuk series yang sudah dimuat.
+  
 # New Demo 
  [My series R2 latest Chapter Only](https://codehiru.blogspot.com/2024/12/my-list-unlimited-v101-r2-latest.html?m=1)
 
