@@ -17,7 +17,7 @@ function loadBlogspotFeed() {
   return;
  }
  const script = document.createElement("script");
- script.src = `${hrSliderRandom.feeds}/feeds/posts/default?alt=json-in-script&callback=renderSlider`;
+ script.src = `${hrSliderRandom.feeds? hrSliderRandom.feeds: ''}/feeds/posts/default?alt=json-in-script&callback=renderSlider`;
  document.body.appendChild(script);
 }
 
