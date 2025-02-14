@@ -1,0 +1,165 @@
+<div class="post-body entry-content float-container" data-id="3803985597319244649" id="post-body-3803985597319244649">
+<figure>
+  <img alt="Labels In Blogger" height="1080" loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDX2cFm7r0E88DPCsCaItLQ_JKaoxCkNnX6DT6WT2fQ9VfzKtA5Zu8Q1xEWutBG4Y9cHVl5zspu2-HtfvD6QCwtPaiia9qRaj6YJqMhDWdCfyCRdhgWQg0YqBH7FbS0pDDffpFktGLz9ZxY8TiAdjsV-qK2_cgpCQYR-oaKRuDOZeFFxGiuaWhkvUhsQ/s1600-rw/Label%20Artikel.jpg" width="1920">
+</figure>
+
+<div class="Box_Post2">
+  <h2>Penjelasan</h2>
+  <p><strong>Label</strong> adalah tag yang ditambah oleh penulis pada setiap artikel. Yang bertujuan untuk memisahkan, mengelompokan artikel dengan label label tertentu.</p>
+
+  <div style="text-align: center;">
+    <img alt="Label Add" height="640" loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_xeneXFCi8vesTyyAVRCghlkP2DNsL8VS-3hmUm5hq0vjfArZ2uaB95_8z7p6WvuHva1OOlB5pwVdr6mHVeBzJnrj1S87Dgd325bavDYQEEN7c78J6FFThZjK6PRjkFlqcDu0KQbyx65Msw7x5oa6yNIupDl1j0UlUBZC3V7JlnZ70R-xhQFhYnC0-A/s1600-rw/Screenshot%202023-06-16%20205650.png" style="box-shadow: 0px 1px 5px rgb(204, 204, 204);" width="255">
+  </div>
+</div>
+
+<div class="Box_Post2">
+  <h2>Beberapa Contoh Code Pada gadget Blog</h2>
+
+  <h3>Contoh Syntax Default</h3>
+  <pre data-code="xml"><code data-highlighted="yes" class="hljs language-php-template"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:posts'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'post'</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:post.labels'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'label'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">expr:href</span>=<span class="hljs-string">'data:label.url'</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'tag'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">data:label.name</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span></span></code><button class="copy-code-button">copy</button></pre>
+
+<h3>Menambahkan pembatas tiap label dengan koma(,)</h3>
+  <pre data-code="xml"><code data-highlighted="yes" class="hljs language-php-template"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:post.labels'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'label'</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'i'</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:i &gt; 0'</span>&gt;</span>
+    , <span class="hljs-comment">&lt;!-- Tambahkan koma jika bukan label pertama --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">data:label.name</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:i == data:post.labels.size - 1'</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Tidak tambahkan koma untuk label terakhir --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span></span></code><button class="copy-code-button">copy</button></pre>
+
+  <h3>Contoh Syntax Filter 1</h3>
+  <pre data-code="xml"><code data-highlighted="yes" class="hljs language-php-template"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:post.labels'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'label'</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:label.name in ["Anime", "Manga", "Movies"]'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">expr:href</span>=<span class="hljs-string">'data:label.url'</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'tag'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">data:label.name</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span></span></code><button class="copy-code-button">copy</button></pre>
+  <p>Diatas hanya mengijinkan label <kbd>Anime</kbd> <kbd>Manga</kbd> <kbd>Movies</kbd> yang akan muncul.</p>
+
+  <h3>Contoh Syntax Filter 2</h3>
+  <pre data-code="xml"><code data-highlighted="yes" class="hljs language-php-template"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:post.labels'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'label'</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:label.name in ["Anime"]'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">expr:href</span>=<span class="hljs-string">'data:label.url'</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'tag'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">data:label.name</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">b:elseif</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:label.name in ["Manga"]'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">expr:href</span>=<span class="hljs-string">'data:label.url'</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'tag'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">data:label.name</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">b:elseif</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:label.name in ["Movies"]'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">expr:href</span>=<span class="hljs-string">'data:label.url'</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'tag'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">data:label.name</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span></span></code><button class="copy-code-button">copy</button></pre>
+  <p>Diatas hanya mengijinkan label <kbd>Anime</kbd> <kbd>Manga</kbd> <kbd>Movies</kbd> yang akan muncul.</p>
+
+  <h3>Contoh Syntax Filter 3 (Score Label)</h3>
+  <pre data-code="xml"><code data-highlighted="yes" class="hljs language-javascript">&lt;<span class="hljs-attr">b</span>:<span class="hljs-keyword">with</span> value=<span class="hljs-string">'["0","1","2","3","4","5","6","7","8","9"]'</span> <span class="hljs-keyword">var</span>=<span class="hljs-string">'checkNumber'</span>&gt;
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:post.labels'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:post.labels'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'item'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">b:with</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'"String: " + data:item.name'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'string'</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:checkNumber'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'first'</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:string contains data:first + "."'</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:checkNumber'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'last'</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:string contains "." + data:last'</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rt"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rating"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rating-prc"</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rtp"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">b:with</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'10'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'ten'</span>&gt;</span>
+                          <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:string contains data:ten + "."'</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'rtb'</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">'width:100%'</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                          <span class="hljs-tag">&lt;<span class="hljs-name">b:else</span>/&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'rtb'</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">expr:style</span>=<span class="hljs-string">'"width:" + data:first + "" + data:last + "%"'</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                          <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">b:with</span>&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"numscore"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">data:item.name</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">b:with</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span></span>
+&lt;/<span class="hljs-attr">b</span>:<span class="hljs-keyword">with</span>&gt;</code><button class="copy-code-button">copy</button></pre>
+  <p>Diatas hanya mengijinkan label dengan format Number.Number yang akan muncul. Seperti <kbd>2.55</kbd> <kbd>3.5</kbd> <kbd>9.9</kbd>.</p>
+
+  <h3>Contoh Syntax Filter 4 (Episode Label)</h3>
+  <pre data-code="xml"><code data-highlighted="yes" class="hljs language-javascript">&lt;<span class="hljs-attr">b</span>:<span class="hljs-keyword">with</span> value=<span class="hljs-string">'["Episode", "Eps", "Ep"]'</span> <span class="hljs-keyword">var</span>=<span class="hljs-string">'checkEpisode'</span>&gt;
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:post.labels'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:post.labels'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'item'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">b:with</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'"String: " + data:item.name'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'string'</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:checkEpisode'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'first'</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:string contains data:first + " "'</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"eps"</span>&gt;</span>data:item.name/&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">b:with</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span></span>
+  &lt;/<span class="hljs-attr">b</span>:<span class="hljs-keyword">if</span>&gt;
+&lt;/<span class="hljs-attr">b</span>:<span class="hljs-keyword">with</span>&gt;</code><button class="copy-code-button">copy</button></pre>
+  <p>Diatas hanya mengijinkan label dengan format Episode/Eps/Ep Number yang akan muncul. Seperti <kbd>Eps 01</kbd> <kbd>Episode 999</kbd> <kbd>Ep 100</kbd>.</p>
+
+  <h3>Contoh Syntax Filter 5 (Musim Label Anime)</h3>
+  <pre data-code="xml"><code data-highlighted="yes" class="hljs language-javascript">&lt;<span class="hljs-attr">b</span>:<span class="hljs-keyword">with</span> value=<span class="hljs-string">'["Winter","Summer","Spring","Fall"]'</span> <span class="hljs-keyword">var</span>=<span class="hljs-string">'checkMusim'</span>&gt;
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:post.labels'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:post.labels'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'item'</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">b:with</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'"String: " + data:item.name'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'string'</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:checkMusim'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'first'</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:string contains data:first + " "'</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">data:item.name</span>/&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">b:with</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span></span>
+&lt;/<span class="hljs-attr">b</span>:<span class="hljs-keyword">with</span>&gt;</code><button class="copy-code-button">copy</button></pre>
+  <p>Diatas hanya mengijinkan label dengan format Musim Number yang akan muncul. Seperti <kbd>Winter 2022</kbd> <kbd>Spring 2011</kbd> <kbd>Fall 2000</kbd>.</p>
+
+  <h3>Contoh Syntax Filter 6 (Volume &amp; Chapter)</h3>
+  <pre data-code="xml"><code data-highlighted="yes" class="hljs language-javascript">&lt;<span class="hljs-attr">b</span>:<span class="hljs-keyword">with</span> value=<span class="hljs-string">'["Vol","Ch"]'</span> <span class="hljs-keyword">var</span>=<span class="hljs-string">'checkVol'</span>&gt;
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:post.labels'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"New_Ch"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:post.labels'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'item'</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">b:with</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'"String: " + data:item.name'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'string'</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">b:loop</span> <span class="hljs-attr">index</span>=<span class="hljs-string">'i'</span> <span class="hljs-attr">values</span>=<span class="hljs-string">'data:checkVol'</span>  <span class="hljs-attr">var</span>=<span class="hljs-string">'first'</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">b:with</span> <span class="hljs-attr">value</span>=<span class="hljs-string">'data:i + 1'</span> <span class="hljs-attr">var</span>=<span class="hljs-string">'nb'</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:i in [1]'</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">b:if</span> <span class="hljs-attr">cond</span>=<span class="hljs-string">'data:string contains data:first + "."'</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">expr:href</span>=<span class="hljs-string">'data:post.url'</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-file-alt"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">data:item.name</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">b:with</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">b:with</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">b:loop</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">b:if</span>&gt;</span></span>
+&lt;/<span class="hljs-attr">b</span>:<span class="hljs-keyword">with</span>&gt;</code><button class="copy-code-button">copy</button></pre>
+  <p>Diatas hanya mengijinkan label dengan format Vol/Ch Number yang akan muncul. Seperti <kbd>Vol.01 Ch.02</kbd> <kbd>Vol.04</kbd> <kbd>Ch.01</kbd>.</p>
+  
+</div>
+
+
+<div class="Cp">
+  Referensi : <br>
+  dayat.id <br>
+
+</div>
+</div>

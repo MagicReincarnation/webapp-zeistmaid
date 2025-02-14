@@ -1,0 +1,47 @@
+<b:widget id='HTML22' locked='true' title='Recenly Updated Auto Chapter' type='HTML' version='2' visible='true'>
+ <b:widget-settings>
+  <b:widget-setting name='content'>
+   <![CDATA[<div id="libarySeries" class="boxcc grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] gap-1 md:gap-4"><script>
+SeriesLibrary.fetchFeed("SeriesLibrary.processFeed", "Series");
+</script>
+</div>]]>
+  </b:widget-setting>
+ </b:widget-settings>
+ <b:includable id='main'>
+  <div class='flex justify-between items-center mb-4'>
+   <h2 class='text-xl text-gray-900 dark:text-gray-200' id='title'>
+    <data:title />
+   </h2>
+   <a class='cursor-pointer inline-block px-4 py-1 rounded-full bg-accent text-white active hover:bg-accent/80' href='/search/label/Series'>More&gt;&gt;</a>
+  </div>
+  <div class='widget-content'>
+   <div id='seriesUnlimited'><!--jangan dihapus-->
+    <data:content />
+    <!--jangan dihapus-->
+    <!--jangan dihapus-->
+    <span>
+     <p class='text-xl text-gray-900 dark:text-gray-200' id='info_status' />
+    </span>
+    <!--jangan dihapus-->
+    <div id='info_statusLoader'><!--jangan dihapus-->
+     <!--boleh dihapus-->
+     <div class='loader-container'>
+      <div class='loader book'>
+       <figure class='page' />
+       <figure class='page' />
+       <figure class='page' />
+      </div>
+      <h4>Loading</h4>
+     </div><!--boleh dihapus-->
+     
+    </div><!--jangan dihapus-->
+   </div><!--jangan dihapus-->
+   
+   <div class='boxLoadmore'>
+    <button class='button_loadmore' id='btn_seriesUnlimited' type='button'>
+     Load more
+    </button>
+   </div>
+  </div>
+ </b:includable>
+</b:widget>
