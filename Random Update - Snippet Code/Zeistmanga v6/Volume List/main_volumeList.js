@@ -67,10 +67,11 @@ const clwd_volume = {
    dataType: "jsonp",
    success: function(_) {
     "entry" in _.feed ? (_.feed.entry.forEach(_ => {
-     e.arr_volume.push({
+     let l = _.category ? _.category.map(c => c.term) : [];
+     l.includes("Series") || e.arr_volume.push({
       title: _.title.$t,
       link: _.link.find(t => "alternate" == t.rel).href,
-      dLink: "content" in _ && (t(_.content.$t).find("#downBTN").length ? t(_.content.$t).find("#downBTN").attr("href") : ""),
+      dLink: "content" in _ ? (_.content.$t.match(/id=["']downBTN["'][^>]*href=["']([^"']+)["']/i) || [])[1] || "" : "",
       published: "function" == typeof timeAgo ? timeAgo(new Date(_.updated.$t)) : e.timeString(_.updated.$t)
      })
     }), _.feed.entry.length >= e.settings.max ? (e.settings.start += e.settings.max, e.run_volume(e.settings.cat)) : e.compile_volume()) : e.arr_volume.length > 0 && e.compile_volume()
@@ -86,20 +87,25 @@ const clwd_volume = {
  settings: {
   max: 150,
   start: 1,
-  judul: "Chapter List",
+  judul: "Volume List",
   show_tanpa_volume: !1,
   settingtitle: {
-   modif_title_Chapter: ["([cC]hapter|[pP]rolog[ue]?|[eE]pisode|[cC]h|[eE]p)\\s*\\d+(?=[\\s\\W]|$)(.*)"],
+   modif_title_Chapter: ["([cC]hapter|[eE]pisode|[cC]h|[eE]p)\\s*\\d+(?=[\\s\\W]|$)(.*)",
+    "[pP]rologue",
+    "[pP]rolog",
+    "[eE][nN][dD]",
+    "[iI]lustrasi",
+   ],
    replaceList_ch: [{
     target: "Short Story",
     change_to: "SS"
-            }, {
+   }, {
     target: "Extra Chapter",
     change_to: "Etc"
-            }, {
+   }, {
     target: "Chapter",
     change_to: "Chapter"
-            }, ]
+   }, ]
   }
  },
  chapterlist_settingTitle: function(t) {

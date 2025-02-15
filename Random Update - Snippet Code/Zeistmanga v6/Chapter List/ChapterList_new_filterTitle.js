@@ -39,10 +39,11 @@ const clwd = {
    dataType: "jsonp",
    success: function(a) {
     "entry" in a.feed ? (a.feed.entry.forEach(a => {
-     e.arr.push({
+     let l = a.category ? a.category.map(c => c.term) : [];
+     l.includes("Series") || e.arr.push({
       title: a.title.$t,
       link: a.link.find(t => "alternate" == t.rel).href,
-      dLink: "content" in a && 0 != t(a.content.$t).find("#downBTN").length && t(a.content.$t).find("#downBTN").attr("href"),
+      dLink: "content" in a ? (a.content.$t.match(/id=["']downBTN["'][^>]*href=["']([^"']+)["']/i) || [])[1] || "" : "",
       published: "function" == typeof timeAgo ? timeAgo(new Date(a.updated.$t)) : e.timeStirng(a.updated.$t)
      })
     }), a.feed.entry.length >= e.settings.max ? (e.settings.start += e.settings.max, e.run(e.settings.cat)) : e.compile()) : 0 != e.arr.length && e.compile()
@@ -61,22 +62,13 @@ const clwd = {
   judul: "Chapter List",
   settingtitle: {
    modif_title_Chapter: ["([vV]olume|[cC]hapter|[pP]rolog[ue]?|[eE]pisode|[sS]eason|[cC]h|[vV]ol|[eE]p|[sS])\\s*\\d+(?=[\\s\\W]|$)(.*)"],
-   replaceList_ch: [{
-    target: "Volume",
-    change_to: "Vol"
-            }, {
-    target: "Season",
-    change_to: "S"
-            }, {
-    target: "Short Story",
-    change_to: "SS"
-            }, {
-    target: "Extra Chapter",
-    change_to: "Etc"
-            }, {
-    target: "Chapter",
-    change_to: "Ch"
-            }, ]
+   replaceList_ch: [
+    { target: "Volume", change_to: "Vol" },
+    { target: "Season", change_to: "S" },
+    { target: "Short Story", change_to: "SS" },
+    { target: "Extra Chapter", change_to: "Etc" },
+    { target: "Chapter", change_to: "Ch" },
+   ]
   }
  },
  chapterlist_settingTitle: function(t) {
