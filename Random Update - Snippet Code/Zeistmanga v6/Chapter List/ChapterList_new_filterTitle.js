@@ -4,12 +4,13 @@ const clwd = {
  arr: [],
  compile: function() {
   let t = this.arr.length;
-  this.arr.push(this.arr.shift());
+  //this.arr.push(this.arr.shift());
+  this.arr.sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true })).reverse();
   let e = "<ul>",
    a = '<div class="lastend grid grid-cols-2 gap-1">';
   jQuery.each(this.arr, function(s, n) {
    let r = clwd.chapterlist_settingTitle(n.title);
-   s == t - 2 && (a += `<div class="inepcx" data-id="1">
+   s == t - 1 && (a += `<div class="inepcx" data-id="1">
                         <a class="mt-1 flex justify-between py-1.5 px-2.5 transition-all focus:ring-2 focus:ring-accent duration-300 bg-white dark:bg-gray-800/50 hover:bg-gray-300 dark:hover:bg-gray-700" href="${n.link}">
                             <span class="epcur epcurfirst">${r}</span>
                             <span class="text-gray-400 dark:text-gray-600">Chapter Awal</span>
@@ -19,7 +20,7 @@ const clwd = {
                             <span class="epcur epcurlast">${r}</span>
                             <span class="text-gray-400 dark:text-gray-600">Chapter Baru</span>
                         </a>
-                      </div>`), s != t - 1 && (e += `<li class="relative">
+                      </div>`), s != t - 0 && (e += `<li class="relative">
                         <a class="eph-num my-1 flex py-1.5 px-2.5 transition-all focus:ring-2 focus:ring-accent duration-300 bg-white dark:bg-gray-800/50 hover:bg-gray-300 dark:hover:bg-gray-700" href="${n.link}">
                             <span class="vcn me-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><g fill="currentColor"><path d="M232 56v144a16 16 0 0 1-16 16H40a16 16 0 0 1-16-16V56a16 16 0 0 1 16-16h176a16 16 0 0 1 16 16Z" opacity=".2"/><path d="m205.66 85.66l-96 96a8 8 0 0 1-11.32 0l-40-40a8 8 0 0 1 11.32-11.32L104 164.69l90.34-90.35a8 8 0 0 1 11.32 11.32Z"/></g></svg>
