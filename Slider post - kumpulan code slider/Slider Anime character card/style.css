@@ -1,0 +1,162 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      transition: background 1s ease-in-out;
+      min-height: 100vh;
+    }
+    
+    .anime_container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      height: 480px;
+      position: relative;
+      transition: width 0.5s ease, height 0.5s ease, background 0.5s ease;
+    }
+    @media (min-width: 769px){
+    .anime_container{
+      display: flex;
+      }  
+    }
+    .anime_container h1 {
+      margin-bottom: 20px;
+    }
+    
+    /* Slider Anime dengan Swiper */
+    .anime_container .swiper {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .anime_container .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px){
+    .anime_container .swiper {
+      overflow: visible;
+    }
+    
+    .swiper .swiper-pagination {
+      bottom: -25px;
+    }
+  }
+    
+    span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+      width: 25px;
+      height: 10px;
+      border-radius: 10px;
+      transition: width 0.5s ease, height 0.5s ease;
+      background: whitesmoke;
+    }
+    
+    .anime_container .swiper-slide img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .anime_container .swiper-slide img:hover {
+      transform: scale(1.1);
+    }
+    
+    .character_card:hover .deskripsi {
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(4px);
+      width: 100%;
+      padding: 5px;
+      border-radius: 10px;
+    }
+    
+    /* Detail Anime */
+    .anime_details {
+      margin: 0 auto;
+      max-width: 800px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(2px);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .anime_details h2 {
+      margin-bottom: 10px;
+    }
+    
+    /* Daftar Karakter */
+    .characters_container {
+      display: flex;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      gap: 0 20px;
+      width: 100%;
+      padding: 20px;
+      height: 400px;
+    }
+    
+    .character_card {
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2px);
+      padding: 10px;
+      width: 360px;
+      height: auto;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .character_card:hover {
+      transform: scale(1.05);
+    }
+    
+    .character_card .char_anime {
+      width: 160px;
+      height: 160px;
+      margin: auto;
+    }
+    
+    .character_card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .character_card .char-name {
+      margin: 10px 0 5px 0;
+    }
+    
+    .char-role {
+      font-style: italic;
+      background: whitesmoke;
+      color: #5c0000;
+      font-weight: bold;
+      padding: 3px 7px;
+      border-radius: 20px;
+      margin: 10px auto;
+    }
+    
+    .char-detail {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      opacity: 0.9;
+      height: 80px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin: 20px auto;
+    }

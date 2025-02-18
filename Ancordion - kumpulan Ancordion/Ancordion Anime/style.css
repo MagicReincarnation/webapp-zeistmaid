@@ -1,0 +1,111 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #fff;
+}
+
+/* css patial*/
+.accordion_chara_anime {
+  background: url('asset/zerotwo_hiro.jpeg') no-repeat center center / cover;
+  transition: background 1.2s ease-in-out;
+  min-height: auto;
+  padding-bottom: 20px;
+}
+
+.accordion_chara_anime.bg-transition {
+  transition: background 0.8s ease-in-out;
+}
+
+.accordion_chara_anime h2 {
+  text-align: center;
+  padding: 5px 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.accordion_chara_anime .accordion {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid #9799B224;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accordion_chara_anime .accordion-item {
+  border-bottom: 1px solid #9799B224;
+  transition: background 0.5s ease;
+}
+
+.accordion_chara_anime .accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion_chara_anime .accordion-header {
+  padding: 11px;
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  font-weight: bold;
+}
+
+.accordion_chara_anime .accordion-header:hover {
+  background: transparent;
+}
+
+.accordion_chara_anime .accordion-header::after {
+  content: '+';
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.accordion_chara_anime .accordion-item.active .accordion-header::after {
+  transform: rotate(45deg);
+}
+
+.accordion_chara_anime .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background: transparent;
+  padding: 0 15px;
+}
+
+.accordion_chara_anime .accordion-item.active .accordion-content {
+  padding: 15px;
+  max-height: 500px;
+  /* atur sesuai kebutuhan */
+}
+
+.accordion_chara_anime .character {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.accordion_chara_anime .character img {
+  width: 150px;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.accordion_chara_anime .character img:hover {
+  transform: scale(1.1);
+}
+
+.accordion_chara_anime .character-details {
+  flex: 1;
+}
+
+.accordion_chara_anime .character-details h3 {
+  margin-bottom: 10px;
+}

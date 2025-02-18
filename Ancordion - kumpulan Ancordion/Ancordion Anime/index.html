@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion dengan Latar Belakang (Berbasis JSON)</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+  
+</head>
+
+<body>
+  
+  <div class="accordion_chara_anime">
+    <h2>Darling in the Franxx Characters</h2>
+    <div id="characters_1" class="accordion">
+      <!-- Konten accordion akan di-generate lewat JavaScript dari data JSON -->
+    </div>
+    <div id="characters_2" class="accordion">
+      <!-- Konten accordion akan di-generate lewat JavaScript dari data JSON -->
+    </div>
+  </div>
+  
+  <script>
+    /*characters_list1*/
+    const characters_list1 = [
+    {
+      "title": "Zero Two",
+      "bgColor": "#3a3a3a",
+      "bgImage": "asset/zerotwo.jpeg",
+      "img": "asset/zerotwo.jpeg",
+      "description": "Zero Two adalah karakter utama yang dikenal dengan penampilan ikonik dan kepribadiannya yang unik."
+    },
+    {
+      "title": "Hiro",
+      "bgColor": "#2a2a5e",
+      "bgImage": "asset/hiro.jpg",
+      "img": "asset/hiro.jpg",
+      "description": "Hiro adalah protagonis Darling in the Franxx, yang memiliki peran penting dalam perkembangan cerita."
+    }];
+    new _Anime_char('characters_1', characters_list1);
+    
+    /*characters_list2*/
+    const characters_list2 = [
+    {
+      "title": "Ichigo",
+      "bgColor": "#453a3a",
+      "bgImage": "asset/Ichigo.jpeg",
+      "img": "asset/Ichigo.jpeg",
+      "description": "Ichigo merupakan salah satu anggota pasukan yang cukup vokal dan peduli terhadap rekan-rekannya."
+    },
+    {
+      "title": "Goro",
+      "bgColor": "#5e3a2a",
+      "bgImage": "asset/goro.jpg",
+      "img": "asset/goro.jpg",
+      "description": "Goro adalah karakter yang tenang dan selalu mendukung teman-temannya dalam berbagai situasi."
+    }];
+    new _Anime_char('characters_2', characters_list2);
+  </script>
+</body>
+
+</html>
