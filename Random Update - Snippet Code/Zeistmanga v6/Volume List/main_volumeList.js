@@ -67,8 +67,7 @@ const clwd_volume = {
    dataType: "jsonp",
    success: function(_) {
     "entry" in _.feed ? (_.feed.entry.forEach(_ => {
-     let l = _.category ? _.category.map(c => c.term) : [];
-     l.includes("Series") || e.arr_volume.push({
+     e.arr_volume.push({
       title: _.title.$t,
       link: _.link.find(t => "alternate" == t.rel).href,
       dLink: "content" in _ ? (_.content.$t.match(/id=["']downBTN["'][^>]*href=["']([^"']+)["']/i) || [])[1] || "" : "",
@@ -91,6 +90,7 @@ const clwd_volume = {
   show_tanpa_volume: !1,
   settingtitle: {
    modif_title_Chapter: ["([cC]hapter|[eE]pisode|[cC]h|[eE]p)\\s*\\d+(?=[\\s\\W]|$)(.*)",
+    "[eE]xtra\\s*[cC]hapter",
     "[pP]rologue",
     "[pP]rolog",
     "[eE][nN][dD]",
@@ -98,10 +98,10 @@ const clwd_volume = {
    ],
    replaceList_ch: [{
     target: "Short Story",
-    change_to: "SS"
+    change_to: "Short Story"
    }, {
     target: "Extra Chapter",
-    change_to: "Etc"
+    change_to: "Extra Chapter"
    }, {
     target: "Chapter",
     change_to: "Chapter"
@@ -133,4 +133,4 @@ const clwd_volume = {
  }
 };
 /*]]>*/
-//</script>
+//</script><!--VOLUME LIST--> 
