@@ -1,0 +1,888 @@
+/* =====================================================
+  LIST WARNA UTAMA
+   ===================================================== */
+html[data-theme="light"], [data-themecard="light"] {
+  /* === Warna Utama (Primary) === 
+     - Digunakan untuk tombol utama, heading, atau elemen penting lainnya */
+  --p: #570df8; /* Primary (Warna utama) */
+  --pf: #ffffff; /* Primary Foreground (Warna teks pada elemen primary) */
+
+  /* === Warna Sekunder (Secondary) === 
+     - Digunakan untuk tombol biasa, badge, labels atau elemen aksen tambahan tanpa action*/
+  --s: #f000b8; /* Secondary (Warna sekunder) */
+  --sf: #ffffff; /* Secondary Foreground (Warna teks pada elemen secondary) */
+
+  /* === Warna Aksen (Accent) === 
+     - Digunakan untuk elemen interaktif seperti link, ikon, atau elemen kecil lainnya */
+  --a: #37cdbe; /* Accent (Warna aksen) */
+  --af: #ffffff; /* Accent Foreground (Warna teks pada elemen accent) */
+
+  /* === Warna Netral (Neutral) === 
+     - Digunakan untuk teks utama, elemen navbar, atau elemen yang membutuhkan warna gelap */
+  --n: #3d4451; /* Neutral (Warna netral utama, biasanya untuk teks atau elemen navigasi) */
+  --nf: #ffffff; /* Neutral Foreground (Warna teks pada elemen netral) */
+
+  /* === Warna Latar Belakang (Background) === 
+     - Digunakan untuk elemen container, card, atau section */
+  --b1: #ffffff; /* Background 1 (Latar belakang utama) */
+  --b2: #f9fafb; /* Background 2 (Latar belakang sekunder, biasanya untuk elemen tambahan) */
+  --b3: #d1d5db; /* Background 3 (Latar belakang tambahan, bisa digunakan untuk hover atau highlight) */
+
+  /* === Warna Border (Border Color) === 
+     - Digunakan untuk garis pembatas, outline, atau shadow */
+  --bc: #1f2937; /* Border Color (Warna garis pembatas) */
+
+  /* === Warna Cocok untuk Status / Info === 
+     - Digunakan untuk ikon status, notifikasi, alert, atau pesan Info */
+  --in: #3abff8; /* Info (Warna untuk informasi atau notifikasi) */
+  --su: #36d399; /* Success (Warna untuk status berhasil, misalnya validasi sukses) */
+  --wa: #fbbd23; /* Warning (Warna untuk peringatan, misalnya data belum lengkap) */
+  --er: #f87272; /* Error (Warna untuk status error, misalnya kesalahan input) */
+}
+
+html[data-theme="dark"],
+[data-themecard="dark"] {
+ --p: #793ef9;
+ --pf: #ffffff;
+ --s: #f000b8;
+ --sf: #ffffff;
+ --a: #37cdbe;
+ --af: #ffffff;
+ --n: #2a2e37;
+ --nf: #ffffff;
+ --b1: #2a2e37;
+ --b2: #1d232a;
+ --b3: #16181d;
+ --bc: #a6adbb;
+ --in: #66c7ff;
+ --su: #87d039;
+ --wa: #e2d562;
+ --er: #ff6f6f;
+}
+
+html[data-theme="cupcake"],
+[data-themecard="cupcake"] {
+ --p: #65c3c8;
+ --pf: #ffffff;
+ --s: #ef9fbc;
+ --sf: #ffffff;
+ --a: #eeaf3a;
+ --af: #ffffff;
+ --n: #291334;
+ --nf: #ffffff;
+ --b1: #faf7f5;
+ --b2: #efeae6;
+ --b3: #e7e2df;
+ --bc: #291334;
+ --in: #2563eb;
+ --su: #36d399;
+ --wa: #fbbd23;
+ --er: #f87272;
+}
+
+html[data-theme="bumblebee"],
+[data-themecard="bumblebee"] {
+ --p: #e0a82e;
+ --pf: #ffffff;
+ --s: #f9d72f;
+ --sf: #000000;
+ --a: #181830;
+ --af: #ffffff;
+ --n: #272335;
+ --nf: #ffffff;
+ --b1: #ffffff;
+ --b2: #f7f7f7;
+ --b3: #e3e3e3;
+ --bc: #000000;
+ --in: #3abff8;
+ --su: #36d399;
+ --wa: #fbbd23;
+ --er: #f87272;
+}
+
+html[data-theme="emerald"],
+[data-themecard="emerald"] {
+ --p: #66cc8a;
+ --pf: #ffffff;
+ --s: #377cfb;
+ --sf: #ffffff;
+ --a: #ea5234;
+ --af: #ffffff;
+ --n: #333c4d;
+ --nf: #ffffff;
+ --b1: #fafafa;
+ --b2: #e8fdf5;
+ --b3: #d9f7f1;
+ --bc: #333c4d;
+ --in: #53c0f3;
+ --su: #36d399;
+ --wa: #f3cc30;
+ --er: #e96d7b;
+}
+
+html[data-theme="corporate"],
+[data-themecard="corporate"] {
+ --p: #4b6bfb;
+ --pf: #ffffff;
+ --s: #7b92b2;
+ --sf: #ffffff;
+ --a: #67cba0;
+ --af: #ffffff;
+ --n: #181a2a;
+ --nf: #ffffff;
+ --b1: #ffffff;
+ --b2: #f2f2f2;
+ --b3: #e5e6e6;
+ --bc: #000000;
+ --in: #0ca6e9;
+ --su: #2bd4bd;
+ --wa: #f4c152;
+ --er: #ff5722;
+}
+
+html[data-theme="synthwave"],
+[data-themecard="synthwave"] {
+ --p: #e779c1;
+ --pf: #2b0247;
+ --s: #58c7f3;
+ --sf: #201047;
+ --a: #f3cc30;
+ --af: #201047;
+ --n: #20134e;
+ --nf: #f9f7fd;
+ --b1: #2d1b69;
+ --b2: #331b6e;
+ --b3: #3f1e7a;
+ --bc: #f9f7fd;
+ --in: #53c0f3;
+ --su: #71ead2;
+ --wa: #f3cc30;
+ --er: #e24056;
+}
+
+html[data-theme="retro"],
+[data-themecard="retro"] {
+ --p: #ef9995;
+ --pf: #282425;
+ --s: #a4cbb4;
+ --sf: #282425;
+ --a: #ebdc99;
+ --af: #282425;
+ --n: #7d7259;
+ --nf: #f2f2f2;
+ --b1: #e4d8b4;
+ --b2: #d2c59d;
+ --b3: #c6b386;
+ --bc: #282425;
+ --in: #2563eb;
+ --su: #7dcfb6;
+ --wa: #ffb86c;
+ --er: #ff7f9c;
+}
+
+html[data-theme="cyberpunk"],
+[data-themecard="cyberpunk"] {
+ --p: #ff7598;
+ --pf: #430a0a;
+ --s: #75d1f0;
+ --sf: #053843;
+ --a: #c07eec;
+ --af: #2e033a;
+ --n: #423f00;
+ --nf: #f9f7fd;
+ --b1: #ffee00;
+ --b2: #fffd9e;
+ --b3: #fffb7d;
+ --bc: #423f00;
+ --in: #00c6ff;
+ --su: #00ffa3;
+ --wa: #ff9e0f;
+ --er: #ff5757;
+}
+
+html[data-theme="valentine"],
+[data-themecard="valentine"] {
+ --p: #e96d7b;
+ --pf: #ffffff;
+ --s: #a991f7;
+ --sf: #ffffff;
+ --a: #f2b5d4;
+ --af: #ffffff;
+ --n: #110e0e;
+ --nf: #ffffff;
+ --b1: #fffafc;
+ --b2: #f8cbd8;
+ --b3: #f9aed1;
+ --bc: #110e0e;
+ --in: #1c4ed8;
+ --su: #36d399;
+ --wa: #f3cc30;
+ --er: #e96d7b;
+}
+
+html[data-theme="halloween"],
+[data-themecard="halloween"] {
+ --p: #f28c18;
+ --pf: #ffffff;
+ --s: #6d3a9c;
+ --sf: #ffffff;
+ --a: #51a800;
+ --af: #ffffff;
+ --n: #1b1d1d;
+ --nf: #ffffff;
+ --b1: #2b2b2b;
+ --b2: #222222;
+ --b3: #191919;
+ --bc: #ffffff;
+ --in: #166ccf;
+ --su: #1cd85e;
+ --wa: #fdbc2e;
+ --er: #f75454;
+}
+
+html[data-theme="garden"],
+[data-themecard="garden"] {
+ --p: #5c7f67;
+ --pf: #ffffff;
+ --s: #ecf4e7;
+ --sf: #24331a;
+ --a: #fae5e5;
+ --af: #322020;
+ --n: #5d5656;
+ --nf: #ffffff;
+ --b1: #e9edc9;
+ --b2: #dce4a5;
+ --b3: #c5d08a;
+ --bc: #3e3e3e;
+ --in: #ace3f9;
+ --su: #67cba0;
+ --wa: #e4d562;
+ --er: #f1948a;
+}
+
+html[data-theme="forest"],
+[data-themecard="forest"] {
+ --p: #1eb854;
+ --pf: #ffffff;
+ --s: #1fd65f;
+ --sf: #ffffff;
+ --a: #d99330;
+ --af: #ffffff;
+ --n: #110e0e;
+ --nf: #ffffff;
+ --b1: #171212;
+ --b2: #2e2424;
+ --b3: #392f2f;
+ --bc: #ffffff;
+ --in: #3abff8;
+ --su: #1fbd61;
+ --wa: #f3cc30;
+ --er: #e24056;
+}
+
+html[data-theme="aqua"],
+[data-themecard="aqua"] {
+ --p: #09ecf3;
+ --pf: #134f50;
+ --s: #7fafd4;
+ --sf: #122933;
+ --a: #fecdf3;
+ --af: #3b122f;
+ --n: #94b3fd;
+ --nf: #1c2544;
+ --b1: #cffafe;
+ --b2: #a5f3fc;
+ --b3: #67e8f9;
+ --bc: #134f50;
+ --in: #53c0f3;
+ --su: #36d399;
+ --wa: #fbbd23;
+ --er: #f87272;
+}
+
+html[data-theme="lofi"],
+[data-themecard="lofi"] {
+ --p: #0d0d0d;
+ --pf: #ffffff;
+ --s: #1a1919;
+ --sf: #ffffff;
+ --a: #262626;
+ --af: #ffffff;
+ --n: #3d3d3d;
+ --nf: #ffffff;
+ --b1: #ffffff;
+ --b2: #f2f2f2;
+ --b3: #e6e5e5;
+ --bc: #000000;
+ --in: #0070f3;
+ --su: #21cc51;
+ --wa: #ff9900;
+ --er: #ff5722;
+}
+
+html[data-theme="pastel"],
+[data-themecard="pastel"] {
+ --p: #d1c1d7;
+ --pf: #49454f;
+ --s: #f2cbd7;
+ --sf: #49454f;
+ --a: #c1e9e2;
+ --af: #49454f;
+ --n: #4b5563;
+ --nf: #f9fafb;
+ --b1: #f2f2f2;
+ --b2: #e5e5e5;
+ --b3: #d9d9d9;
+ --bc: #1f2937;
+ --in: #53c0f3;
+ --su: #36d399;
+ --wa: #f3cc30;
+ --er: #e24056;
+}
+
+html[data-theme="fantasy"],
+[data-theme="fantasy"] {
+ --p: #6e0b75;
+ --pf: #ffffff;
+ --s: #007ebd;
+ --sf: #ffffff;
+ --a: #f8860d;
+ --af: #ffffff;
+ --n: #4b5563;
+ --nf: #ffffff;
+ --b1: #ffffff;
+ --b2: #f3f2f2;
+ --b3: #efeaea;
+ --bc: #000000;
+ --in: #3abff8;
+ --su: #36d399;
+ --wa: #fbbd23;
+ --er: #f87272;
+}
+
+html[data-theme="wireframe"],
+[data-themecard="wireframe"] {
+ --p: #b8b8b8;
+ --pf: #000000;
+ --s: #b8b8b8;
+ --sf: #000000;
+ --a: #b8b8b8;
+ --af: #000000;
+ --n: #7a7a7a;
+ --nf: #000000;
+ --b1: #ffffff;
+ --b2: #eeeeee;
+ --b3: #dbdbdb;
+ --bc: #000000;
+ --in: #0000ff;
+ --su: #008000;
+ --wa: #a6a659;
+ --er: #ff0000;
+}
+
+html[data-theme="black"],
+[data-themecard="black"] {
+ --p: #343232;
+ --pf: #ffffff;
+ --s: #3f3f3f;
+ --sf: #ffffff;
+ --a: #2e2e2e;
+ --af: #ffffff;
+ --n: #2b2b2b;
+ --nf: #ffffff;
+ --b1: #000000;
+ --b2: #111111;
+ --b3: #1a1a1a;
+ --bc: #ffffff;
+ --in: #0091ff;
+ --su: #00c600;
+ --wa: #ffb300;
+ --er: #ff4b4b;
+}
+
+html[data-theme="luxury"],
+[data-themecard="luxury"] {
+ --p: #ffffff;
+ --pf: #151618;
+ --s: #152747;
+ --sf: #ffffff;
+ --a: #513448;
+ --af: #ffffff;
+ --n: #171618;
+ --nf: #dca54c;
+ --b1: #09090b;
+ --b2: #111111;
+ --b3: #171618;
+ --bc: #dca54c;
+ --in: #66c7ff;
+ --su: #87d039;
+ --wa: #e2d562;
+ --er: #ff6f6f;
+}
+
+html[data-theme="dracula"],
+[data-themecard="dracula"] {
+ --p: #ff79c6;
+ --pf: #ffffff;
+ --s: #bd93f9;
+ --sf: #ffffff;
+ --a: #ffb86c;
+ --af: #ffffff;
+ --n: #44475a;
+ --nf: #ffffff;
+ --b1: #282a36;
+ --b2: #242530;
+ --b3: #20202a;
+ --bc: #f8f8f2;
+ --in: #8be9fd;
+ --su: #50fa7b;
+ --wa: #f1fa8c;
+ --er: #ff5555;
+}
+
+html[data-theme="cmyk"],
+[data-themecard="cmyk"] {
+ --p: #ff1a9c;
+ --pf: #ffffff;
+ --s: #ffda00;
+ --sf: #000000;
+ --a: #00b8ff;
+ --af: #ffffff;
+ --n: #433d7b;
+ --nf: #ffffff;
+ --b1: #ffffff;
+ --b2: #eeeeee;
+ --b3: #cccccc;
+ --bc: #000000;
+ --in: #00b8ff;
+ --su: #00d59e;
+ --wa: #ffda00;
+ --er: #ff1a9c;
+}
+
+html[data-theme="autumn"],
+[data-themecard="autumn"] {
+ --p: #8c0327;
+ --pf: #ffffff;
+ --s: #d8520b;
+ --sf: #ffffff;
+ --a: #c7a008;
+ --af: #ffffff;
+ --n: #430100;
+ --nf: #ffffff;
+ --b1: #f9dcb7;
+ --b2: #f7c59f;
+ --b3: #f2ae77;
+ --bc: #291a0b;
+ --in: #3abff8;
+ --su: #36d399;
+ --wa: #fbbd23;
+ --er: #f87272;
+}
+
+html[data-theme="business"],
+[data-themecard="business"] {
+ --p: #1c4e80;
+ --pf: #ffffff;
+ --s: #7fafd4;
+ --sf: #ffffff;
+ --a: #91b4c9;
+ --af: #ffffff;
+ --n: #2b2b2b;
+ --nf: #ffffff;
+ --b1: #1f1f1f;
+ --b2: #171717;
+ --b3: #151515;
+ --bc: #ffffff;
+ --in: #0091ea;
+ --su: #00c853;
+ --wa: #ffab00;
+ --er: #ff5722;
+}
+
+html[data-theme="acid"],
+[data-themecard="acid"] {
+ --p: #ff00f4;
+ --pf: #ffffff;
+ --s: #afff00;
+ --sf: #000000;
+ --a: #c4f800;
+ --af: #000000;
+ --n: #94a3b8;
+ --nf: #000000;
+ --b1: #fafafa;
+ --b2: #e4e4e4;
+ --b3: #d2d2d2;
+ --bc: #18181b;
+ --in: #00ffff;
+ --su: #00ff9c;
+ --wa: #ffcc00;
+ --er: #ff1122;
+}
+
+html[data-theme="lemonade"],
+[data-themecard="lemonade"] {
+ --p: #519903;
+ --pf: #ffffff;
+ --s: #e1cc00;
+ --sf: #000000;
+ --a: #f7f9ca;
+ --af: #3d3d3d;
+ --n: #191a3f;
+ --nf: #ffffff;
+ --b1: #ffffff;
+ --b2: #f7f9ca;
+ --b3: #ecfccb;
+ --bc: #333c4d;
+ --in: #53c0f3;
+ --su: #36d399;
+ --wa: #fbbd23;
+ --er: #f87272;
+}
+
+html[data-theme="night"],
+[data-themecard="night"] {
+ --p: #38bdf8;
+ --pf: #ffffff;
+ --s: #818cf8;
+ --sf: #ffffff;
+ --a: #f471b5;
+ --af: #ffffff;
+ --n: #1e3a8a;
+ --nf: #ffffff;
+ --b1: #0f1729;
+ --b2: #1a2236;
+ --b3: #242b45;
+ --bc: #a6adbb;
+ --in: #38bdf8;
+ --su: #4ade80;
+ --wa: #fbbd23;
+ --er: #f43f5e;
+}
+
+html[data-theme="coffee"],
+[data-themecard="coffee"] {
+ --p: #a66129;
+ --pf: #ffffff;
+ --s: #c79f6a;
+ --sf: #ffffff;
+ --a: #2a303c;
+ --af: #ffffff;
+ --n: #3b2f2f;
+ --nf: #ffffff;
+ --b1: #20161f;
+ --b2: #2c242e;
+ --b3: #3b3134;
+ --bc: #d9c1a5;
+ --in: #acbbf0;
+ --su: #7fcd91;
+ --wa: #e6cd81;
+ --er: #e58c8a;
+}
+
+html[data-theme="winter"],
+[data-themecard="winter"] {
+ --p: #047aff;
+ --pf: #ffffff;
+ --s: #463aa2;
+ --sf: #ffffff;
+ --a: #6b7280;
+ --af: #ffffff;
+ --n: #1f2937;
+ --nf: #ffffff;
+ --b1: #ffffff;
+ --b2: #f3f4f6;
+ --b3: #e5e7eb;
+ --bc: #1f2937;
+ --in: #0ca6e9;
+ --su: #2bd4bd;
+ --wa: #f4c152;
+ --er: #ff5722;
+}
+
+html[data-theme="procyon"],
+[data-themecard="procyon"] {
+ --p: #7d3cff;
+ --pf: #ffffff;
+ --s: #2bbbd8;
+ --sf: #ffffff;
+ --a: #f562a6;
+ --af: #ffffff;
+ --n: #222430;
+ --nf: #ffffff;
+ --b1: #f7f7fe;
+ --b2: #e6e6f9;
+ --b3: #d4d4f4;
+ --bc: #111111;
+ --in: #00b2ff;
+ --su: #00c48f;
+ --wa: #ffb300;
+ --er: #ff5252;
+}
+
+html[data-theme="moonlight"],
+[data-themecard="moonlight"] {
+ --p: #6262ff;
+ --pf: #ffffff;
+ --s: #c586c0;
+ --sf: #ffffff;
+ --a: #79c0ff;
+ --af: #000000;
+ --n: #1f1f2e;
+ --nf: #ffffff;
+ --b1: #222239;
+ --b2: #2a2a45;
+ --b3: #33335c;
+ --bc: #ffffff;
+ --in: #82aaff;
+ --su: #c3e88d;
+ --wa: #ffc777;
+ --er: #ff5370;
+}
+
+html[data-theme="unicorn"],
+[data-themecard="unicorn"] {
+ --p: #ff5da2;
+ --pf: #ffffff;
+ --s: #ffb347;
+ --sf: #ffffff;
+ --a: #b19cd9;
+ --af: #ffffff;
+ --n: #2d2b3c;
+ --nf: #ffffff;
+ --b1: #fdf4ff;
+ --b2: #fbe9ff;
+ --b3: #f6d8ff;
+ --bc: #2d2b3c;
+ --in: #53c0f3;
+ --su: #36d399;
+ --wa: #fbbd23;
+ --er: #f87272;
+}
+
+/* 
+      -----------------------------------------
+      STYLE UMUM (bisa dihapus)
+      -----------------------------------------
+    */
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+body {
+ font-family: sans-serif;
+ background-color: var(--b1);
+ color: var(--bc);
+ transition: background-color 0.3s, color 0.3s;
+ padding: 1rem;
+}
+
+h1,
+h2,
+p {
+ margin-bottom: 0.5rem;
+}
+.preview-card {
+ background-color: var(--b2);
+ color: var(--bc);
+ border: 1px solid var(--b3);
+ border-radius: 0.5rem;
+ padding: 1rem;
+ max-width: 400px;
+ margin: 0 auto 2rem;
+ transition: background-color 0.3s, color 0.3s;
+}
+
+.btn_demo {
+ display: inline-block;
+ padding: 7px 12px;
+ background-color: var(--p);
+ color: var(--pf);
+ border: none;
+ border-radius: 0.25rem;
+ cursor: pointer;
+ transition: opacity 0.3s;
+}
+.btn_demo:hover {
+ opacity: 0.8;
+}
+.btn_demo svg{
+ width: 22px;
+ height: 22px;
+}
+.btn_demo svg path{
+ fill: var(--pf);
+}
+
+/* 
+      -----------------------------------------
+      END STYLE UMUM (bisa dihapus)
+      -----------------------------------------
+    */
+    
+    
+/* 
+      -----------------------------------------
+      STYLE UTAMA 
+      -----------------------------------------
+    */
+.theme-container {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+ gap: 1rem;
+ margin-bottom: 2rem;
+}
+.theme-card {
+ border-radius: 0.5rem;
+ padding: 0.75rem;
+ cursor: pointer;
+ text-align: center;
+ transition: transform 0.2s;
+ border: 1px solid var(--b3);
+}
+
+.theme-card:hover {
+ transform: scale(1.03);
+}
+
+.theme-name {
+ font-weight: bold;
+ margin-bottom: 0.5rem;
+ font-size: 0.9rem;
+}
+
+.theme-colors {
+ display: flex;
+ justify-content: center;
+ gap: 0.25rem;
+}
+
+.color-box {
+ width: 1.5rem;
+ height: 1.5rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 0.25rem;
+ font-size: 0.75rem;
+ font-weight: bold;
+}
+
+.box-primary {
+ background-color: var(--p);
+ color: var(--pf);
+}
+
+.box-secondary {
+ background-color: var(--s);
+ color: var(--sf);
+}
+
+.box-accent {
+ background-color: var(--a);
+ color: var(--af);
+}
+
+.box-neutral {
+ background-color: var(--n);
+ color: var(--nf);
+}
+
+.box-base {
+ background-color: var(--b1);
+ color: var(--bc);
+}
+/* 
+      -----------------------------------------
+      STYLE MODAL
+      -----------------------------------------
+    */
+.modal_themeC {
+ opacity: 0;
+ visibility: hidden;
+ position: fixed;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: #42445A21;
+ transition: opacity 0.3s ease, visibility 0.3s ease;
+ z-index: 1000;
+}
+
+.modal__bg {
+ position: absolute;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ cursor: pointer;
+}
+
+.modal__inner {
+ position: relative;
+ width: 50%;
+ height: 50%;
+ max-width: 600px;
+ border-radius: 10px;
+ padding: 20px;
+ background-color: var(--b2);
+ color: var(--bc);
+ border: 1px solid var(--b3);
+ transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
+ transform: scale(0.5);
+ overflow-y: auto;
+ overflow-x: hidden;
+}
+
+.modal_themeC.show {
+ opacity: 1;
+ visibility: visible;
+}
+
+.modal_themeC.show .modal__inner {
+ transform: scale(1);
+}
+
+.modal__close {
+ position: absolute;
+ right: 15px;
+ top: 15px;
+ width: 20px;
+ height: 20px;
+ cursor: pointer;
+}
+
+.modal__close:before,
+.modal__close:after {
+ content: '';
+ position: absolute;
+ width: 2px;
+ height: 20px;
+ background: #ccc;
+ top: 0;
+ left: 50%;
+ transform: translateX(-50%) rotate(45deg);
+}
+
+.modal__close:after {
+ transform: translateX(-50%) rotate(-45deg);
+}
+
+.modal__close:hover:before,
+.modal__close:hover:after {
+ background: #888;
+}
+
+@media screen and (max-width: 768px) {
+ .modal__inner {
+  width: 90%;
+  max-width: none;
+  padding: 15px;
+ }
+}
