@@ -1,1 +1,2 @@
 # [DEMO](https://magicreincarnation.github.io/webapp-zeistmaid/History%20reading/History%20reading%20-%20pagination%20dynamic%20ellipsi/index.html)
+ ![preview](https://cdn.jsdelivr.net/gh/MagicReincarnation/webapp-zeistmaid@main/History%20reading/History%20reading%20-%20pagination%20dynamic%20ellipsi/preview.jpg)
