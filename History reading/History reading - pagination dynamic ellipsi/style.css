@@ -1,0 +1,76 @@
+#history-list {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.recent_history {
+  display: flex;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px auto;
+  max-width: 90%;
+  min-width: -webkit-fill-available;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.imgcover_hstry {
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.boxCover_hstry {
+  text-decoration: none;
+}
+
+.title_hstry {
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  color: currentColor;
+  margin-bottom: 5px;
+}
+
+.readcount_hstry,
+.lastread_hstry,
+.initialtime_hstry {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.readcount_hstry {
+  position: absolute;
+  right: 0;
+  top: -15px;
+  background: transparent;
+  color: #222;
+  padding: 8px 10px;
+  border-radius: 0 0 0 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lastread_hstry {
+  display: none;
+}
+
+/* Style untuk pagination */
+#pagination_history {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#pagination_history button {
+  margin: 0 2px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#pagination_history button:disabled {
+  opacity: 0.5;
+  cursor: disabled;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Riwayat Baca</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f9f9f9;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	
+	<div id="history-list"></div>
+	<div id="pagination_history"></div>
+	
+	<script type="text/javascript">
+		// Letakan di html postingan Chapter / Series
+		// dan jangan lupa hapus dummy datanya dengan data asli 
+		const datapost = [
+			{
+			// dummy data
+			folder: "historyread",
+			id: "post 34",
+			title: "title 34",
+			url: "url 34",
+			cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL-LCWvA3bLqTDCf-9BX6x2ZGt6IkE1rjr4JD9QB9z-aVZk4W2yMs8ahbc&s=10",
+			},
+		// data asli post 
+			/*
+			{
+			folder: "historyread",
+			id: "<data:post.id/>",
+			title: "<data:post.title/>",
+			url: "<data:post.url/>",
+			cover: "<data:post.featuredImage/>",
+			},
+   */
+		];
+	</script>
+	
+	<script type="text/javascript">
+		// bisa letakan diwidget atau tetap diatasnya mainScript
+		const config_historyread = {
+			folder: "historyread",
+			showImage: true,
+			showInitialTime: true,
+			showLatestTimeRead: true,
+			showCountRead: true,
+			orderLatest: true,
+			/*
+	Format jam: 
+	12hour: 12:00 - 01:00 PM/AM       -> Format waktu 12 jam dengan AM/PM
+	24hour: 00:00 - 23:00              -> Format waktu 24 jam (00:00 hingga 23:00)
+	timeago_en: 1hour - year           -> Format waktu dalam bahasa Inggris seperti "1 hour ago", "3 days ago", "1 year ago"
+	timeago_id: 1jam - tahun           -> Format waktu dalam bahasa Indonesia seperti "1 jam yang lalu", "3 hari yang lalu", "1 tahun yang lalu"
+	*/
+			formatJam: "timeago_id", // Format default untuk waktu yang digunakan, bisa berupa 'timeago_id', 'timeago_en', '24hour', '12hourv1', atau '12hourv2'
+			
+			timeago_auto12hourv1: true, // Mengaktifkan fitur otomatis untuk beralih ke format 12 jam (12hour) jika memenuhi kondisi tertentu
+			auto12hourv1_dalam: 7, // Jika selisih hari lebih dari nilai ini, format akan berubah menjadi '12hourv1', dalam hal ini 7 hari
+			maxpages: 5,
+			noimage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTluRfud2QZF1IKk-rjHzI5CxOUZoxJVrcPfy9TGk8vvXv9Vs6_6CKEciy5&s=10",
+		};
+	</script>
+	<script src="main.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
