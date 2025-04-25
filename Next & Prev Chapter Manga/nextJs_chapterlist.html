@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Next & Prev Chapter Manga</title>
+  <link rel="stylesheet" href="style.css" type="text/css"/> 
+ <script src="nextprev_lib.js" type="text/javascript"></script>
+</head>
+<body>
+ 
+   <div class="nextJs" data-label="Ore wa Seikan Kokka no Akutoku Ryoshu"></div>
+    
+    <div id="output_chapter"></div>
+    
+    <div class="nextJs"></div>
+
+  <script>
+  /*<![CDATA[*/
+    document.addEventListener('DOMContentLoaded', () => {
+      const configNextprev = {
+      max: 30,
+      site: "https://www.mikoroku.com",
+      selector: {
+        tag_label: '.nextJs',
+        output: '.nextJs',
+        postbody: '.post-body img',
+        output_chapter: '#output_chapter',
+        select: '.chapter-select',
+        nav_box: '.nextprev_ouput'
+      },
+      html: {
+        nav: `
+      <div class="manganav">
+        <div class="nextprevJs_navigasi">
+          <select class="chapter-select"></select>
+          <div class="nextprev_ouput"></div>
+        </div>
+      </div>
+    `,
+        skeleton: `<div class="skeleton"></div>`
+      },
+      textError: 'Error loading chapter'
+    };
+      new MangaNav(configNextprev).run();
+    });
+    /*]]>*/
+  </script>
+</body>
+</html>
