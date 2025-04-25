@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manajemen Fitur</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="libFiturSet.js"></script>
+</head>
+<body>
+  
+  <h1>Manajemen Fitur Interaktif</h1>
+  <p>Aktifkan atau nonaktifkan fitur yang tersedia melalui switch di bawah ini:</p>
+  
+  <div id="feature_manager"></div>
+  
+  <div class="helloword hidden_feature">hello word</div>
+  
+  
+  <script type="text/javascript" charset="utf-8">
+    // init fiturSet
+    window.fiturSet = new FiturSetting();
+    
+    // Contoh pakai 1: Event listener
+    fiturSet.run_setting({
+      id_feature: 'background_changer',
+      title: 'Background Changer',
+      description: 'Ganti warna background dengan klik dimana aja',
+      run_code: () => {
+        
+        const colors = ['#ffcccc', '#ccffcc', '#ccccff'];
+        let c_index = 0;
+        
+        const clickbg = () => {
+          document.body.style.backgroundColor = colors[c_index];
+          c_index = (c_index + 1) % colors.length;
+        };
+        
+        document.addEventListener('click', clickbg);
+        
+        return () => {
+          document.removeEventListener('click', clickbg);
+          document.body.style.backgroundColor = '';
+        };
+      }
+    });
+    // Contoh pakai 2: alert notif
+    fiturSet.run_setting({
+      id_feature: 'alertFeature',
+      title: 'Tampilkan Alert',
+      description: 'Menampilkan pesan alert saat fitur diaktifkan.',
+      run_code: () => {
+        alert('Fitur aktif!');
+        return () => {
+          alert('Fitur dinonaktifkan.');
+        };
+      }
+    });
+    
+    // Contoh pakai 3: display none element 
+    fiturSet.run_setting({
+      id_feature: 'hello_word',
+      title: 'Element box',
+      description: 'menampilkan box pesan hello word',
+      run_code: () => {
+        
+        const element = document.querySelector('.helloword');
+        element?.classList.remove('hidden_feature');
+        
+        return () => {
+          element?.classList.add('hidden_feature');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
