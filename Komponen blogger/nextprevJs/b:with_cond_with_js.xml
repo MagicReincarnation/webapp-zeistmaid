@@ -1,0 +1,54 @@
+<script>
+ /*<![CDATA[*/
+ class label_filter {
+  constructor(config) {
+   this.targetSelector = config.targetSelector; // output target
+   this.inputSelector = config.inputSelector || ".label"; // input label class dari b:loop
+   this.regexlabel = config.regexlabel || [];
+   this.xml = config.xml || "";
+   this.komaLabel = config.komaLabel || ", ";
+   this.ouputAttr = config.ouputAttr || "data-label";
+  }
+  
+  carilabel(label) {
+   return this.regexlabel.some(pattern => pattern.test(label));
+  }
+  
+  run() {
+   const container = document.createElement("div");
+   container.innerHTML = this.xml;
+   
+   const labels = [...container.querySelectorAll(this.inputSelector)]
+    .map(el => el.getAttribute("data-label"))
+    .filter(label => label && !this.carilabel(label));
+   
+   const target = document.querySelector(this.targetSelector);
+   if (target && labels.length) {
+    target.setAttribute(this.ouputAttr, labels.join(this.komaLabel));
+   }
+  }
+ }
+ /*]]>*/
+</script>
+
+<b:with value='["Chapter", "Chapter Novel"]' var='checkLabel'>
+ <b:if cond='data:post.labels any (i => i.name in data:checkLabel)'>
+  <div class='nextJs' />
+  <script>
+   const bloopXML = `<b:loop values='data:post.labels filter (i => i.name not in data:checkLabel)' var='l'><div class='labelSeries' expr:data-label='data:l.name'/>
+      </b:loop>`;
+  /*<![CDATA[*/
+   const labelHandler = new label_filter({
+    targetSelector: ".nextJs", // elemen set output attr 
+    inputSelector: ".labelSeries", // class yang dipakai dalam b:loop
+    regexlabel: [
+     /^(Volume|Vol)\s?\d+/i,
+    ], // regex Vol dan volume 
+    xml: bloopXML, // input bloop xml
+    ouputAttr: "data-label", // set attr ke targetSelector
+   });
+   labelHandler.run(); // run code
+   /*]]>*/
+  </script>
+ </b:if>
+</b:with>
