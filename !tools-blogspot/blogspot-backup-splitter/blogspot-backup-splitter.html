@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Blogspot Backup Splitter</title>
+  <link rel="stylesheet" href="https://magicreincarnation.github.io/webapp-zeistmaid/!tools-blogspot/blogspot-backup-splitter/styles.css">
+</head>
+
+<body>
+  
+  <div class="container">
+    <h3><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 48 48">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M24 2.5A21.43 21.43 0 0 0 3.66 30.89c6.28.63 13.63-.25 13.73-11c.13-14.24 6-15.79 10.82-17A27 27 0 0 0 24 2.5m4.21.42c-3.68 5.13-6.62 11.94 2.65 17.41c12.31 7.25 10.66 13.1 9.28 17.84A22.54 22.54 0 0 0 45.5 24A21.5 21.5 0 0 0 28.21 2.92M24 20.85A3.15 3.15 0 0 0 20.85 24h0A3.15 3.15 0 0 0 24 27.15h0A3.15 3.15 0 0 0 27.15 24h0A3.15 3.15 0 0 0 24 20.85m6.64 8.88a13.3 13.3 0 0 0-6.89 2.05c-12.4 7-16.67 2.67-20.09-.89A22.09 22.09 0 0 0 24 45.5a21.5 21.5 0 0 0 16.14-7.33c-1.85-4.1-4.64-8.31-9.5-8.44" stroke-width="3" />
+      </svg> Mangekyō Sharingan Splitter</h3>
+    
+    <div class="section">
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon"><svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24">
+            <g fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" color="currentColor">
+              <path d="m7 13l1.647 2.5m0 0l1.647 2.5m-1.647-2.5l1.647-2.5m-1.647 2.5L7 18m14 0h-.823c-.777 0-1.165 0-1.406-.244c-.242-.244-.242-.637-.242-1.423V13m-6.176 5l.342-4.165c.029-.354.043-.53.15-.563s.216.105.435.382l.873 1.104c.119.15.178.225.257.225s.139-.075.257-.225l.874-1.105c.218-.276.328-.415.434-.382c.107.033.122.21.151.563L16.471 18" />
+              <path d="M15 22h-4.273c-3.26 0-4.892 0-6.024-.798a4.1 4.1 0 0 1-.855-.805C3 19.331 3 17.797 3 14.727v-2.545c0-2.963 0-4.445.469-5.628c.754-1.903 2.348-3.403 4.37-4.113C9.095 2 10.668 2 13.818 2c1.798 0 2.698 0 3.416.252c1.155.406 2.066 1.263 2.497 2.35C20 5.278 20 6.125 20 7.818V10" />
+              <path d="M3 12a3.333 3.333 0 0 1 3.333-3.333c.666 0 1.451.116 2.098-.057A1.67 1.67 0 0 0 9.61 7.43c.173-.647.057-1.432.057-2.098A3.333 3.333 0 0 1 13 2" />
+            </g>
+          </svg></div>
+        <div class="upload-text">Klik atau drag file backup (.xml)</div>
+        <div class="upload-subtext">File akan dibagi sesuai jumlah post yang ditentukan</div>
+        <input type="file" id="fileInput" accept=".xml" />
+      </div>
+      
+      <div class="file-info" id="fileInfo"></div>
+      <div class="error" id="errorMsg"></div>
+    </div>
+    <div class="section">
+      <div class="setting-group">
+        <label for="labels_series" data-tooltip='Labels yang digunakan sebagai indentifikasi post utama seperti Manga,Manghua,Anime,Novel..sebagai contoh di zv5 memakai label "Series"'>Labels Series</label>
+        <input type="text" name="labels_series" id="labelsSeries" placeholder="masukan labels Series" />
+        <label for="labels_chapter" data-tooltip='Labels sub dari post utama'>Labels Chapter</label>
+        <input type="text" name="labels_chapter" id="labelsChapter" placeholder="masukan labels Chapters" />
+      </div>
+      <div class="setting-group">
+        <label for="postsPerFile" data-tooltip="Jumlah maksimal post dalam setiap file. Nilai yang lebih kecil akan menghasilkan lebih banyak file.">Jumlah Post per File:</label>
+        <input type="number" id="postsPerFile" value="500" min="1" max="5000">
+      </div>
+      <div class="setting-group">
+        <label for="groupBySeries" data-tooltip='Jika diaktifkan, post dengan labels "Chapter" akan dikelompokkan berdasarkan series lainnya.'>Kelompokkan berdasarkan Series:</label>
+        <select id="groupBySeries">
+          <option value="false">Tidak (Bagi semua post)</option>
+          <option value="true">Ya (Bagi per series)</option>
+        </select>
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <button class="btn btn-center" id="processBtn" disabled><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 128 128">
+          <path fill="#aecbfa" d="M128 63.965L38.957 0l22.26 63.966Z" />
+          <path fill="#4285f4" d="M38.957 128L128 63.965H61.217zM16.696 63.965L0 128l22.332-10.718l16.625-53.317Z" />
+          <path fill="#aecbfa" d="M22.332 10.649L0-.001l16.696 63.966h22.26Z" />
+        </svg> Run Splitter</button>
+      
+      <div class="progress" id="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h3><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 20 20">
+        <path fill="currentColor" d="M5.578 9.11a1 1 0 0 0-.078.39a1.2 1.2 0 0 0 .078.4a.84.84 0 0 0 .211.31q.142.135.32.212a1 1 0 0 0 .391.078a.8.8 0 0 0 .391-.078a1.1 1.1 0 0 0 .32-.22A.97.97 0 0 0 7.5 9.5a1 1 0 0 0-.078-.39a.9.9 0 0 0-.219-.32a1.1 1.1 0 0 0-.32-.211A1 1 0 0 0 6.5 8.5a.86.86 0 0 0-.391.08a1 1 0 0 0-.531.529m0 4a1 1 0 0 0-.078.39a1.2 1.2 0 0 0 .078.399a.84.84 0 0 0 .211.312q.142.133.32.21a1 1 0 0 0 .391.079a.8.8 0 0 0 .391-.078q.18-.08.32-.218q.135-.137.211-.313a1 1 0 0 0 0-.781a.9.9 0 0 0-.219-.321a1.1 1.1 0 0 0-.32-.21a.9.9 0 0 0-.383-.08a.84.84 0 0 0-.391.08a1 1 0 0 0-.531.531M9.549 10a.56.56 0 0 1-.387-.148v-.004a.462.462 0 0 1 0-.7A.56.56 0 0 1 9.55 9h4.4a.56.56 0 0 1 .387.152a.463.463 0 0 1 0 .7a.56.56 0 0 1-.387.148zm-.387 3.852A.56.56 0 0 0 9.55 14h4.4a.56.56 0 0 0 .506-.305a.46.46 0 0 0-.119-.543a.56.56 0 0 0-.387-.152h-4.4a.56.56 0 0 0-.505.306a.46.46 0 0 0 .118.542zM3 6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm3-2a2 2 0 0 0-2 2h12a2 2 0 0 0-2-2zm10 3H4v7a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2z" />
+      </svg> Series & Chapter</h3>
+    <div class="section series-analysis" id="seriesAnalysis">
+      <div class="series-stats" id="seriesStats"></div>
+      <table class="series-table" id="seriesTable">
+        <thead>
+          <tr>
+            <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor">
+                  <path d="M20.015 9.5V7.818c0-1.693 0-2.54-.268-3.216c-.431-1.087-1.343-1.944-2.5-2.35C16.53 2 15.629 2 13.828 2c-3.151 0-4.727 0-5.986.441c-2.023.71-3.619 2.21-4.374 4.113c-.469 1.183-.469 2.665-.469 5.628v2.545c0 3.07 0 4.604.849 5.67q.367.461.856.805C5.836 22 7.469 22 10.733 22h.774c.535 0 1.501 0 2.002-.003M11.998 17h-5m6-4h-3" />
+                  <path d="M18.005 19v3m-2.995-4.5c.143.814 1.18 1.156 2.396 1.392c.111.022 1.03-.025 1.14-.044c.888-.154 2.513-.456 2.454-1.348c-.07-1.05-.848-1.403-1.555-2.039c-.29-.26-.33-.684-.156-1.033l.402-.807c.187-.373.132-.836-.187-1.104c-.472-.395-.874-.518-1.5-.517c-.711.07-1.127.214-1.515.527c-.318.256-.361.712-.179 1.077l.386.774c.187.374.123.827-.19 1.104c-.812.716-1.633 1.236-1.496 2.018M2.998 12a3.335 3.335 0 0 1 3.337-3.333c.666 0 1.452.116 2.1-.057a1.67 1.67 0 0 0 1.18-1.179c.173-.647.057-1.432.057-2.098A3.335 3.335 0 0 1 13.008 2" />
+                </g>
+              </svg> Series</th>
+            <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M15 19v-1h-2q-.825 0-1.412-.587T11 16V8H9v1q0 .825-.587 1.413T7 11H4q-.825 0-1.412-.587T2 9V5q0-.825.588-1.412T4 3h3q.825 0 1.413.588T9 5v1h6V5q0-.825.588-1.412T17 3h3q.825 0 1.413.588T22 5v4q0 .825-.587 1.413T20 11h-3q-.825 0-1.412-.587T15 9V8h-2v8h2v-1q0-.825.588-1.412T17 13h3q.825 0 1.413.588T22 15v4q0 .825-.587 1.413T20 21h-3q-.825 0-1.412-.587T15 19" />
+              </svg>Chapter</th>
+            <th><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12 21q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T3 12t.713-3.512t1.924-2.85t2.85-1.925T12 3q2.05 0 3.888.875T19 6.35V4h2v6h-6V8h2.75q-1.025-1.4-2.525-2.2T12 5Q9.075 5 7.038 7.038T5 12t2.038 4.963T12 19q2.625 0 4.588-1.7T18.9 13h2.05q-.375 3.425-2.937 5.713T12 21m2.8-4.8L11 12.4V7h2v4.6l3.2 3.2z" />
+              </svg> Last updated</th>
+          </tr>
+        </thead>
+        <tbody id="seriesTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+          <path d="M44 31c0 5.523-4.477 10-10 10c-1.79 0-3.472-.47-4.926-1.295A10.01 10.01 0 0 1 24 31c0-2.568.968-4.91 2.558-6.68A9.98 9.98 0 0 1 34 21c5.523 0 10 4.477 10 10" />
+          <path d="M34 12v9a9.98 9.98 0 0 0-7.442 3.32A9.96 9.96 0 0 0 24 31q.002.87.144 1.698a10.01 10.01 0 0 0 4.93 7.007C26.412 40.51 22.878 41 19 41c-8.284 0-15-2.239-15-5V12" />
+          <path d="M34 12c0 2.761-6.716 5-15 5S4 14.761 4 12s6.716-5 15-5s15 2.239 15 5M4 28c0 2.761 6.716 5 15 5c1.807 0 3.54-.106 5.144-.302M4 20c0 2.761 6.716 5 15 5c2.756 0 5.339-.248 7.558-.68M34 26v10m0 0l4-4m-4 4l-4-4" />
+        </g>
+      </svg> File Ready:</h3>
+    
+    <div class="section download-area" id="downloadArea"></div>
+    
+    <button id="downloadAllBtn" class="btn btn-center" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+          <path stroke-dasharray="20" stroke-dashoffset="20" d="M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5">
+            <animate attributeName="d" begin="0.5s" dur="1.5s" repeatCount="indefinite" values="M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5;M12 4h2v3h2.5l-4.5 4.5M12 4h-2v3h-2.5l4.5 4.5;M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5" />
+            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="20;0" />
+          </path>
+          <path stroke-dasharray="14" stroke-dashoffset="14" d="M6 19h12">
+            <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.2s" values="14;0" />
+          </path>
+        </g>
+      </svg> Download All File</button>
+  </div>
+  
+  <script src="https://magicreincarnation.github.io/webapp-zeistmaid/!tools-blogspot/blogspot-backup-splitter/main-blogspot-backup-splitter.js" type="text/javascript" charset="utf-8"></script>
+  
+</body>
+
+</html>

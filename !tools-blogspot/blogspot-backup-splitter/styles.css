@@ -1,0 +1,462 @@
+:root {
+  --primary-color: #ff6740;
+  --primary-gradient: linear-gradient(90deg, #ff6740 0%, #ff9566 100%);
+  --background-color: #0f1319;
+  --nav-background: rgba(22, 28, 36, 0.8);
+  --text-color: #f1f1f1;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --highlight-color: #2bd1fc;
+  --accent-color: #ff00aa;
+  --card-bg: rgba(30, 36, 49, 0.7);
+  /* Menambahkan variabel yang hilang */
+  --secondary-color: rgba(255, 255, 255, 0.05);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --danger-color: #ff4757;
+  --success-color: #2ed573;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--background-color);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3 {
+  background: var(--primary-gradient);
+  /* Menggunakan gradient dari root */
+  color: var(--text-color);
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 20px 20px 0 0;
+}
+h4 {
+  color: white;
+}
+svg {
+  vertical-align: middle;
+}
+
+.section {
+  padding: 5px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.upload-area {
+  border: 3px dashed var(--primary-color);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  background: var(--secondary-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.upload-area:hover,
+.upload-area.dragover {
+  border-color: var(--accent-color);
+  background: var(--secondary-color);
+  /* Menggunakan variabel */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.upload-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.upload-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.upload-subtext {
+  color: var(--text-color);
+  /* Menggunakan variabel */
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+#fileInput {
+  display: none;
+}
+
+.file-info {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--secondary-color);
+  /* Menggunakan variabel */
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color);
+  display: none;
+}
+
+.file-info h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.file-info p {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  /* Menambah variabel */
+}
+
+.error {
+  background: rgba(255, 71, 87, 0.1);
+  /* Sesuai dengan danger color */
+  color: var(--danger-color);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border-left: 4px solid var(--danger-color);
+  display: none;
+}
+
+.settings {
+  background: var(--secondary-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.setting-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.setting-group:last-child {
+  margin-bottom: 0;
+}
+
+.setting-group label {
+  font-weight: 600;
+  min-width: 200px;
+  color: var(--text-color);
+}
+
+.setting-group input,
+.setting-group select {
+  padding: 10px 15px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 200px;
+  background: var(--card-bg);
+  /* Menambah background */
+  color: var(--text-color);
+}
+
+.setting-group input:focus,
+.setting-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 103, 64, 0.2);
+  /* Sesuai primary color */
+}
+
+.btn {
+  background: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px 5px;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-color);
+  /* Menggunakan accent color */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 0, 170, 0.4);
+  /* Sesuai accent color */
+}
+
+.btn:disabled {
+  background: var(--border-color);
+  /* Menggunakan variabel */
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-center {
+  display: block;
+  margin: 20px auto;
+}
+
+.progress {
+  margin: 20px 0;
+  background: var(--card-bg);
+  /* Menggunakan variabel */
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--primary-gradient);
+  /* Menggunakan gradient */
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.status {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(43, 209, 252, 0.1);
+  /* Sesuai highlight color */
+  border-radius: 8px;
+  border-left: 4px solid var(--highlight-color);
+  display: none;
+  color: var(--highlight-color);
+}
+
+.series-analysis {
+  display: none;
+}
+
+.series-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: var(--primary-gradient);
+  /* Menggunakan gradient */
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.series-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--card-bg);
+  /* Menggunakan variabel */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.series-table th {
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.series-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--text-color);
+  /* Menambah warna text */
+}
+
+.series-table tr:hover {
+  background: var(--secondary-color);
+}
+
+.series-name {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.chapter-count {
+  background: var(--accent-color);
+  color: var(--text-color);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.download-area {
+  display: none;
+  width: 100%;
+  overflow: auto;
+}
+
+.download-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--card-bg);
+  /* Menggunakan variabel */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.download-table th {
+  background: var(--accent-color);
+  color: var(--text-color);
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.download-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  /* Menambah warna text */
+}
+
+.download-table tr:hover {
+  background: var(--secondary-color);
+}
+
+.download-btn {
+  background: var(--success-color);
+  /* Menggunakan success color */
+  color: var(--text-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+  background: var(--primary-color);
+  /* Menggunakan primary */
+  transform: translateY(-1px);
+}
+
+#downloadAllBtn {
+  background: var(--highlight-color);
+  margin-top: 20px;
+}
+
+#downloadAllBtn:hover {
+  background: var(--danger-color);
+  /* Menggunakan danger color */
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 10px;
+    border-radius: 15px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    padding: 15px;
+  }
+  
+  .section {
+    padding: 10px;
+  }
+  
+  .setting-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .setting-group label {
+    min-width: auto;
+  }
+  
+  .series-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .series-table,
+  .download-table {
+    font-size: 0.8rem;
+  }
+  
+  .series-table th,
+  .series-table td,
+  .download-table th,
+  .download-table td {
+    padding: 8px 10px;
+  }
+}
+
+
+/* Container umum */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+/* Tooltipnya */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%; /* atas elemen */
+  left: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: word-wrap;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+/* Tampilkan saat hover */
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
