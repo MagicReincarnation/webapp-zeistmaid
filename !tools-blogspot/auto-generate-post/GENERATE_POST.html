@@ -662,9 +662,9 @@
     </div>
   </div>
   
-  <script src="/!TOOLS BLOGSPOT/AUTO GENERATE POST/htmlPreview.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/!TOOLS BLOGSPOT/AUTO GENERATE POST/main_api.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/!TOOLS BLOGSPOT/AUTO GENERATE POST/main_generate_post.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://magicreincarnation.github.io/webapp-zeistmaid/!tools-blogspot/auto-generate-post/htmlPreview.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://magicreincarnation.github.io/webapp-zeistmaid/!tools-blogspot/auto-generate-post/main_api.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://magicreincarnation.github.io/webapp-zeistmaid/!tools-blogspot/auto-generate-post/main_generate_post.js" type="text/javascript" charset="utf-8"></script>
   
   <script>
     const donationModal = document.getElementById("donationModal"),
@@ -673,9 +673,16 @@
       copyBtn = document.getElementById("copyBTC"),
       btcAddress = document.getElementById("btcAddress").textContent;
     
-    function closeModal() { donationModal.classList.add("hidden"), document.body.style.overflow = "auto" } thankshiruBtn.addEventListener("click", () => { donationModal.classList.remove("hidden"), document.body.style.overflow = "hidden" }), closeDonationModal.addEventListener("click", closeModal), donationModal.addEventListener("click", t => { t.target === donationModal && closeModal() }), document.addEventListener("keydown", t => { "Escape" !== t.key || donationModal.classList.contains("hidden") || closeModal() }), copyBtn.addEventListener("click", async () => { try { await navigator.clipboard.writeText(btcAddress); let t = copyBtn.textContent;
-        copyBtn.textContent = "Copied ✓", copyBtn.classList.remove("bg-gray-700"), copyBtn.classList.add("bg-green-600", "text-white"), setTimeout(() => { copyBtn.textContent = t, copyBtn.classList.remove("bg-green-600", "text-white"), copyBtn.classList.add("bg-gray-700") }, 2e3) } catch (e) { let n = document.createElement("textarea");
-        n.value = btcAddress, document.body.appendChild(n), n.select(), document.execCommand("copy"), document.body.removeChild(n), copyBtn.textContent = "Copied ✓", setTimeout(() => copyBtn.textContent = "Copy", 2e3) } }), thankshiruBtn.addEventListener("mouseenter", () => { thankshiruBtn.style.transform = "translateY(-2px) scale(1.02)" }), thankshiruBtn.addEventListener("mouseleave", () => { thankshiruBtn.style.transform = "translateY(0) scale(1)" });
+    function closeModal() { donationModal.classList.add("hidden"), document.body.style.overflow = "auto" } thankshiruBtn.addEventListener("click", () => { donationModal.classList.remove("hidden"), document.body.style.overflow = "hidden" }), closeDonationModal.addEventListener("click", closeModal), donationModal.addEventListener("click", t => { t.target === donationModal && closeModal() }), document.addEventListener("keydown", t => { "Escape" !== t.key || donationModal.classList.contains("hidden") || closeModal() }), copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btcAddress);
+        let t = copyBtn.textContent;
+        copyBtn.textContent = "Copied ✓", copyBtn.classList.remove("bg-gray-700"), copyBtn.classList.add("bg-green-600", "text-white"), setTimeout(() => { copyBtn.textContent = t, copyBtn.classList.remove("bg-green-600", "text-white"), copyBtn.classList.add("bg-gray-700") }, 2e3)
+      } catch (e) {
+        let n = document.createElement("textarea");
+        n.value = btcAddress, document.body.appendChild(n), n.select(), document.execCommand("copy"), document.body.removeChild(n), copyBtn.textContent = "Copied ✓", setTimeout(() => copyBtn.textContent = "Copy", 2e3)
+      }
+    }), thankshiruBtn.addEventListener("mouseenter", () => { thankshiruBtn.style.transform = "translateY(-2px) scale(1.02)" }), thankshiruBtn.addEventListener("mouseleave", () => { thankshiruBtn.style.transform = "translateY(0) scale(1)" });
   </script>
 </body>
 
