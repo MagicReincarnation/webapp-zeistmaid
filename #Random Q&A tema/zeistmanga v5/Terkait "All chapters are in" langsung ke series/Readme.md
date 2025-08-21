@@ -13,10 +13,14 @@ sama seperti tombol home yg ada di sini
 letakan script ini
 ```html
 <script> /*<![CDATA[*/
+const configSelector = {
+nextprevhome: "#nextPrevJS .nav-right a[rel='home']",
+ouput: ".tac a.c-theme.fw-600[rel='tag']",
+};
 window.onload = (event) => {
-var homeLink = document.querySelector("#nextPrevJS .nav-right a[rel='home']");
+var homeLink = document.querySelector(configSelector.nextprevhome);
 if (homeLink) {
-var linkHomepageSeries = document.querySelector(".tac a.c-theme.fw-600[rel='tag']");
+var linkHomepageSeries = document.querySelector(configSelector.ouput);
 if (linkHomepageSeries) {
 linkHomepageSeries.href = homeLink.href;
 }

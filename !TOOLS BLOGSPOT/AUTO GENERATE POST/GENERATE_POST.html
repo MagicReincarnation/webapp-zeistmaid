@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manga Series & Chapter Generator V2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#0f1419',
+            'dark-card': '#1a1f29',
+            'dark-border': '#2d3748'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    .donation-btn {
+      background: linear-gradient(135deg, #66EA7B 0%, #0000006E 100%);
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .donation-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+    }
+    
+    .modal-backdrop {
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .modal-content {
+      background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .platform-btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .platform-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+    
+    .platform-btn:hover::before {
+      left: 100%;
+    }
+    
+    .trakteer-btn {
+      background: linear-gradient(135deg, #FF6B6B 0%, #FF5252 100%);
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+    
+    .trakteer-btn:hover {
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+      transform: translateY(-1px);
+    }
+    
+    .kofi-btn {
+      background: linear-gradient(135deg, #29CDFF 0%, #148EFF 100%);
+      box-shadow: 0 4px 15px rgba(41, 205, 255, 0.3);
+    }
+    
+    .kofi-btn:hover {
+      box-shadow: 0 8px 25px rgba(41, 205, 255, 0.4);
+      transform: translateY(-1px);
+    }
+    
+    .btc-section {
+      background: linear-gradient(135deg, #2d2d44 0%, #3d3d54 100%);
+      border: 1px solid rgba(255, 193, 7, 0.2);
+    }
+    
+    .btc-address {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 193, 7, 0.3);
+    }
+    
+    .copy-btn {
+      background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
+      transition: all 0.2s ease;
+    }
+    
+    .copy-btn:hover {
+      background: linear-gradient(135deg, #FFD54F 0%, #FFB74D 100%);
+      transform: scale(1.05);
+    }
+    
+    .heart-icon {
+      color: #FF6B6B;
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+    
+    @keyframes heartbeat {
+      
+      0%,
+      50%,
+      100% {
+        transform: scale(1);
+      }
+      
+      25% {
+        transform: scale(1.1);
+      }
+    }
+    
+    .slide-in {
+      animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+      }
+      
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    .pulse-glow {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulseGlow {
+      
+      0%,
+      100% {
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+      }
+      
+      50% {
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.6);
+      }
+    }
+    
+    .crypto-icon {
+      background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+  <!-- CSS CodeMirror -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+  <!-- Tema Monokai (dark) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/monokai.min.css" />
+  <style>
+    .CodeMirror,
+    .cm-editor {
+      background-color: rgba(24, 24, 27, 0.2) !important;
+      color: #f5f5f5;
+      font-size: 0.75rem;
+      font-family: monospace;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .cm-editor .cm-gutters {
+      background-color: transparent !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .cm-lineNumbers {
+      padding-left: 6px;
+    }
+  </style>
+  
+</head>
+
+<body class="bg-dark-bg text-gray-100 min-h-screen text-sm">
+  
+  <div class="container mx-auto px-2 py-4 max-w-7xl">
+    <!-- Header -->
+    <div class="text-center mb-4">
+      <h1 class="text-2xl font-bold text-white mb-2">🎌 Dummy OTAKU Generator V2</h1>
+      <p class="text-gray-400 text-sm">Generate postingan Manga/Anime dengan mapping category Series + Chapter</p>
+      <p class="text-gray-400 text-sm">Not real manga, just real helpful — dummy data to speed up theme building.</p>
+    </div>
+    
+    <!-- Main Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <!-- Left Column: Configuration -->
+      <div class="space-y-4">
+        <!-- API Configuration -->
+        <div class="bg-dark-card rounded-lg p-4 border border-dark-border">
+          <h2 class="flex items-center text-lg font-semibold text-green-400 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 48 48">
+              <g fill="none" stroke="#00fb45" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+                <path d="M36.868 14.783A12.52 12.52 0 0 1 40.917 24h0c0 3.39-1.375 6.635-3.81 8.993M16.265 20.935a12.517 12.517 0 0 1 15.584-8.967m.19 24.008a12.52 12.52 0 0 1-15.836-9.165m17.493-9.457a8.5 8.5 0 0 1 3.188 6.142m-12.312-7.083a8.5 8.5 0 0 1 6.68-.418M20.031 22.52a8.5 8.5 0 0 1 3.406-5.418m0 13.796a8.5 8.5 0 0 1-3.443-5.65m11.508 6.664a8.5 8.5 0 0 1-6.752-.237m12.12-6.97a8.5 8.5 0 0 1-3.02 5.816" />
+                <path d="m32.985 20.973l.299-2.633c.125-1.102.676-1.313 1.314-.945l.776.448c.372.215.64.16.786-.396l2.965-11.173c.071-.269-.05-.577-.255-.695c-.204-.118-.531-.07-.729.127L29.95 13.86c-.407.405-.322.665.05.88l.777.448c.637.368.73.951-.162 1.61l-2.13 1.575m.273 11.254l2.13 1.575c.893.659.8 1.242.162 1.61l-.776.448c-.373.215-.457.475-.05.88l8.192 8.154c.197.196.525.245.729.127s.326-.426.254-.695l-2.964-11.173c-.147-.555-.414-.611-.787-.396l-.776.448c-.637.368-1.189.157-1.314-.945l-.298-2.633m-9.905-.545l-2.43-1.058c-1.016-.443-1.474-.07-1.474.666v.896c0 .43-.183.633-.737.483L7.558 24.451c-.27-.073-.475-.332-.475-.568s.206-.496.475-.568l11.156-3.02c.554-.15.737.054.737.484v.897c0 .736.458 1.108 1.475.665l2.429-1.058m14.571 2.814L23.453 32.4V15.796z" />
+                <path d="m32.386 24.097l-6.136 3.56v-7.12z" />
+              </g>
+            </svg>API Settings</h2>
+          
+          <div class="space-y-3">
+            <div>
+              <label class="block text-gray-300 mb-1 text-xs">API Source</label>
+              <select id="apiSource" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+                <option value="jikan">Jikan API (MyAnimeList)</option>
+                <option value="anilist">Anilist GraphQL</option>
+                <option value="manual">Manual Input</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="typeData" class="block text-gray-300 mb-1 text-xs">Type</label>
+              <select id="typeData" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+                <option value="anime">Anime</option>
+                <option value="manga">Manga</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-gray-300 mb-1 text-xs">Year/Genre/Query</label>
+              <input type="text" id="searchQuery" placeholder="2023 atau Action atau Naruto" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-gray-300 mb-1 text-xs">Limit</label>
+                <input type="number" id="seriesLimit" value="25" min="1" max="25" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm" placeholder="Limit series max 25">
+              </div>
+              <div>
+                <label class="block text-gray-300 mb-1 text-xs">Page</label>
+                <input type="number" id="apiPage" value="1" min="1" max="1" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm" disabled>
+              </div>
+            </div>
+            
+            <button onclick="fetchMangaData()" id="fetchBtn" class="flex items-center justify-center w-full bg-gray-800 text-white px-3 py-2 rounded text-sm hover:bg-gray-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                <path fill="none" stroke="#00fb45" stroke-linecap="round" stroke-linejoin="round" d="M10.431 15.85v20.93l20.89 3.712V19.555M20.538 7.507l20.486 3.686l-9.704 8.269l-20.841-3.704h0zm8.844 1.81l-9.108 8.005m19.918 15.433l-8.652 7.604m9.5-29.066v15.502m1.874 2.895s-3.07-5.205-4.812-6.43c-1.75-1.232-3.438-.031-2.087 2.257c1.282 1.883 2.614 2.255 3.918 6.09c.297.83 1.692 2.29 2.854 1.576c1.16-.715.68-2.258.127-3.493m-32.579-8.517S5.71 28.154 7.95 29.69c1.064.73 2.037-.794 2.436-1.849M6.97 16.744l-2.47.128m2.925-2.894l-2.187-1.155m4.317-.459l-.4-2.44" stroke-width="1" />
+                <path fill="none" stroke="#00fb45" stroke-linecap="round" stroke-linejoin="round" d="M17.32 25.41c.138 1.606-3.21 1.615-3.266-.025l.012-3.337c.094-1.654 3.01-1.89 3.267.013zm9.31 1.743c.136 1.606-3.212 1.615-3.268-.025l.012-3.337c.094-1.654 3.01-1.89 3.268.013z" stroke-width="1" />
+              </svg> GET DATA
+            </button>
+          </div>
+        </div>
+        
+        <!-- Manual Series Input -->
+        <div id="manualSection" class="bg-dark-card rounded-lg p-4 border border-dark-border hidden">
+          <h2 class="text-lg font-semibold text-green-400 mb-3"> Manual Input</h2>
+          <textarea id="manualInput" rows="8" placeholder="Tempel array JSON dari seri manga di sini...(Fitur ini belum tersedia)" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-xs font-mono" disabled></textarea>
+          <button onclick="loadManualData()" class="mt-2 w-full bg-blue-600 text-white px-3 py-2 rounded text-sm">
+            RUN
+          </button>
+        </div>
+        
+        <!-- Data & Preview -->
+        <!-- Series List -->
+        <div id="seriesSection" class="bg-dark-card rounded-lg p-4 border border-dark-border hidden">
+          <h2 class="flex items-center gap-1 text-lg font-semibold text-green-400 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#00fb45" d="M14.819 11.795a3.724 3.724 0 1 0-1.024 1.024l2.476 2.475l.067.058l.008.006a.724.724 0 0 0 .942-1.093zm-3.095-4.348a2.276 2.276 0 1 1 0 4.553a2.276 2.276 0 0 1 0-4.553M6.5 2A2.5 2.5 0 0 0 4 4.5v15A2.5 2.5 0 0 0 6.5 22h13.25a.75.75 0 0 0 0-1.5H6.5a1 1 0 0 1-1-1h14.25a.75.75 0 0 0 .75-.75V4.5A2.5 2.5 0 0 0 18 2zM19 18H5.5V4.5a1 1 0 0 1 1-1H18a1 1 0 0 1 1 1z" />
+            </svg>List Series (<span id="seriesCount">0</span>)</h2>
+          <div id="seriesList" class="space-y-2 max-h-64 overflow-y-auto"></div>
+          
+          <!-- 2. Tambahkan tombol Load More, Add Selected dan checkbox di Series List -->
+          <div class="flex gap-2 mt-2">
+            <button id="loadMoreBtn" class="bg-gray-800 text-white px-3 py-2 rounded text-sm"><span class="text-[#00fb45]">Load More</span></button>
+            <button id="addSelectedBtn" class="bg-gray-800 text-white px-3 py-2 rounded text-sm" disabled>Add Selected</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Rigth Column: ImgBB -->
+      <div class="space-y-4">
+        <!-- ImgBB Configuration -->
+        <!-- 1. Tambahkan opsi Placeholder atau ImgBB di dalam API Settings -->
+        <div class="bg-dark-card rounded-lg p-4 border border-dark-border">
+          <h2 class="text-lg font-semibold text-green-400 mb-3">Image Source</h2>
+          <div>
+            <label class="block text-gray-300 mb-1 text-xs">Pilih Sumber Gambar</label>
+            <select id="imageSource" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+              <option value="placeholder">Custom Placeholder</option>
+              <option value="imgbb">Upload ke ImgBB</option>
+            </select>
+          </div>
+          
+          <div id="placeholderOptions" class="mt-4">
+            
+            <h2 class="flex items-center gap-1 text-lg font-semibold text-green-400 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                <g fill="none">
+                  <path fill="#00fb45" d="M44 24a2 2 0 1 0-4 0zM24 8a2 2 0 1 0 0-4zm15 32H9v4h30zM8 39V9H4v30zm32-15v15h4V24zM9 8h15V4H9zm0 32a1 1 0 0 1-1-1H4a5 5 0 0 0 5 5zm30 4a5 5 0 0 0 5-5h-4a1 1 0 0 1-1 1zM8 9a1 1 0 0 1 1-1V4a5 5 0 0 0-5 5z" />
+                  <path stroke="#00fb45" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 35l10.693-9.802a2 2 0 0 1 2.653-.044L32 36m-4-5l4.773-4.773a2 2 0 0 1 2.615-.186L42 31M30 12h12m-6-6v12" />
+                </g>
+              </svg>URL Placeholder Config</h2>
+            <div class="space-y-3">
+              <label class="block text-gray-300 mb-1 text-xs">Template URL Placeholder</label>
+              <input type="text" id="placeholderUrl" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm" placeholder="https://placehold.co/{{width}}x{{height}}?text={{title}}+Ch{{chapter}}" value="https://placehold.co/{{width}}x{{height}}?text={{title}}+{{chapter}}" disabled>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-gray-300 mb-1 text-xs">Width (px)</label>
+                  <input type="number" id="placeholderWidth" value="800" min="1" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="block text-gray-300 mb-1 text-xs">Height (px)</label>
+                  <input type="number" id="placeholderHeight" value="600" min="1" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="boxImgbb" class="hidden mt-4">
+            <h2 class="flex items-center gap-1 text-lg font-semibold text-green-400 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                <g fill="none">
+                  <path fill="#00fb45" d="M44 24a2 2 0 1 0-4 0zM24 8a2 2 0 1 0 0-4zm15 32H9v4h30zM8 39V9H4v30zm32-15v15h4V24zM9 8h15V4H9zm0 32a1 1 0 0 1-1-1H4a5 5 0 0 0 5 5zm30 4a5 5 0 0 0 5-5h-4a1 1 0 0 1-1 1zM8 9a1 1 0 0 1 1-1V4a5 5 0 0 0-5 5z" />
+                  <path stroke="#00fb45" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 35l10.693-9.802a2 2 0 0 1 2.653-.044L32 36m-4-5l4.773-4.773a2 2 0 0 1 2.615-.186L42 31M30 12h12m-6-6v12" />
+                </g>
+              </svg>ImgBB Config</h2>
+            <div class="space-y-3">
+              <div>
+                <label class="block text-gray-300 mb-1 text-xs">ImgBB API Key</label>
+                <input type="password" id="imgbbApiKey" placeholder="Masukkan API key ImgBB" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+                <a href="https://api.imgbb.com/" target="_blank" class="text-blue-400 text-xs hover:underline">Get API Key</a>
+              </div>
+              
+              <div>
+                <label class="block text-gray-300 mb-1 text-xs">Upload Chapter Images (35 max)</label>
+                <input type="file" id="chapterImages" multiple accept="image/*" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:bg-green-600 file:text-white file:text-xs">
+              </div>
+              
+              <button onclick="uploadImages()" id="uploadBtn" disabled class="flex items-center justify-center gap-1 w-full bg-gray-800 text-white px-3 py-2 rounded text-sm hover:bg-green-700 disabled:opacity-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                  <path fill="#00fb45" fill-rule="evenodd" d="m401.797 311.04l94.17 94.17l-30.17 30.17l-42.667-42.654v97.838h-42.667v-97.839l-42.666 42.655l-30.17-30.17zM257.269 54.746l27.158 27.179l-173.974 173.952c-35.882 35.904-35.882 94.293 0 130.176c17.387 17.386 40.512 26.965 65.088 26.965s47.702-9.579 65.088-26.965l172.118-172.118c21.397-21.397 21.397-56.192 0-77.589c-20.736-20.757-56.896-20.693-77.59-.021L166.603 304.75c-3.542 3.542-5.483 8.256-5.483 13.27s1.941 9.728 5.504 13.269c7.083 7.147 19.477 7.104 26.56 0l141.504-141.483l27.157 27.179l-141.482 141.483c-22.336 22.293-58.603 22.25-80.896 0c-22.294-22.294-22.294-58.603 0-80.875L308.02 109.189c17.579-17.6 41.024-27.307 65.942-27.307c24.896 0 48.32 9.685 65.962 27.307c36.352 36.373 36.352 95.552 0 131.925L267.787 413.21c-24.64 24.64-57.387 38.208-92.246 38.208c-34.837 0-67.605-13.568-92.245-38.208c-50.859-50.859-50.859-133.632 0-184.49z" />
+                </svg> Upload ke ImgBB
+              </button>
+              
+              <div id="uploadStatus" class="text-xs text-gray-400"></div>
+              <div id="imagePreview" class="grid grid-cols-6 gap-1"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Generation Settings -->
+        <div class="bg-dark-card rounded-lg p-4 border border-dark-border">
+          <h2 class="flex items-center gap-1 text-lg font-semibold text-green-400 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <g fill="none" stroke="#00fb45" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <ellipse cx="11" cy="5" rx="8" ry="3" />
+                <path d="M6 10.842c.602.18 1.274.33 2 .44M3 12c0 1.53 3.054 2.792 7 2.977m-4 2.865c.602.18 1.274.33 2 .44" />
+                <path d="M11 22c-4.418 0-8-1.343-8-3V5m16 0v6m-2 9.714V22m0-1.286a3.36 3.36 0 0 1-2.774-1.43M17 20.713a3.36 3.36 0 0 0 2.774-1.43M17 14.285c1.157 0 2.176.568 2.774 1.43M17 14.287a3.36 3.36 0 0 0-2.774 1.43M17 14.287V13m4 1.929l-1.226.788M13 20.07l1.226-.788M13 14.93l1.226.788M21 20.07l-1.226-.788m0-3.566a3.12 3.12 0 0 1 0 3.566m-5.548-3.566a3.12 3.12 0 0 0 0 3.566" />
+              </g>
+            </svg> Generation</h2>
+          
+          <div class="space-y-3">
+            <div>
+              <label class="block text-gray-300 mb-1 text-xs">Pilih Type postingan</label>
+              <select id="postType" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+                <option value="both">Series + Chapter</option>
+                <option value="series">Series</option>
+                <option value="chapter">Chapter</option>
+              </select>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-gray-300 mb-1 text-xs">Rata-rata Chapters</label>
+                <input type="number" id="avgChapters" value="10" min="1" max="30" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+              </div>
+              <div>
+                <label class="block text-gray-300 mb-1 text-xs">Variation (±) chapters</label>
+                <input type="number" id="chapterVariation" value="3" min="0" max="10" class="w-full bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="generatePosts()" id="generateBtn" disabled class="flex items-center gap-1 bg-green-600 text-white px-3 py-2 rounded text-sm hover:bg-purple-700 disabled:opacity-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 128 128">
+                  <path fill="#00fb45" d="m0 0l16.695 63.967L0 128l22.332-10.717l16.625-53.316L22.332 10.65Zm38.957 0l22.26 63.967L38.957 128L128 63.967Z" />
+                </svg> Generate
+              </button>
+              
+              <!-- Tombol Trigger -->
+              <button id="thankshiru" class="donation-btn pulse-glow flex items-center gap-1 bg-green-600 text-white px-3 py-2 rounded text-sm hover:bg-purple-700 disabled:opacity-50">
+                <span>Support</span>
+                <div class="heart-icon">❤️</div>
+              </button>
+              
+              <!-- Modal -->
+              <div id="donationModal" class="fixed inset-0 z-50 bg-black/60 p-4 flex items-center justify-center hidden">
+                <div class="bg-gray-900 border border-gray-700 rounded-xl p-5 w-full max-w-2xl relative text-white">
+                  
+                  <!-- Header -->
+                  <div class="mb-5">
+                    <h2 class="text-xl font-bold text-green-400">Dukung Pengembangan</h2>
+                    <p class="text-sm text-gray-400 mt-1">
+                      Bantu kami terus mengembangkan proyek dan fitur baru untuk Komunitas Otaku blogger.
+                    </p>
+                  </div>
+                  
+                  <!-- Grid Donasi Umum -->
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                    
+                    <!-- Trakteer -->
+                    <a href="https://trakteer.id/hiru" target="_blank" class="flex items-center bg-gray-800 hover:bg-green-700 text-white px-4 py-3 rounded-lg gap-3 transition">
+                      <span class="font-semibold">Trakteer</span>
+                    </a>
+                    
+                    <!-- Ko-fi -->
+                    <a href="https://ko-fi.com/hirutshuji" target="_blank" class="flex items-center bg-gray-800 hover:bg-green-700 text-white px-4 py-3 rounded-lg gap-3 transition">
+                      <span class="font-semibold">Ko-fi</span>
+                    </a>
+                    
+                    <!-- Saweria -->
+                    <a href="https://saweria.co/#" target="_blank" class="flex items-center bg-gray-800 hover:bg-green-700 text-white px-4 py-3 rounded-lg gap-3 transition">
+                      <span class="font-semibold">Saweria (tidak tersedia)</span>
+                    </a>
+                    
+                    <!-- opsional -->
+                    <a href="https://t.me/hirutshuji" class="flex items-center bg-gray-800 hover:bg-green-700 text-white px-4 py-3 rounded-lg gap-3 transition">
+                      <span class="font-semibold">Join Group</span>
+                    </a>
+                  </div>
+                  
+                  <!-- Container Donasi Crypto -->
+                  <div class="bg-gray-800 border border-gray-700 p-4 rounded-lg mb-6">
+                    <h3 class="text-green-400 font-semibold mb-3">Donasi via Crypto</h3>
+                    <!-- Bitcoin -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 bg-gray-900 p-3 rounded">
+                      <div class="flex flex-col">
+                        <span class="text-sm text-gray-400">Bitcoin (BTC)</span>
+                        <span id="btcAddress" class="text-green-400 font-mono text-xs select-all">
+                          belum tersedia
+                        </span>
+                      </div>
+                      <button id="copyBTC" class="text-xs text-green-500 hover:text-white px-3 py-1 rounded bg-gray-700">
+                        Salin
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <!-- Pesan Terima Kasih -->
+                  <div class="text-sm bg-gray-800 border border-green-700 p-3 rounded text-gray-300">
+                    💚 Terima kasih atas dukunganmu! Dukungan kecil pun sangat berarti.
+                  </div>
+                  
+                  <!-- Tombol Tutup -->
+                  <button id="closeDonationModal" class="absolute top-3 right-3 text-gray-400 hover:text-white text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-green-700/20 transition">
+                    ×
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- Progress -->
+        <div id="progressSection" class="bg-dark-card rounded-lg p-4 border border-dark-border hidden">
+          <h2 class="flex items-center gap-1 text-lg font-semibold text-green-400 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="none" stroke="#00fb45" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20.777a9 9 0 0 1-2.48-.969M14 3.223a9.003 9.003 0 0 1 0 17.554m-9.421-3.684a9 9 0 0 1-1.227-2.592M3.124 10.5c.16-.95.468-1.85.9-2.675l.169-.305m2.714-2.941A9 9 0 0 1 10 3.223M12 9l-2 3h4l-2 3" />
+            </svg> Progress</h2>
+          
+          <div class="space-y-3">
+            <div class="bg-gray-800 rounded-full h-2">
+              <div id="progressBar" class="bg-green-600 h-full rounded-full transition-all" style="width: 0%"></div>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-2 text-xs">
+              <div class="text-center">
+                <div id="totalCount" class="font-bold text-white">0</div>
+                <div class="text-gray-400">Total</div>
+              </div>
+              <div class="text-center">
+                <div id="seriesGenerated" class="font-bold text-blue-400">0</div>
+                <div class="text-gray-400">Series</div>
+              </div>
+              <div class="text-center">
+                <div id="chaptersGenerated" class="font-bold text-purple-400">0</div>
+                <div class="text-gray-400">Chapters</div>
+              </div>
+            </div>
+            
+            <div class="text-xs text-gray-400 text-center" id="currentProcessing">Ready</div>
+          </div>
+        </div>
+        
+        <!-- Generated Posts -->
+        <div id="postsSection" class="bg-dark-card rounded-lg p-4 border border-dark-border hidden">
+          <h2 class="flex items-center gap-1 text-lg font-semibold text-green-400 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <g fill="none" stroke="#00fb45" stroke-linecap="round" stroke-width="1.5">
+                <path stroke-linejoin="round" d="M4 6v6s0 3 7 3s7-3 7-3V6" />
+                <path stroke-linejoin="round" d="M11 3c7 0 7 3 7 3s0 3-7 3s-7-3-7-3s0-3 7-3m0 18c-7 0-7-3-7-3v-6" />
+                <path d="M15 21v-2m3 2v-4m3 4v-6" />
+              </g>
+            </svg> Stats Ouput</h2>
+          
+          <div class="flex gap-2 mb-3">
+            <button onclick="filterPosts('all')" class="filter-btn bg-green-600 text-white px-2 py-1 rounded text-xs">
+              All (<span id="countAll">0</span>)
+            </button>
+            <button onclick="filterPosts('series')" class="filter-btn bg-gray-600 text-white px-2 py-1 rounded text-xs">
+              Series (<span id="countSeries">0</span>)
+            </button>
+            <button onclick="filterPosts('chapter')" class="filter-btn bg-gray-600 text-white px-2 py-1 rounded text-xs">
+              Chapters (<span id="countChapters">0</span>)
+            </button>
+          </div>
+          
+          <div id="postsList" class="space-y-2 max-h-64 overflow-y-auto"></div>
+          
+          <button onclick="downloadXML()" id="downloadBtn" disabled class="flex items-center gap-1 bg-gray-800 text-white px-3 py-2 rounded text-sm hover:bg-green-700 disabled:opacity-50 mt-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#00fb45" d="M13 17V3h-2v10H9v-2H7v2h2v2h2v2zm8 2v-4h-2v4H5v-4H3v6h18zm-8-6v2h2v-2h2v-2h-2v2z" />
+            </svg> Download
+          </button>
+        </div>
+      </div>
+      
+      <!-- Middle Column: Templates -->
+      <div class="space-y-4">
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+          <!-- Series Template -->
+          <h2 class="flex items-center gap-1 text-lg font-semibold text-green-400 mb-3">
+            <!-- ikon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+              <path fill="#00fb45" d="M2.414 8.036L4.89 10.51a.5.5 0 0 1-.707.708L1.354
+            8.389a.5.5 0 0 1 0-.707l2.828-2.828a.5.5
+            0 1 1 .707.707zm8.768 2.474l2.475-2.474l-2.475-2.475a.5.5
+            0 0 1 .707-.707l2.829 2.828a.5.5 0 0 1 0
+            .707l-2.829 2.829a.5.5 0 1 1-.707-.708M8.559
+            2.506a.5.5 0 0 1 .981.19L7.441 13.494a.5.5 0 0 1-.981-.19z" />
+            </svg>
+            Series Template
+          </h2>
+          <div class="space-y-3">
+            <div>
+              <label class="block text-gray-400 mb-1 text-xs">Available Variables:</label>
+              <div class="text-xs text-gray-300 bg-gray-700 p-2 rounded">
+                {{title}}, {{description}}, {{coverImage}}, {{genres}}, {{score}}, {{status}}, {{year}}, {{volumes}}, {{chapters}}
+              </div>
+            </div>
+            <textarea id="seriesTemplate" rows="10">
+  <div class="manga-series">
+    <div class="cover">
+      <img src="{{coverImage}}" alt="{{title}}" style="max-width:250px;border-radius:8px;">
+        </div>
+                  
+  <div class="info">
+     <h2>{{title}}</h2>
+     <p><strong>Genres:</strong> {{genres}}</p>
+     <p><strong>Status:</strong> {{status}}</p>
+     <p><strong>Score:</strong> {{score}}</p>
+     <p><strong>Year:</strong> {{year}}</p>
+     {{#volumes}}<p><strong>Volumes:</strong> {{volumes}}</p>{{/volumes}} 
+     {{#chapters}}<p><strong>Chapters:</strong> {{chapters}}</p>{{/chapters}}
+     </div>
+     
+  <div class="synopsis">
+    <h3>Synopsis</h3>
+    <p>{{description}}</p>
+    </div>
+  </div>
+        </textarea>
+          </div>
+          
+          <!-- Chapter Template -->
+          <h2 class="flex items-center gap-1 text-lg font-semibold text-green-400 mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#00fb45" d="M14 13H8V5H6v9a1 1 0 0
+            0 1 1h7v3l5-4l-5-4z" />
+            </svg>
+            Chapter Template
+          </h2>
+          <div class="space-y-3">
+            <div>
+              <label class="block text-gray-400 mb-1 text-xs">Available Variables:</label>
+              <div class="text-xs text-gray-300 bg-gray-700 p-2 rounded">
+                {{title}}, {{chapterNumber}}, {{chapterTitle}}, {{chapterImagesHtml}}, {{chapterImagesLink}},
+              </div>
+            </div>
+            <textarea id="chapterTemplate" rows="10">
+<div class="manga-chapter">
+  <div class="header">
+    <h2>{{chapterTitle}}</h2>
+    <p>Baca chapter terbaru {{seriesTitle}} dengan kualitas HD!</p>
+  </div>
+  
+  <div class="chapter-content">
+    <div class="chapter-images">
+      {{chapterImagesHtml}}
+    </div>
+    
+    <div class="chapter-content">
+      <div class="chapter-images">
+        {{chapterImagesLink}}
+      </div>
+    </div>
+    <p style="text-align:center;color:#666;">
+      Chapter {{chapterNumber}} - {{seriesTitle}}
+    </p>
+  </div>
+  
+  <div class="navigation">
+    <p><strong>Series:</strong> {{seriesTitle}}</p>
+    <p><strong>Chapter:</strong> {{chapterNumber}}</p>
+  </div>
+</div>
+        </textarea>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Script CodeMirror v5 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+      <!-- Mode HTML Mixed (butuh xml, css, js juga) -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/htmlmixed/htmlmixed.min.js"></script>
+      
+      <script>
+        window.addEventListener("load", function() {
+          const seriesTextarea = document.getElementById("seriesTemplate");
+          const chapterTextarea = document.getElementById("chapterTemplate");
+          
+          const seriesEditor = CodeMirror.fromTextArea(seriesTextarea, {
+            mode: "htmlmixed",
+            theme: "monokai",
+            lineNumbers: true,
+            viewportMargin: Infinity
+          });
+          
+          const chapterEditor = CodeMirror.fromTextArea(chapterTextarea, {
+            mode: "htmlmixed",
+            theme: "monokai",
+            lineNumbers: true,
+            viewportMargin: Infinity
+          });
+          
+          // Sync realtime isi editor ke textarea
+          seriesEditor.on("change", function() {
+            seriesTextarea.innerHTML = seriesEditor.getValue();
+          });
+          
+          chapterEditor.on("change", function() {
+            chapterTextarea.innerHTML = chapterEditor.getValue();
+          });
+        });
+      </script>
+      
+    </div>
+  </div>
+  
+  <script src="/!TOOLS BLOGSPOT/AUTO GENERATE POST/htmlPreview.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/!TOOLS BLOGSPOT/AUTO GENERATE POST/main_api.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/!TOOLS BLOGSPOT/AUTO GENERATE POST/main_generate_post.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script>
+    const donationModal = document.getElementById("donationModal"),
+      thankshiruBtn = document.getElementById("thankshiru"),
+      closeDonationModal = document.getElementById("closeDonationModal"),
+      copyBtn = document.getElementById("copyBTC"),
+      btcAddress = document.getElementById("btcAddress").textContent;
+    
+    function closeModal() { donationModal.classList.add("hidden"), document.body.style.overflow = "auto" } thankshiruBtn.addEventListener("click", () => { donationModal.classList.remove("hidden"), document.body.style.overflow = "hidden" }), closeDonationModal.addEventListener("click", closeModal), donationModal.addEventListener("click", t => { t.target === donationModal && closeModal() }), document.addEventListener("keydown", t => { "Escape" !== t.key || donationModal.classList.contains("hidden") || closeModal() }), copyBtn.addEventListener("click", async () => { try { await navigator.clipboard.writeText(btcAddress); let t = copyBtn.textContent;
+        copyBtn.textContent = "Copied ✓", copyBtn.classList.remove("bg-gray-700"), copyBtn.classList.add("bg-green-600", "text-white"), setTimeout(() => { copyBtn.textContent = t, copyBtn.classList.remove("bg-green-600", "text-white"), copyBtn.classList.add("bg-gray-700") }, 2e3) } catch (e) { let n = document.createElement("textarea");
+        n.value = btcAddress, document.body.appendChild(n), n.select(), document.execCommand("copy"), document.body.removeChild(n), copyBtn.textContent = "Copied ✓", setTimeout(() => copyBtn.textContent = "Copy", 2e3) } }), thankshiruBtn.addEventListener("mouseenter", () => { thankshiruBtn.style.transform = "translateY(-2px) scale(1.02)" }), thankshiruBtn.addEventListener("mouseleave", () => { thankshiruBtn.style.transform = "translateY(0) scale(1)" });
+  </script>
+</body>
+
+</html>
